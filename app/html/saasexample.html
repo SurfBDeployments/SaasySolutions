@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdn.tailwindcss.com"></script>
+<title>Saas Reporting</title>
+</head>
+
+<body style="background-color: #97a3c8">
+    <div class="w-full max-w-6xl mx-auto p-6">
+  <!-- Table Container -->
+  <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+    
+    <!-- Header Section -->
+    <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 text-sans">
+      <div>
+        <h2 class="text-xl font-bold text-slate-800" style="color: #16163a">Annual Fiscal Report</h2>
+      
+        <p class="text-xs text-slate-500 uppercase tracking-tight">Full Year Breakdown • FY2023</p>
+      </div>
+      <div class="flex gap-3">
+        <button class="px-4 py-1.5 text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-all">Download PDF</button>
+        <button class="px-4 py-1.5 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-sm transition-all">Export CSV</button>
+      </div>
+    </div>
+
+    <!-- Responsive Scroll Wrapper -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse min-w-[1000px]">
+        <thead>
+          <tr class="bg-slate-50 text-slate-500 uppercase text-[11px] font-bold tracking-wider border-b border-slate-200">
+            <th class="px-6 py-4 sticky left-0 z-10 bg-slate-50 border-r border-slate-200">Month</th>
+            <th class="px-6 py-4">Gross Revenue</th>
+            <th class="px-6 py-4 text-rose-600">COGS</th>
+            <th class="px-6 py-4">Gross Margin %</th>
+            <th class="px-6 py-4 text-slate-400">OpEx</th>
+            <th class="px-6 py-4 text-orange-600">Tax Provision</th>
+            <th class="px-6 py-4 bg-blue-50/50 text-blue-700">Net Profit</th>
+          </tr>
+        </thead>
+        
+        <!-- Table Body with Monospaced Numbers -->
+        <tbody class="divide-y divide-slate-100 font-mono text-[13px]">
+          <!-- Example Row: January -->
+          <tr class="hover:bg-slate-50/80 transition-colors group">
+            <td class="px-6 py-4 font-sans font-semibold text-slate-700 sticky left-0 bg-white group-hover:bg-slate-50 border-r border-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">
+              January
+            </td>
+            <td class="px-6 py-4 text-slate-900">$125,000</td>
+            <td class="px-6 py-4 text-rose-500">($22,000)</td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100">82.4%</span>
+            </td>
+            <td class="px-6 py-4 text-slate-400">($65,000)</td>
+            <td class="px-6 py-4 text-orange-500">($8,500)</td>
+            <td class="px-6 py-4 bg-blue-50/30 font-bold text-blue-800">$29,500</td>
+          </tr>
+
+          <!-- Example Row: February -->
+          <tr class="hover:bg-slate-50/80 transition-colors group">
+            <td class="px-6 py-4 font-sans font-semibold text-slate-700 sticky left-0 bg-white group-hover:bg-slate-50 border-r border-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">
+              February
+            </td>
+            <td class="px-6 py-4 text-slate-900">$138,000</td>
+            <td class="px-6 py-4 text-rose-500">($24,500)</td>
+            <td class="px-6 py-4">
+              <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100">82.2%</span>
+            </td>
+            <td class="px-6 py-4 text-slate-400">($68,000)</td>
+            <td class="px-6 py-4 text-orange-500">($9,800)</td>
+            <td class="px-6 py-4 bg-blue-50/30 font-bold text-blue-800">$35,700</td>
+          </tr>
+
+          <!-- Repeat for other months -->
+        </tbody>
+
+        <!-- Footer for Totals -->
+        <tfoot class="bg-slate-900 text-white font-mono border-t-2 border-slate-700">
+          <tr class="divide-x divide-slate-800">
+            <td class="px-6 py-4 font-sans font-bold sticky left-0 bg-slate-900 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.2)]">Annual Total</td>
+            <td class="px-6 py-4 font-bold text-white">$1,650,000</td>
+            <td class="px-6 py-4 text-rose-300">($295,000)</td>
+            <td class="px-6 py-4 text-emerald-400">82.1%</td>
+            <td class="px-6 py-4 text-slate-400">($810,000)</td>
+            <td class="px-6 py-4 text-orange-300">($115,000)</td>
+            <td class="px-6 py-4 bg-blue-900 text-white font-black text-base">$430,000</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

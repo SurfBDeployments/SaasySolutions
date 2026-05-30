@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        margin: 20px 0;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+    tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .severity-critical { color: #cc0000; font-weight: bold; }
+    .severity-high { color: #ff5722; font-weight: bold; }
+    .severity-medium { color: #ff9800; font-weight: bold; }
+    .status-fixed { color: #2e7d32; font-weight: bold; }
+    .status-new { color: #1565c0; font-weight: bold; }
+</style>
+    <!-- Lucide Icons Library --> 
+<script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body class=" md:p-10 font-sans bg-zinc-100">
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-" style="
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+   border: thin solid #e5e7eb
+">
+    <div>
+     <h2 class="text-2xl font-bold text-cyan-800">CVE Compliance Report</h2>
+    </div>
+            <div class="flex gap-3">
+        <button class="px-4 py-1.5 text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-all">Download PDF</button>
+        <button class="px-4 py-1.5 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-sm transition-all">Export CSV</button>
+      </div>
+   
+  </div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">CVE ID</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">Severity</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">CVSS Score</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">Asset Name/Host</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">Package/Software</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">Status</th>
+            <th class="px-6 px-6 py-4 border-b border-gray-200">KEV Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CVE-2023-38831</td>
+            <td class="severity-critical">Critical</td>
+            <td>9.8</td>
+            <td>FIN-SRV-01</td>
+            <td>WinRAR</td>
+            <td>In Progress</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>CVE-2021-44228</td>
+            <td class="severity-critical">Critical</td>
+            <td>10.0</td>
+            <td>APP-WEB-04</td>
+            <td>log4j-core</td>
+            <td class="status-fixed">Fixed</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>CVE-2023-4863</td>
+            <td class="severity-high">High</td>
+            <td>8.8</td>
+            <td>MKT-LAP-12</td>
+            <td>Google Chrome</td>
+            <td class="status-new">New</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>CVE-2024-21626</td>
+            <td class="severity-high">High</td>
+            <td>8.6</td>
+            <td>DKR-NODE-09</td>
+            <td>runc (Container)</td>
+            <td>In Progress</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>CVE-2023-22515</td>
+            <td class="severity-high">High</td>
+            <td>8.0</td>
+            <td>WIKI-PROD-01</td>
+            <td>Atlassian Confluence</td>
+            <td class="status-fixed">Fixed</td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td>CVE-2022-40684</td>
+            <td class="severity-medium">Medium</td>
+            <td>6.5</td>
+            <td>FIREWALL-HQ</td>
+            <td>FortiOS</td>
+            <td>Risk Accepted</td>
+            <td>False</td>
+        </tr>
+        <tr>
+            <td>CVE-2023-34048</td>
+            <td class="severity-medium">Medium</td>
+            <td>5.3</td>
+            <td>VM-HOST-02</td>
+            <td>vCenter Server</td>
+            <td class="status-new">New</td>
+            <td>False</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+        margin: 20px 0;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+    }
+    tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    .severity-critical { color: #cc0000; font-weight: bold; }
+    .severity-high { color: #ff5722; font-weight: bold; }
+    .severity-medium { color: #ff9800; font-weight: bold; }
+    .status-fixed { color: #2e7d32; font-weight: bold; }
+    .status-new { color: #1565c0; font-weight: bold; }
+</style>
+    <!-- Lucide Icons Library --> 
+<script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body class=" md:p-10 font-sans bg-zinc-100">
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-" style="
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+   border: thin solid #e5e7eb
+">
+    <div width="600px" height="400px">
+     <h1 class="text-2xl font-bold text-red-800">Are you sure you want to Delete this Report?</h1>
+        <p>Press Delete to Delete Report or Cancel to take you back to the previous Screen</p>
+    </div>
+            <div class="flex gap-3">
+        <button class="px-4 py-1.5 text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-all">Cancel</button>
+        <button class="px-4 py-1.5 text-sm font-semibold text-white bg-green-800 rounded-lg hover:bg-green-600 shadow-sm transition-all">Delete</button>
+      </div>
+   
+  </div>
+
+
+
+
+</body>
+</html>

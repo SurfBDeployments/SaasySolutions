@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Reporting Dashboard</title>
+<!--<script src="https://cdn.tailwindcss.com"></script> -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- Lucide Icons for simple, clean visuals --> 
+<script src="https://unpkg.com/lucide@latest"></script> 
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script> 
+<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script> 
+
+<style type="text/css">
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-gray-50 p-8" style="background-color: #97a3c8">
+  
+<div class="max-w-6xl mx-auto bg-white rounded-xl shadow-sm border border-gray-200"> 
+  
+  <!-- Header Section -->
+  <div class="p-6 border-b border-gray-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <h1 class="text-2xl font-bold tracking-tight" style="color: #16163a">Business Reporting Dashboard</h1>
+    <span class="text-slate-500 text-sm">Manage, edit, and download your generated data.</span>
+    <div class="flex items-center gap-3">
+      <div class="relative"> <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+        <input type="text" placeholder="Search reports..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-64">
+      </div>
+      <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2" style="background-color: #f1f1f1;color:#2e4868"> <i data-lucide="plus" class="w-4 h-4"></i> Create New </button>
+    </div>
+  </div>
+  
+  <!-- Table Section -->
+  <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-gray-50 text-600 uppercase text-xs font-semibold" style="
+    color: #2e4868!important;">
+          <th width="163" class="px-6 py-4 border-b border-gray-200">Title</th>
+          <th width="361" class="px-6 py-4 border-b border-gray-200">Description</th>
+          <th width="86" class="px-6 py-4 border-b border-gray-200">Date</th>
+          <th width="66" class="px-6 py-4 border-b border-gray-200 text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        <!-- Row 1 -->
+        <tr class="hover:bg-amber-50 transition-colors">
+          <td class="px-6 py-4 font-semibold text-slate-800">Annual Revenue 2023</td>
+          <td class="px-6 py-4 text-sm text-slate-500 max-w-xs truncate">Full fiscal year breakdown including tax deductions and gross margins.</td>
+          <td class="px-6 py-4 text-sm text-slate-600 whitespace-nowrap">Jan 15, 2024</td>
+          <td class="px-6 px-6 py-4 text-right"><div class="flex justify-end gap-2">
+             
+              <a href ="#"><button id="myBtn" title="View" href ="#" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="eye" class="w-4 h-4"></i></button></a>
+              <button title="Edit" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+              <button title="Delete" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              <button title="Download" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
+            </div></td>
+        </tr>
+        <tr class="hover:bg-amber-50 transition-colors">
+          <td class="px-6 py-4 font-medium text-gray-900">Q4 Sales Performance</td>
+          <td class="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">Quarterly revenue breakdown and regional growth analysis...</td>
+          <td class="px-6 py-4 text-gray-600 text-sm">Oct 12, 2023</td>
+          <td class="px-6 py-4 text-right"><div class="flex justify-end gap-2">
+              <button title="View" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              <button title="Edit" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+              <button title="Delete" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              <button title="Download" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
+            </div></td>
+        </tr>
+        <tr class="hover:bg-amber-50 transition-colors">
+          <td class="px-6 py-4 font-medium text-gray-900">Q3 Sales Performance</td>
+          <td class="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">Quarterly revenue breakdown and regional growth analysis...</td>
+          <td class="px-6 py-4 text-gray-600 text-sm">Oct 12, 2023</td>
+          <td class="px-6 py-4 text-right"><div class="flex justify-end gap-2">
+              <button title="View" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              <button title="Edit" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+              <button title="Delete" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              <button title="Download" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
+            </div></td>
+        </tr>
+        <tr class="hover:bg-amber-50 transition-colors">
+          <td class="px-6 py-4 font-medium text-gray-900">Q2 Sales Performance</td>
+          <td class="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">Quarterly revenue breakdown and regional growth analysis...</td>
+          <td class="px-6 py-4 text-gray-600 text-sm">Oct 12, 2023</td>
+          <td class="px-6 py-4 text-right"><div class="flex justify-end gap-2">
+              <button title="View" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              <button title="Edit" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+              <button title="Delete" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              <button title="Download" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
+            </div></td>
+        </tr>
+        <tr class="hover:bg-amber-50 transition-colors">
+          <td class="px-6 py-4 font-medium text-gray-900">Q1 Sales Performance</td>
+          <td class="px-6 py-4 text-gray-500 text-sm max-w-xs truncate">Quarterly revenue breakdown and regional growth analysis...</td>
+          <td class="px-6 py-4 text-gray-600 text-sm">Oct 12, 2023</td>
+          <td class="px-6 py-4 text-right"><div class="flex justify-end gap-2">
+              <button title="View" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="eye" class="w-4 h-4"></i></button>
+              <button title="Edit" class="p-2 text-gray-600 hover:bg-amber-50 rounded-lg transition-colors"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
+              <button title="Delete" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              <button title="Download" class="p-2 text-gray-600 hover:bg-red-50 rounded-lg transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
+            </div></td>
+        </tr>
+        <!-- Row 2 -->
+        
+      </tbody>
+    </table>
+  </div>
+  <!--modal report-->
+  <div id="myModal" class="modal">
+    <div class="modal-content"> <span class="close">&times;</span>
+      <div class="w-full max-w-6xl mx-auto p-6"> 
+        <!-- Table Container -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden"> 
+          
+          <!-- Header Section -->
+          <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 text-sans">
+            <div>
+              <h2 class="text-xl font-bold text-slate-800" style="color: #16163a">Annual Revenue 2023</h2>
+              <p class="text-xs text-slate-500 uppercase tracking-tight">Full Year Breakdown • FY2023</p>
+            </div>
+            <div class="flex gap-3">
+              <button class="px-4 py-1.5  text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-all">Download PDF</button>
+              <button class="px-4 py-1.5 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-sm transition-all">Export CSV</button>
+            </div>
+          </div>
+          
+          <!-- Responsive Scroll Wrapper -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[1000px]">
+              <thead>
+                <tr class="bg-slate-50 text-slate-500 uppercase text-[11px] font-bold tracking-wider border-b border-slate-200">
+                  <th class="px-6 py-4 sticky left-0 z-10 bg-slate-50 border-r border-slate-200">Month</th>
+                  <th class="px-6 py-4">Gross Revenue</th>
+                  <th class="px-6 py-4 text-rose-600">COGS</th>
+                  <th class="px-6 py-4">Gross Margin %</th>
+                  <th class="px-6 py-4 text-slate-400">OpEx</th>
+                  <th class="px-6 py-4 text-orange-600">Tax Provision</th>
+                  <th class="px-6 py-4 bg-blue-50/50 text-blue-700">Net Profit</th>
+                </tr>
+              </thead>
+              
+              <!-- Table Body with Monospaced Numbers -->
+              <tbody class="divide-y divide-slate-100 font-mono text-[13px]">
+                <!-- Example Row: January -->
+                <tr class="hover:bg-slate-50/80 transition-colors group">
+                  <td class="px-6 py-4 font-sans font-semibold text-slate-700 sticky left-0 bg-white group-hover:bg-slate-50 border-r border-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"> January </td>
+                  <td class="px-6 py-4 text-slate-900">$125,000</td>
+                  <td class="px-6 py-4 text-rose-500">($22,000)</td>
+                  <td class="px-6 py-4"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100">82.4%</span></td>
+                  <td class="px-6 py-4 text-slate-400">($65,000)</td>
+                  <td class="px-6 py-4 text-orange-500">($8,500)</td>
+                  <td class="px-6 py-4 bg-blue-50/30 font-bold text-blue-800">$29,500</td>
+                </tr>
+                
+                <!-- Example Row: February -->
+                <tr class="hover:bg-slate-50/80 transition-colors group">
+                  <td class="px-6 py-4 font-sans font-semibold text-slate-700 sticky left-0 bg-white group-hover:bg-slate-50 border-r border-slate-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]"> February </td>
+                  <td class="px-6 py-4 text-slate-900">$138,000</td>
+                  <td class="px-6 py-4 text-rose-500">($24,500)</td>
+                  <td class="px-6 py-4"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-100">82.2%</span></td>
+                  <td class="px-6 py-4 text-slate-400">($68,000)</td>
+                  <td class="px-6 py-4 text-orange-500">($9,800)</td>
+                  <td class="px-6 py-4 bg-blue-50/30 font-bold text-blue-800">$35,700</td>
+                </tr>
+                
+                <!-- Repeat for other months -->
+              </tbody>
+              
+              <!-- Footer for Totals -->
+              <tfoot class="bg-slate-900 text-white font-mono border-t-2 border-slate-700">
+                <tr class="divide-x divide-slate-800">
+                  <td class="px-6 py-4 font-sans font-bold sticky left-0 bg-slate-900 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.2)]">Annual Total</td>
+                  <td class="px-6 py-4 font-bold text-white">$1,650,000</td>
+                  <td class="px-6 py-4 text-rose-300">($295,000)</td>
+                  <td class="px-6 py-4 text-emerald-400">82.1%</td>
+                  <td class="px-6 py-4 text-slate-400">($810,000)</td>
+                  <td class="px-6 py-4 text-orange-300">($115,000)</td>
+                  <td class="px-6 py-4 bg-blue-900 text-white font-black text-base">$430,000</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pagination -->
+  <div class="p-4 border-t border-gray-200 flex items-center justify-between bg-gray-50 rounded-b-xl"> <span class="text-sm text-gray-500">Showing 5 of 10 reports</span>
+    <div class="flex gap-2">
+      <button class="px-4 py-1 border border-gray-300 rounded bg-white text-gray-600 text-sm hover:bg-amber-50 disabled:opacity-50" disabled>Previous</button>
+      <button class="px-4 py-1 border border-gray-300 rounded bg-white text-gray-600 text-sm hover:bg-amber-50">Next</button>
+    </div>
+  </div>
+</div>
+<script>
+        // Initialize icons
+        lucide.createIcons();
+    </script>
+    <script> // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick  = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+globalThis.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
