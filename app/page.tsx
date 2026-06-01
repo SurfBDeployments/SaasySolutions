@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import ResponsiveAppBar from "./appbar";
 import Footer from "../footer";
 import "../styles/default.css";
-import Link from "next/link";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from '@mui/material/Typography';
 
 // ─── Stat counter hook ───────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1800, start = false) {
@@ -27,14 +28,18 @@ function useCountUp(target: number, duration = 1800, start = false) {
 }
 export function MediaCard() {
   return (
-    <Card sx={{}}>
+    <Card sx={{ width: '971px', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)'}}>
       <CardMedia
         sx={{ height: 400 }}
-        image="../productsbudget.png"
-        title="Rajesh- Tech Manager "
+        image='/productsbudget.png'
+        title="Budget Variance Report"
       />
-  
-     
+      <CardContent>
+        <Typography sx={{ fontSize: '1.5rem', color: '#ffffff' }} variant="h2" component="div">
+          Sample Dashboard
+        </Typography>
+      </CardContent>
+
     </Card>
   );
 }
@@ -185,10 +190,10 @@ export default function Home() {
           align-items: center;
           gap: .45rem;
           background: rgba(34,160,107,.15);
-          border: 1px solid rgba(34,160,107,.35);
+          border: 1px solid rgba(34, 160, 107, 0.76);
           color: var(--ss-accent-lt);
           font-family: var(--ff-body);
-          font-size: .75rem;
+          font-size: 1rem;
           font-weight: 500;
           letter-spacing: .12em;
           text-transform: uppercase;
@@ -298,7 +303,7 @@ export default function Home() {
           position: relative;
           margin-top: 4.5rem;
           width: 100%;
-          max-width: 820px;
+          max-width: 900px;
           margin-inline: auto;
           border-radius: 12px;
           overflow: hidden;
@@ -618,22 +623,14 @@ export default function Home() {
           </div>
 
           {/* Hero image placeholder */}
-          <div className="ss-hero-image">
-            <div className="ss-hero-image-inner">
-              <div className="ss-mock-lines">
-                <div className="ss-mock-line short" />
-                <div className="ss-mock-line full" />
-                <div className="ss-mock-line medium" />
-                <div className="ss-mock-line full" />
-                <div className="ss-mock-line short" />
-                <div className="ss-mock-line medium" />
-              </div>
-              <span className="ss-placeholder-icon">📊</span>
-              <MediaCard /> 
-              
-         
-            </div>
-          </div>
+
+
+          <MediaCard />
+
+
+
+
+
         </div>
       </section>
 
