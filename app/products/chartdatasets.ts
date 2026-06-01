@@ -59,6 +59,9 @@ const cashFlowData = [
   ];
 
   const variancedata = [
+      { month: "Oct", actual: 45000, target: 40000, forecast: 41000, ytd_actual: 77000, variance: 5000 },
+    { month: "Nov", actual: 52000, target: 40000, forecast: 48000, ytd_actual: 97000, variance: 12000 },
+      { month: "Dec", actual: 50000, target: 42000, forecast: 48000, ytd_actual: 101000, variance: 8000 },
     { month: "Jan", actual: 45000, target: 40000, forecast: 42000, ytd_actual: 45000, variance: 5000 },
     { month: "Feb", actual: 52000, target: 40000, forecast: 48000, ytd_actual: 97000, variance: 12000 },
     { month: "Mar", actual: 38000, target: 45000, forecast: 40000, ytd_actual: 135000, variance: -7000 },

@@ -155,7 +155,7 @@ const MasterDashboard = () => {
 
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Monthly Variance</h4>
-              <StripeMetricChart data={variancedata.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+              <StripeMetricChart data={variancedata} isCurrency={true} />
             </div>
 
           </div>
