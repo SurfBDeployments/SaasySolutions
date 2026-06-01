@@ -8,6 +8,15 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import { variancedata, churnData } from './products/chartdatasets';
+import {
+  Area, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid,
+  Tooltip, Legend, ResponsiveContainer, ReferenceLine
+} from 'recharts';
+import styles from './products/executivecharts.module.css';
+import StripeMetricChart from './products/mrrchurn';
 
 // ─── Stat counter hook ───────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1800, start = false) {
@@ -26,13 +35,13 @@ function useCountUp(target: number, duration = 1800, start = false) {
   }, [start, target, duration]);
   return value;
 }
-export function MediaCard() {
+/* export function MediaCard1() {
   return (
-    <Card sx={{ width: '971px', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)'}}>
+    <Card sx={{ width: '100%', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
       <CardMedia
         sx={{ height: 400 }}
-        image='/productsbudget.png'
-        title="Budget Variance Report"
+        image='/monthlyvariance.png'
+        title="Monthly Variance Report"
       />
       <CardContent>
         <Typography sx={{ fontSize: '1.5rem', color: '#ffffff' }} variant="h2" component="div">
@@ -43,6 +52,36 @@ export function MediaCard() {
     </Card>
   );
 }
+export function MediaCard2() {
+  return (
+    <Card sx={{ width: '100%', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+      <CardMedia
+        sx={{ height: 400 }}
+        image='/budget.png'
+        title="Budget Report"
+      />
+      <CardContent>
+        <Typography sx={{ fontSize: '1.5rem', color: '#ffffff' }} variant="h2" component="div">
+          Sample Dashboard
+        </Typography>
+      </CardContent>
+
+    </Card>
+  );
+}
+export function MediaGrid() {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 16 }}>
+        {[MediaCard1, MediaCard2].map((Component, index) => (
+          <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
+            <Component />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+} */
 // ─── Stat card ───────────────────────────────────────────────────────────────
 function StatCard({
   value,
@@ -624,8 +663,31 @@ export default function Home() {
 
           {/* Hero image placeholder */}
 
-
-          <MediaCard />
+          <div className={styles.grid} style={{ marginTop: '40px' }}>
+            <div className={styles.card}>
+              <h4 className={styles.cardTitle}>Budget Variance</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ComposedChart data={variancedata} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis yAxisId="left" label={{ value: 'Expenses ($)', angle: -90, position: 'insideLeft' }} />
+                  <YAxis yAxisId="right" orientation="right" label={{ value: 'YTD ($)', angle: 90, position: 'insideRight' }} />
+                  <Tooltip cursor={{ fill: '#eee' }} />
+                  <Legend verticalAlign="top" height={36} />
+                  <Bar yAxisId="left" dataKey="actual" name="Actual Spend" fill="#2563eb" barSize={40} />
+                  <Line yAxisId="left" type="step" dataKey="target" name="Budget Target" stroke="#dc2626" strokeWidth={2} dot={false} />
+                  <Line yAxisId="left" type="monotone" dataKey="forecast" name="Forecast" stroke="#9333ea" strokeDasharray="5 5" />
+                  <Area yAxisId="right" type="monotone" dataKey="ytd_actual" name="YTD Total" fill="#cbd5e1" stroke="#64748b" opacity={0.3} />
+                  <ReferenceLine yAxisId="left" y={0} stroke="#000" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+            <div className={styles.card}>
+              <h4 className={styles.cardTitle}>Net Revenue Churn Rate</h4>
+              <StripeMetricChart data={churnData} isCurrency={true} />
+            </div>
+          </div>
+          {/* <MediaGrid /> */}
 
 
 
