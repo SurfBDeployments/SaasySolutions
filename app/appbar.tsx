@@ -18,7 +18,6 @@ import Image from 'next/image';
 const pages = [
   { name: 'Home', href: '/' },
   { name: 'Products', href: '/products' },
-  { name: 'Team', href: '/team' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
@@ -100,7 +99,7 @@ function ResponsiveAppBar() {
                   // Added hover effect for mobile items
                   sx={{
                     '&:hover': {
-                      backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                      color: '#a5abbd',
                     },
                   }}
                 >
@@ -139,7 +138,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* ── DESKTOP: Nav links ── */}
-          <Box sx={{ flexGrow: 1, display: { sm: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}

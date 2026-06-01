@@ -164,32 +164,37 @@ const MasterDashboard = () => {
           <div className={styles.grid}>
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Monthly Recurring Revenue (MRR)</h4>
-              <StripeMetricChart data={mrrData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+              <StripeMetricChart data={mrrData} isCurrency={true} />
+
 
             </div>
 
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Net Revenue Churn Rate</h4>
-              <StripeMetricChart data={churnData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+              <StripeMetricChart data={churnData} isCurrency={true} />
             </div>
+
 
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Gross Volume</h4>
-              <StripeMetricChart data={grossVolumeData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+
+              <StripeMetricChart data={grossVolumeData} isCurrency={true} />
             </div>
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Net Volume</h4>
-              <StripeMetricChart data={netVolumeData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+              <StripeMetricChart data={netVolumeData} isCurrency={true} />
             </div>
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Cash Flow</h4>
-              <StripeMetricChart data={cashFlowData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={true} />
+              <StripeMetricChart data={cashFlowData} isCurrency={true} />
+
             </div>
 
             {/*Renders rate percentage format (97.2%) with a rolling average YTD */}
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Customer Retention Rate</h4>
-              <StripeMetricChart data={customerRetentionData.map(item => ({ name: item.month, value: item.variance }))} isCurrency={false} />
+              <StripeMetricChart data={customerRetentionData} isCurrency={false} />
+
             </div>
 
 

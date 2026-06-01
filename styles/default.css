@@ -6,11 +6,6 @@ h3 {
   color: #2f2f2f;
 }
 
-h2 {
-  font-size: 22px;
-  margin-top: 10px;
-  color: #2f2f2f;
-}
 
 * {
   margin: 0;
@@ -231,19 +226,19 @@ footer ul li {
 body,
 p {
   font-family: Helvetica, sans-serif;
-  color: rgba(0, 0, 0, 0.6);
+  color:#414756;
   background-color: #ffffff;
   line-height: 1.5rem;
   font-size: 14px;
 }
 
 h2 {
-  font-size: 20px !important;
+  font-size: 24px !important;
   font-weight: bold !important;
   line-height: 1.6rem;
-
+ padding-top: 10px;
   padding-bottom: 10px;
-  color: #2f2f2f;
+  color:#414756;
 }
 
 header {
@@ -338,27 +333,30 @@ label {
 
 button {
   display: flex;
-
+  height: 100%;
+  width: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+ padding-right: 10px;
+  padding-left: 10px;
 }
 
 h5 {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  line-height: normal !important;
-  color: #555;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+ color:#414756;
 }
 
 h1 {
   font-size: 36px;
   margin-top: 20px;
-  margin-bottom: 20px;
   line-height: 1.6rem;
   color: #046531;
 }
 
 header h1 {
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: 10px;
 }
 
@@ -383,14 +381,10 @@ aside {
   height: fit-content;
 }
 
-h5 {
-  line-height: normal;
-}
 
 aside h3 {
   font-size: 18px;
   margin-bottom: 15px;
-  border-bottom: 2px solid #003366;
   padding-bottom: 10px;
 }
 
@@ -708,11 +702,7 @@ footer {
   border-top: 4px solid #ededed;
 }
 
-footer p {
-  margin: 10px 0;
-  font-size: 14px;
-  color: #ffffff;
-}
+
 
 .footer-content {
   display: grid;
@@ -838,13 +828,14 @@ footer p {
   header h1 {
     font-size: 20px;
   }
+  h1 {
+    font-size: 28px;
+  }
 
   .featured-section h2,
   h2 {
     font-size: 20px !important;
-
     font-weight: bold !important;
-    border-bottom: 2px solid #003366;
     padding-bottom: 10px;
   }
 

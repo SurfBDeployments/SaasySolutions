@@ -52,7 +52,7 @@ const columns: GridColDef[] = [
   {
     field: 'fullName',
     headerName: 'Full Info Summary',
-    headerClassName: 'bold-header', 
+    headerClassName: 'bold-header',
     sortable: false,
     width: 250,
     valueGetter: (value, row) => `${row.name || ''} from ${row.origin?.name || 'Unknown'}`,
@@ -90,7 +90,8 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-4 my-8">
         <div className='maincontent'>
-          <h1 className="text-4xl font-semibold mb-2">Rick and Morty Characters</h1>
+          <h1 className="text-4xl font-semibold mb-2">Apis</h1>
+          <h3 className="text-4xl font-semibold mb-2">Rick and Morty Characters</h3>
           <h5 className="text-2xl font-condensed-light text-gray-600 mb-6">
             A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
           </h5>
@@ -100,7 +101,8 @@ export default function Home() {
             <DataGrid
               rows={ricknmorty}
               columns={columns}
-              initialState={{ pagination: { paginationModel } }}
+
+              initialState={{ pagination: { paginationModel: { page: 0, pageSize: 5 } } }}
               pageSizeOptions={[5, 10, 20]}
               sx={{
                 border: 1,

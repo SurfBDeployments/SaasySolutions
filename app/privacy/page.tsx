@@ -1,23 +1,11 @@
 
 "use client"
-
-import { useEffect } from 'react';
 import '../../styles/default.css';
 import ResponsiveAppBar from '../appbar';
 import Footer from '../../footer';
 
 
-
 export default function Home() {
-
-
-  useEffect(() => {
-    const lucide = (globalThis as any).lucide;
-    if (lucide?.createIcons) {
-      lucide.createIcons();
-    }
-  }, []);
-
 
   return (
     <>
@@ -27,12 +15,12 @@ export default function Home() {
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">Privacy Statement</h1>
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>At SaaSy Inc. (“SaaSy”), your privacy is important to us. The purpose of this privacy statement is to let you know how we collect, use and disclose Personal Information, and to inform you of your rights with respect to such Personal Information. This Privacy Statement is effective as of the effective date of your subscription to the Services.</h5>
+            <h5 className="max-w-m text-2xl font-condensed-light leading-normal" style={{ marginBottom: '20px' }}>At SaaSy Inc. (“SaaSy”), your privacy is important to us. The purpose of this privacy statement is to let you know how we collect, use and disclose Personal Information, and to inform you of your rights with respect to such Personal Information. This Privacy Statement is effective as of the effective date of your subscription to the Services.</h5>
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">ABOUT SaaSy</h5>
+            <h2>ABOUT SaaSy</h2>
             SaaSy offers two online services, SaaS® and PowerMetrics, that enable its Customers to aggregate diverse data from multiple sources and quickly create new, actionable perspectives on their business (the “Services”). The Services integrate with hundreds of data sources ranging from social media platforms to enterprise management services.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">APPLICABILITY OF PRIVACY STATEMENT</h5>
+            <h2>APPLICABILITY OF PRIVACY STATEMENT</h2>
             This Privacy Statement relates to “Personal Information”, meaning information about an identifiable individual, whether, for example, that individual is our Customer, or our Customer’s provisioned user or an individual whose information is part of Processed Data, as these terms are defined below. Whether a person is “identifiable” means that they can be identified by the information itself or by that information combined with other information reasonably available.
 
             This Privacy Statement applies to Personal Information collected or managed by SaaSy through the use of the Services, data source integrations, and our websites. This Privacy Statement is also intended to explain how we use information which is not identifiable (and thus not Personal Information) that is collected via our websites and the Services.
@@ -45,20 +33,20 @@ export default function Home() {
 
             SaaSy does not have a direct relationship with many of the individuals whose Personal Information is included in Processed Data. This privacy statement is intended to provide information about how all Personal Information is collected, used, disclosed, processed and protected by SaaSy.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">DATA SOURCE INTEGRATIONS</h5>
+            <h2>DATA SOURCE INTEGRATIONS</h2>
             The Service provides Customers and their provisioned users the ability to easily connect to a wide variety of data sources using data source integrations. Some of these third party data source integration providers have terms and conditions particular to their data sources and, by making use of the data source integrations offered by SaaSy, you acknowledge and agree that your use of the Services may be subject to terms and conditions of those third party providers.
 
             For example, by making use of Google data source integrations, such as Google Analytics, Google Ads, Google Drive, Google Sheets, Gmail, Google Search, Google My Business, Google BigQuery, Google Calendar, or YouTube, your acknowledge and agree that your use of those Google services is governed by the terms outlined in the Google Privacy Policy.
 
             Also, in addition to the normal SaaSy procedure for deleting Processed Data stored within the Service, Customers can revoke access to their Google data via the Google security settings page at https://security.google.com/settings/security/permissions.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">CLASSIFICATION OF INFORMATION</h5>
+            <h2>CLASSIFICATION OF INFORMATION</h2>
             When the Service is used by our Customers, we classify the Personal Information we collect, use and disclose into two main categories: The first is Personal Information included in Customer Information, and the second is Personal Information that is included in Processed Data. It is important to note that not all Customer Information or Processed Data is Personal Information, either because it relates to a company or a business, or it is not identifiable.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">PROCESSED DATA</h5>
+            <h2>PROCESSED DATA</h2>
             SaaSy does not control what information a Customer chooses to include in Processed Data. Because we are unable to determine whether it is Personal Information or other information, we treat it as though it may be Personal Information but our Customers are entirely responsible for any Personal Information they choose to include in Processed Data. All Customers and their provisioned users should understand that data in SaaSy can be exported, shared or displayed by a Customer or provisioned user. Customers and provisioned users are solely responsible for the use of such exported, shared or displayed data and for protecting it appropriately.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">WHAT INFORMATION </h5>
+            <h2>WHAT INFORMATION </h2>
             From our Customers, we only collect Customer Information that is necessary to establish and maintain the provision of the Services to them, as well as to understand and improve the usage and performance of the Services. When our Customers are corporations, as opposed to individuals, this information is not “Personal Information”. This Customer Information includes:
 
             Customer name
@@ -71,7 +59,7 @@ export default function Home() {
             Login information for third party integrations to SaaSy, such as usernames and encrypted passwords
             In connection with our marketing, sales and Customer support functions, we may collect publicly-available information about our Customers and provisioned users, which is used for the purposes set out in this Privacy Statement.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">PURPOSES FOR COLLECTION</h5>
+            <h2>PURPOSES FOR COLLECTION</h2>
             We process Customer Information:
 
             Name and Contact information: To identify account owners and to contact you for both support and marketing purposes
@@ -89,7 +77,7 @@ export default function Home() {
             For commercial purposes, either for SaaSy or for others.
             We will take industry standard steps so that this de-identified and/or aggregate information cannot be connected to any particular individual.
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800">DISCLOSURE OF PERSONAL INFORMATION</h5>
+            <h2>DISCLOSURE OF PERSONAL INFORMATION</h2>
             SaaSy may share Personal Information with people within the company who have a “need to know” the information for business or legal reasons, for example, in order to carry out an administrative function, such as processing an invoice or supporting questions that you have submitted to SaaSy.
 
             We may share Personal Information with third parties, including:

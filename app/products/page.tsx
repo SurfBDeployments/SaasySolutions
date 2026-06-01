@@ -18,7 +18,8 @@ export default function Home() {
       <article>
         <div className="max-w-7xl mx-auto">
           <div className='maincontent'>
-            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Executive Dashboards</h1>
+            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Executive Products</h1>
+            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Apis</h2>
             <h5 className="max-w-m text-3xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800" style={{ textAlign: "left", marginBottom: '20px' }}>Showing data for net profit margins, revenue for last 6 months, EBIT and Debt to Equity Ratios and MRR/Churn Data</h5>
 
             <MasterDashboard />

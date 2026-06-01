@@ -11,13 +11,6 @@ import Footer from '../../footer';
 export default function Home() {
 
 
-  useEffect(() => {
-    const lucide = (globalThis as any).lucide;
-    if (lucide?.createIcons) {
-      lucide.createIcons();
-    }
-  }, []);
-
 
   return (
     <>
@@ -25,16 +18,16 @@ export default function Home() {
       <article>
         <div className="max-w-7xl mx-auto">
           <div className='maincontent'>
-          </div><h1 className="max-w-m text-4xl font-semibold">Terms of Use for  Saasy Marketing</h1>
-           <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>This document governs
-         the use of our website, and,
+          <h1 className="max-w-m text-4xl font-semibold">Terms of Use</h1>
+          <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>This document governs
+            the use of our website, and,
             any other related agreement or legal relationship with us
-        
-          in a legally binding way.
-          You must read this document carefully.
-          Our website is provided by:
-           Saasy Marketing</h5>
-          <p><strong>Contact email:</strong><code><a href="mailto:saasy@saasymktg.com">saasy@saasymktg.com</a></code></p>
+
+            in a legally binding way.
+            You must read this document carefully.
+            Our website is provided by:
+            SaaSy Solutions</h3>
+          <p><strong>Contact email:</strong><code><a href="mailto:SaaSy@SaaSymktg.com">SaaSy@SaaSymktg.com</a></code></p>
           <p>This document was generated with the use of the <a href="https://www.iubenda.com/terms-and-conditions-generator" target="_blank" rel="noopener noreferrer">Terms of Use generator</a>.</p>
           <h2>What you should know at a glance</h2>
           <p>Please note that some provisions may only apply to certain categories of users. In particular, certain provisions may only apply to consumers or to those users that do not qualify as consumers. Such limitations are always explicitly mentioned within each affected clause. In the absence of any such mention, clauses apply to all users.</p>
@@ -52,16 +45,16 @@ export default function Home() {
           <p>You are responsible for keeping your login details confidential and must choose passwords that meet the highest standards of strength as allowed by our website.</p>
           <p>By registering, you agree to take full responsibility for all activities under your username and password. <br />
             You must immediately inform us using the contact details in this document if you believe your personal information, account, or login details have been violated, disclosed, or stolen.</p>
-          <h5>Conditions for account registration</h5>
+          <h3 >Conditions for account registration</h3>
           <p>Registration of accounts on our website is subject to the conditions outlined below. By registering, you agree to meet such conditions.</p>
           <ul>
             <li>It is not permitted to register accounts by bots or any other automated methods;</li>
             <li>You must register only one account, unless otherwise specified;</li>
             <li>Your account must not be shared with other persons unless otherwise specified.</li>
           </ul>
-          <h5>Account termination</h5>
+          <h3 >Account termination</h3>
           <p>You can close your account and stop using our service anytime by contacting us at the contact details provided in this document.</p>
-          <h5>Account suspension and deletion</h5>
+          <h3 >Account suspension and deletion</h3>
           <p>We reserve the right to suspend or delete your account at any time and without notice if we find it inappropriate, offensive, or in violation of these terms.</p>
           <p>Suspending or deleting accounts does not entitle you to claim for any compensation, damages, or reimbursement.</p>
           <p>The suspension or deletion of accounts due to causes attributable to you does not exempt you from paying any applicable fees or prices.</p>
@@ -69,7 +62,7 @@ export default function Home() {
           <p>Unless otherwise noted, all content on our website is owned or provided by us or our licensors.</p>
           <p>We do our best to ensure the content on our website complies with all laws and respects third-party rights. However, this may not always be achievable. <br />
             If you believe your rights are being infringed, without prejudice to any legal prerogatives to enforce your rights, please report any issues using the contact details provided in this document.</p>
-          <h5>Rights regarding content on our website - All rights reserved</h5>
+          <h3 >Rights regarding content on our website - All rights reserved</h3>
           <p>We hold and reserve all intellectual property rights for all content.</p>
           <p>You may not use such content in any way that is not necessary or implied for the proper use of the service.</p>
           <p>Specifically, but without limitation, you may not copy, download, share (beyond the limits mentioned below), modify, translate, transform, publish, transmit, sell, sublicense, edit, transfer, assign to third parties, or create derivative works from the content on our website. You also cannot allow any third party to do so through your account or device, even unknowingly.</p>
@@ -97,7 +90,7 @@ export default function Home() {
           <p>The specific characteristics of the chosen product are outlined during the purchasing process.</p>
           <h3>Purchasing process</h3>
           <p>Every action taken from selecting a product to submitting the order is part of the purchasing process.</p>
-          <p><code>[specify your purchasing process]</code></p>
+
           <h3>Order submission</h3>
           <p>When you place an order, the following apply:</p>
           <ul>
@@ -109,7 +102,7 @@ export default function Home() {
           <h3>Prices</h3>
           <p>During checkout and before order submission, you will see all charges, including any fees, taxes, and costs (including, where applicable, delivery costs).</p>
           <p>On our website, prices are displayed including all applicable fees, taxes, and costs.</p>
-          <p><code>[add more details about prices]</code></p>
+
           <h3>Methods of payment</h3>
           <p>Details about accepted payment methods are provided during the purchasing process.</p>
           <p>Certain payment methods might have additional conditions or fees. In these cases, more information can be found in the related section of our website.</p>
@@ -121,8 +114,8 @@ export default function Home() {
           <p>Upon delivery, please check the content and report any issues promptly using the contact details provided in this document or as outlined in the delivery note. If the parcel appears visibly damaged, you may refuse to accept it.</p>
           <p>Goods are delivered to the following countries: <code>[country name]</code></p>
           <p>Delivery times are outlined on our website or during the purchasing process.</p>
-          <p><code>[add more details about delivery]</code></p>
-          <h5>Failed delivery</h5>
+
+          <h3 >Failed delivery</h3>
           <p>We are not liable for delivery errors due to incorrect or incomplete information provided by you during the purchasing process nor for any damage or delays after delivery to a carrier organized by you and not offered or recommended by us.</p>
           <p>If the goods are not received or collected at the time or within the period specified, they will be returned to us. We will contact you to schedule a second delivery attempt or to agree on a future course of action.</p>
           <p>Unless otherwise agreed, each delivery attempt after the second one will be at your expense.</p>
@@ -131,37 +124,37 @@ export default function Home() {
           <h2>USER RIGHTS</h2>
           <h3>Right of withdrawal</h3>
           <p>Unless exceptions apply, if you qualify as a European consumer, you have the right to withdraw from a contract within a specified period (usually 14 days), without giving any reason. If you don’t fit this qualification, you cannot benefit from the rights described in this section.</p>
-          <h5>Exercising your right of withdrawal</h5>
+          <h3 >Exercising your right of withdrawal</h3>
           <p>To withdraw from a contract, you must inform us clearly of your decision. This can be done using a withdrawal form or by any other clear statement. Make sure to do this before the withdrawal period ends.</p>
-          <h5>Withdrawal period</h5>
+          <h3 >Withdrawal period</h3>
           <ul>
             <li>for goods, the withdrawal period ends 14 days after you or a designated third party takes physical possession of the goods;</li>
             <li>for multiple goods ordered together or delivered separately, the withdrawal period ends 14 days after you or a designated third party acquires physical possession of the last good.</li>
           </ul>
-          <h5>Effects of withdrawal</h5>
+          <h3 >Effects of withdrawal</h3>
           <p>If you correctly withdraw from a contract, we will reimburse you for all payments made to us, including any delivery costs, if applicable.</p>
           <p>However, any additional costs resulting from choosing a delivery method other than our standard option will not be reimbursed.</p>
           <p>We will process your reimbursement promptly and no later than 14 days after we receive your withdrawal notification. Reimbursements will be made using the same payment method you used for the initial transaction unless agreed otherwise. You will not incur any costs or fees for this reimbursement.</p>
-          <h5>... on the purchase of physical goods</h5>
+          <h3 >... on the purchase of physical goods</h3>
           <p>Unless we have offered to collect the goods, you must return them to us or to a person authorized by us without delay and no later than 14 days after notifying us of your decision to withdraw from the contract.</p>
           <p>Your deadline is met if you hand the goods to the carrier or return them as instructed before the 14-day period expires. We may withhold reimbursement until we receive the goods or until you provide evidence of returning them, whichever occurs first.</p>
           <p>You are responsible for any diminished value of the goods resulting from handling beyond what is necessary to establish their nature, characteristics, and functioning.</p>
           <p>You will bear the costs of returning the goods.</p>
           <h3>UK USER RIGHTS</h3>
-          <h5>Right to cancel</h5>
+          <h3 >Right to cancel</h3>
           <p>Unless exceptions apply, if you qualify as a consumer in the United Kingdom, you have the right to withdraw from a contract within a specified period (usually 14 days), without giving any reason. If you do not fit this qualification, you cannot benefit from the rights described in this section.</p>
-          <h5>Exercising your right to cancel</h5>
+          <h3 >Exercising your right to cancel</h3>
           <p>To withdraw from a contract, you must inform us clearly of your decision. This can be done using a cancellation form or by any other clear statement. Make sure to do this before the cancellation period ends.</p>
-          <h5>Cancellation period</h5>
+          <h3 >Cancellation period</h3>
           <ul>
             <li>for goods, the cancellation period ends 14 days after you or a designated third party takes physical possession of the goods;</li>
             <li>for multiple goods ordered together or delivered separately, the cancellation period ends 14 days after you or a designated third party acquires physical possession of the last good.</li>
           </ul>
-          <h5>Effects of cancellation</h5>
+          <h3 >Effects of cancellation</h3>
           <p>If you correctly withdraw from a contract, we will reimburse you for all payments made to us, including any delivery costs, if applicable.</p>
           <p>However, any additional costs resulting from choosing a delivery method other than our standard option will not be reimbursed.</p>
           <p>We will process your reimbursement promptly and no later than 14 days after we receive your cancellation notification. Reimbursements will be made using the same payment method you used for the initial transaction unless agreed otherwise. You will not incur any costs or fees for this reimbursement.</p>
-          <h5>... on the purchase of physical goods</h5>
+          <h3 >... on the purchase of physical goods</h3>
           <p>Unless we have offered to collect the goods, you must return them to us or to a person authorized by us without delay and no later than 14 days after notifying us of your decision to withdraw from the contract.</p>
           <p>Your deadline is met if you hand the goods to the carrier or return them as instructed before the 14-day period expires. We may withhold reimbursement until we receive the goods or until you provide evidence of returning them, whichever occurs first.</p>
           <p>You are responsible for any diminished value of the goods resulting from handling beyond what is necessary to establish their nature, characteristics, and functioning.</p>
@@ -174,20 +167,20 @@ export default function Home() {
           <p>UK consumers have the right to receive goods that conform to the contract.</p>
           <h2>LIABILITY AND INDEMNIFICATION</h2>
           <p>We limit our liability as much as legally allowed when executing agreements with you. This means our responsibility for damages is reduced to the maximum extent permitted by law unless explicitly stated otherwise or agreed upon with you.</p>
-          <h5>Indemnification</h5>
+          <h3 >Indemnification</h3>
           <p>You agree to indemnify us and our affiliates, officers, directors, and employees from any claims or demands made by third parties due to or in connection with any culpable violation of these terms or third-party rights related to your use of the service to the extent allowed by law.</p>
-          <h5>Limitation of liability</h5>
+          <h3 >Limitation of liability</h3>
           <p>Unless explicitly stated otherwise and subject to applicable law, you cannot claim damages against us (or any individual or entity acting on our behalf).</p>
           <p>However, this exclusion does not apply to damages affecting life, health, or physical integrity, damages arising from the breach of significant contractual obligations (such as those necessary to fulfill the contract's purpose), and/or damages resulting from intentional or gross negligence, provided that our website has been used appropriately and correctly by you.</p>
           <p>Unless damages stem from intentional or gross negligence, or they impact life, health, or physical integrity, our liability is limited to typical and foreseeable damages at the time the contract was entered into.</p>
           <h3>US users</h3>
-          <h5>Disclaimer of warranties</h5>
+          <h3 >Disclaimer of warranties</h3>
           <p>Our website is provided on an “as is” and “as available” basis. When you use our service, you are doing so at your own risk. We explicitly state that we are not making any promises or guarantees, whether they are express, implied, or even required by law. These include assurances about the quality of the service, its suitability for your specific needs, or whether it infringes on anyone else's rights. Please keep in mind that any advice or information you receive from us or through our service does not create any warranties beyond what we have explicitly stated here.</p>
           <p>Additionally, while we strive to provide accurate and reliable content, we cannot guarantee that it is always going to be the case. We do not guarantee that the service will always meet your requirements or be available when you need it. There might be interruptions, or it might not function correctly due to factors beyond our control. While we do our best to keep everything running smoothly, we cannot ensure that the service will be free of harmful elements like viruses. If you choose to download any content from our service, you are assuming the risk, and we are not responsible for any damage it might cause to your devices or data.</p>
           <p>We do not endorse or guarantee any products or services advertised through our service or any links we provide. We are not involved in any transactions between you and third-party providers, so any interactions or agreements you make with them are solely your responsibility.</p>
           <p>Our service might not always be accessible or may not work correctly with your web browser, mobile device, or operating system. While we strive to provide a seamless experience, we cannot guarantee it in every situation. As such, we want to clarify that we cannot be held responsible for any perceived or actual damages that result from issues related to the content, operation, or use of our service.</p>
           <p>While we may have certain exclusions and limitations in our agreement, these may not apply to you depending on the laws of your jurisdiction. Federal law, as well as laws in some states and other jurisdictions, may offer protections that supersede our disclaimers and exclusions. This means that you may have specific legal rights that are not affected by our agreement. It is essential to understand your rights, as they may vary from state to state or country to country. We want to emphasize that any disclaimers or exclusions in our agreement will only be enforced to the extent permitted by applicable law.</p>
-          <h5>Limitation of liability</h5>
+          <h3 >Limitation of liability</h3>
           <p>To the maximum extent permitted by applicable law, in no event shall we, along with our subsidiaries, affiliates, officers, directors, agents, partners, suppliers, or employees, be liable for:</p>
           <ul>
             <li>any indirect, punitive, incidental, special, consequential, or exemplary damages arising from or related to your use of, or inability to use, the service. This includes damages for loss of profits, goodwill, use, data, or other intangible losses;</li>
@@ -202,7 +195,7 @@ export default function Home() {
           </ul>
           <p>This limitation of liability section will apply to the fullest extent permitted by law in the applicable jurisdiction whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if you have been advised of the possibility of such damage.</p>
           <p>Please note that in some jurisdictions, the exclusion or limitation of incidental or consequential damages may not be allowed. This means that these limitations or exclusions might not apply to you. You have specific legal rights, which may vary depending on your jurisdiction. The disclaimers, exclusions, and limitations of liability outlined here may not apply to the extent prohibited by applicable law.</p>
-          <h5>Indemnification</h5>
+          <h3 >Indemnification</h3>
           <p>By using and accessing the service, you agree to defend, indemnify, and hold us, our subsidiaries, affiliates, officers, directors, agents, co-branders, partners, suppliers, and employees harmless from any claims, damages, losses, liabilities, costs, or expenses, including legal fees, arising from:</p>
           <ul>
             <li>your use of the service, including any data or content you transmit or receive;</li>
@@ -240,27 +233,27 @@ export default function Home() {
           <p>All communications regarding the use of our website must be sent using the contact information provided in this document.</p>
           <h3>Severability</h3>
           <p>Invalidity or unenforceability of any provision under applicable law will not affect the validity of other provisions, which will remain in full force and effect.</p>
-          <h5>US users</h5>
+          <h3 >US users</h3>
           <p>Any invalid or unenforceable provision will be interpreted to the extent reasonably required to render it valid, enforceable, and consistent with its original intent. This document constitutes the entire agreement between you and us and supersedes all other communications, including but not limited to prior agreements concerning such subject matter, to the fullest extent permitted by law.</p>
-          <h5>EU users</h5>
+          <h3 >EU users</h3>
           <p>If any provision of this document is void, invalid, or unenforceable, we both agree to do our best to find, in an amicable way, an agreement on valid and enforceable provisions. <br />
             In case of failure to do so, the void, invalid, or unenforceable provisions will be replaced by the applicable statutory provisions.</p>
           <p>Regardless of the above, the nullity, invalidity, or impossibility of enforcing a particular provision of this document will not nullify the entire agreement, unless the severed provisions are essential for it, or of such importance that we both would not have entered into the contract if we had known that the provision would not be valid, or in cases where the remaining provisions would translate into an unacceptable hardship for you or us.</p>
           <h3>Governing law</h3>
           <p>These terms are governed by the law of the place where we are based, as outlined in the relevant section of this document, without regard to conflict of laws principles.</p>
-          <h5>Prevalence of national law</h5>
+          <h3 >Prevalence of national law</h3>
           <p>However, regardless of the above, if the law of the country that you are based on provides for higher applicable consumer protection standards, such higher standards will prevail.</p>
           <h3>Venue of jurisdiction</h3>
           <p>The jurisdiction over any controversy related to these terms lies with the courts of the place where we are based, as outlined in the relevant section of this document.</p>
-          <h5>Exception for consumers in Europe</h5>
+          <h3 >Exception for consumers in Europe</h3>
           <p>However, regardless of the above, this does not apply if you qualify as a European consumer or if you are a consumer based in the United Kingdom, Switzerland, Norway, or Iceland.</p>
-          <h5>UK consumers</h5>
+          <h3 >UK consumers</h3>
           <p>If you are a consumer based in England and Wales, you may bring legal proceedings related to these terms in the English and Welsh courts. If you are a consumer based in Scotland, you may bring legal proceedings in either the Scottish or the English courts. If you are a consumer based in Northern Ireland, you may bring legal proceedings in either the Northern Irish or the English courts.</p>
-          <h5>US users</h5>
+          <h3 >US users</h3>
           <p>We both agree to waive any right to trial by jury in any court in connection with any action or litigation. <br />
             Any claims under these terms shall proceed individually and we both agree not to join in a class action or other proceeding with or on behalf of others.</p>
           <h3>US users</h3>
-          <h5>Surviving provisions</h5>
+          <h3 >Surviving provisions</h3>
           <p>Our agreement will continue in effect until it is terminated by either our website or you. Upon termination, the provisions contained in this document that by their context are intended to survive termination or expiration will survive, including but not limited to the following:</p>
           <ul>
             <li>your grant of licenses under this document will survive indefinitely;</li>
@@ -274,7 +267,9 @@ export default function Home() {
           <p>The European Commission has set up an online platform for alternative dispute resolution, providing an out-of-court solution for resolving disputes arising from online sale and service contracts.</p>
           <p>Therefore, European consumers or consumers based in Norway, Iceland, or Liechtenstein can use this platform to settle disputes arising from online contracts. You can access the platform <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home.chooseLanguage">via the following link</a>.</p>
         </div>
+         </div>
       </article>
+     
       <Footer />
     </>
   )

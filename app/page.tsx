@@ -1,11 +1,16 @@
 
 "use client"
 import { useEffect, useState } from 'react';
-import '../styles/project-home.css';
 import '../styles/default.css';
 import { Eye, CirclePlus, SquarePen, CircleX, ArrowDownToLine } from 'lucide-react';
 import ResponsiveAppBar from './appbar';
-
+/* import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography'; */
 import Footer from '../footer'
 
 
@@ -57,9 +62,9 @@ export default function Home() {
 
 
       <article>
-
+<div className='maincontent'>
         <div className="max-w-7xl mx-auto">
-          <h1 className="max-w-m text-4xl font-semibold" style={{ marginTop: '20px' }}>SaaSy Marketing Team</h1>
+          <h1 className="max-w-m text-4xl font-semibold" style={{ marginTop: '20px' }}>SaaSy Solutions Team</h1>
           <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>Marketing that works for You!</h5>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-" style={{
             backgroundColor: '#ffffff',
@@ -70,7 +75,7 @@ export default function Home() {
           }}>
 
             <div>
-              <h3 className="text-2xl font-bold text-slate-900">Sales and Profit</h3>
+              <h3 className="text-2xl font-bold text-slate-900">Operating System Reports</h3>
               <p className="text-slate-500 text-sm">Manage, edit, and download your generated data.</p>
             </div>
 
@@ -262,6 +267,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </article>
       <Footer />

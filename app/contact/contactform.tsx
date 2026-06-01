@@ -31,8 +31,8 @@ const ContactForm = () => {
    <div className="contactmaincontent">
       <div id="contact-text">
         <h2>How can we Help?</h2>
-        <p>We'll get back to you within 24 hours.</p>
-        <p><span style={{ fontWeight: 'bold' }}>Email:</span> Saasy Marketing  at <a href="mailto:saasy@saasymktg.com">saasy@saasymktg.com</a>
+        <p>We&apos;ll get back to you within 24 hours.</p>
+        <p><span style={{ fontWeight: 'bold' }}>Email:</span> SaaSy Solutions  at <a href="mailto:SaaSy@SaaSymktg.com">SaaSy@SaaSymktg.com</a>
         </p>
         <p><strong>Phone:  <a href="tel:1-888-867-5309">1-888-867-5309</a></strong></p>
   
@@ -71,7 +71,7 @@ const ContactForm = () => {
         
 </span><br />
         <Button onClick={handleSubmit} variant="contained" color="primary">Send message</Button>
-        {submitted && <p>Thank you for contacting us! We'll be in touch soon.</p>}
+        {submitted && <p>Thank you for contacting us! We&apos;ll be in touch soon.</p>}
         
       </div>
     </div>

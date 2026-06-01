@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
       <ResponsiveAppBar />
-      <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "center" }}>SaaSy Marketing Team</h1> 
+      <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "center" }}>SaaSy Solutions Team</h1> 
       <h1 className="max-w-m text-4xl font-condensed-light leading-10 tracking-tight text-black dark:text-slate-800" style={{ textAlign: "center", marginBottom: '20px' }}>Marketing that works for You!</h1>
 
 

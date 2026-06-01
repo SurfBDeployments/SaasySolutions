@@ -29,7 +29,7 @@ export function MediaCard() {
           John - Business Development
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Contact John for your Sales and Business needs at Saasy.
+          Contact John for your Sales and Business needs at SaaSy.
         </Typography>
         <CardActions>
           <Button size="small" variant="outlined">Let's Get Started</Button>
@@ -54,7 +54,7 @@ export function MediaCard2() {
           Robin - Account Support
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Contact Robin for your Accounts and Pricing needs at Saasy.
+          Contact Robin for your Accounts and Pricing needs at SaaSy.
         </Typography>
         <CardActions>
           <Button size="small" variant="outlined">Find Answers</Button>
@@ -78,7 +78,7 @@ export function MediaCard3() {
           Bob
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Contact Bob for any Technical Issues you may have with your products at Saasy.
+          Contact Bob for any Technical Issues you may have with your products at SaaSy.
         </Typography>
         <CardActions>
           <Button size="small" variant="outlined">Open a Support Ticket</Button>
@@ -121,9 +121,9 @@ export default function Home() {
 
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">Contact Us</h1>
-            <h5 className="max-w-m text-3xl font-condensed-light" style={{ marginBottom: '20px' }}>The people behind the magic.
+            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
               Get in touch with our team of experts to learn more about how we can help you achieve your goals.
-              Tell us more about yourself and what you'd like to chat about. Someone from Saasy will be in touch shortly.</h5>
+              Tell us more about yourself and what you&apos;d like to chat about. Someone from SaaSy will be in touch shortly.</h5>
 
             <ResponsiveGrid />
             <ContactForm />
