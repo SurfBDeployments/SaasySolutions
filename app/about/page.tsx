@@ -17,7 +17,7 @@ import Footer from '../../footer';
 
 export function Customer() {
   return (
-    <Card sx={{ maxWidth: 250, width: '100%', height: '275px', backgroundColor: '#1976d2', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 250, width: '100%', height: '100%', backgroundColor: '#1976d2', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -33,7 +33,7 @@ export function Customer() {
 }
 export function Results() {
   return (
-    <Card sx={{ maxWidth: 250, height: '275px', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', backgroundColor: '#414756', color: '#fff' }}>
+    <Card sx={{ maxWidth: 250, height: '100%', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', backgroundColor: '#414756', color: '#fff' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -49,7 +49,7 @@ export function Results() {
 }
 export function Ownership() {
   return (
-    <Card sx={{ maxWidth: 250, height: '275px', backgroundColor: '#046531', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 250, height: '100%', backgroundColor: '#046531', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -66,7 +66,7 @@ export function Ownership() {
 }
 export function Revenue() {
   return (
-    <Card sx={{ maxWidth: 250, height: '275px', backgroundColor: '#c94669', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 250, height: '100%', backgroundColor: '#c94669', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

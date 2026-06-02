@@ -44,7 +44,7 @@ export const StripeMetricChart = ({
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={data}
-          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+          margin={{ top: 0, right: 20, bottom: 20, left: 20 }}
         >
           <CartesianGrid stroke="#f0f0f0" strokeDasharray="3 3" />
           

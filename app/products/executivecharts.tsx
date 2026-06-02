@@ -137,11 +137,20 @@ const MasterDashboard = () => {
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Budget Variance</h4>
               <ResponsiveContainer width="100%" height={300}>
-                <ComposedChart data={variancedata} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                <ComposedChart data={variancedata} margin={{ top: 20, right: 20, left: 20, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
                   <XAxis dataKey="month" />
-                  <YAxis yAxisId="left" label={{ value: 'Expenses ($)', angle: -90, position: 'insideLeft' }} />
-                  <YAxis yAxisId="right" orientation="right" label={{ value: 'YTD ($)', angle: 90, position: 'insideRight' }} />
+                  <YAxis
+                    yAxisId="left"
+                    label={{
+                      value: 'Expenses ($)',
+                      angle: -90,
+                      position: 'middle',
+                      dx: -40,
+                    }}
+                  />
+
+
                   <Tooltip cursor={{ fill: '#eee' }} />
                   <Legend verticalAlign="top" height={36} />
                   <Bar yAxisId="left" dataKey="actual" name="Actual Spend" fill="#2563eb" barSize={40} />
