@@ -23,7 +23,7 @@ const MasterDashboard = () => {
   };
 
   let pageTitle = 'Dashboard';
-   if (activeTab === 'ricknmorty') pageTitle = 'GraphQL DataGrid';
+  if (activeTab === 'ricknmorty') pageTitle = 'GraphQL DataGrid';
   else if (activeTab === 'financials') pageTitle = 'Core Financials';
   else if (activeTab === 'solvency') pageTitle = 'Solvency & EBIT';
   else if (activeTab === 'variancedata') pageTitle = 'Budget Variance';
@@ -36,7 +36,7 @@ const MasterDashboard = () => {
       <nav className={styles.sidebar}>
         <h5 className={styles.sidebarTitle}>Welcome Brian</h5>
         <h2 className={styles.sidebarHeading}>Executive View</h2>
-          <div
+        <div
           onClick={() => setActiveTab('RicknMorty')}
           className={activeTab === 'RicknMorty' ? styles.navLinkActive : styles.navLink}
         >
@@ -177,20 +177,23 @@ const MasterDashboard = () => {
             </div>
 
           </div>
-          ) : activeTab === 'RicknMorty' ? (
+        ) : activeTab === 'RicknMorty' ? (
 
-          
-            <div className={styles.datagrid}>
-              <div className={styles.card}>
-    <h4 className={styles.cardTitle}>Rick and Morty Characters</h4>
-   
-      <p className={styles.subheading}>
-        A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
-      </p>
+
+          <div className={styles.datagrid}>
+            <div className={styles.datacard}>
+              <h4 className={styles.cardTitle}>Rick and Morty Characters</h4>
+
+
+              <p className={styles.subheading}>
+                A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
+              </p>
+
               <RicknMorty />
-</div>
-</div>
-            
+
+            </div>
+          </div>
+
         ) : activeTab === 'mrrData' ? (
 
           <div className={styles.grid}>
