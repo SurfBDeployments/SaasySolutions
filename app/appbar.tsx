@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
             href="/"
             sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', mr: 1 }}
           >
-            <Image src="/sassylogoicon.png" alt="SaaSY logo" width={40} height={40} />
+            <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
           </Box>
           <Typography
             variant="h6"
@@ -65,7 +65,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            SaaSY
+            SaaSy Solutions
           </Typography>
 
           {/* ── MOBILE: Hamburger on the left ── */}
@@ -120,7 +120,8 @@ function ResponsiveAppBar() {
               alignItems: 'center',
             }}
           >
-            <Image src="/sassylogoicon.png" alt="SaaSY logo" width={40} height={40} />
+           <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
+
             <Typography
               variant="h5"
               noWrap
@@ -133,7 +134,7 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              SaaSY
+            SaaSy Solutions
             </Typography>
           </Box>
 

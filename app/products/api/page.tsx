@@ -8,7 +8,7 @@ import ResponsiveAppBar from '../../appbar';
 import Footer from '../../../footer';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+
 
 // 1. Updated query to include 'species'
 const GET_RICKNMORTY = gql`
