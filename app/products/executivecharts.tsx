@@ -74,8 +74,21 @@ const MasterDashboard = () => {
           <h1 className={styles.heading}>{pageTitle}</h1>
           <p className={styles.subheading}>Real-time Executive Reporting Dashboard</p>
         </header>
+{activeTab === 'RicknMorty' ? (
 
-        {activeTab === 'financials' ? (
+
+          <div className={styles.datagrid}>
+            <div className={styles.datacard}>
+              <h4 className={styles.cardTitle}>Rick and Morty Characters</h4>
+
+
+              <p className={styles.subheading}>
+                A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
+              </p>
+              <RicknMorty />
+            </div>
+          </div>
+        ): activeTab === 'financials' ? (
           <div className={styles.grid}>
             {/* Revenue Chart */}
             <div className={styles.card}>
@@ -177,22 +190,7 @@ const MasterDashboard = () => {
             </div>
 
           </div>
-        ) : activeTab === 'RicknMorty' ? (
-
-
-          <div className={styles.datagrid}>
-            <div className={styles.datacard}>
-              <h4 className={styles.cardTitle}>Rick and Morty Characters</h4>
-
-
-              <p className={styles.subheading}>
-                A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
-              </p>
-
-              <RicknMorty />
-
-            </div>
-          </div>
+        
 
         ) : activeTab === 'mrrData' ? (
 
