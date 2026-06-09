@@ -1,5 +1,6 @@
 import UsersClient from './UsersClient';
 
+
 type User = {
   id: number;
   name: string;
@@ -15,6 +16,7 @@ type User = {
     zipcode: string;
   };
 };
+
 
 export default async function UsersPage() {
   const res = await fetch('https://jsonplaceholder.typicode.com/users', {
