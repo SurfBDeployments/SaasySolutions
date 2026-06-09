@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../app/ui/globals.css";
-import ResponsiveAppBar from "./appbar";
+import ResponsiveAppBar from "./components/appbar";
 
 
 

@@ -1,7 +1,7 @@
 'use client';
 
-import ResponsiveAppBar from '../appbar';
-import Footer from '../../footer';
+import ResponsiveAppBar from '../components/appbar';
+import Footer from '../components/footer';
 import '../../styles/default.css';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';

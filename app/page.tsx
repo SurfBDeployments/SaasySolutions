@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import ResponsiveAppBar from "./appbar";
-import Footer from "../footer";
+import ResponsiveAppBar from "./components/appbar";
+import Footer from "./components/footer";
 import "../styles/default.css";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";

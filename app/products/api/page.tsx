@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { gql } from 'graphql-request';
 import client from '../../../lib/graphqlClient';
 import '../../../styles/default.css';
-import ResponsiveAppBar from '../../appbar';
-import Footer from '../../../footer';
+import ResponsiveAppBar from '../../components/appbar';
+import Footer from '../../components/footer';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 

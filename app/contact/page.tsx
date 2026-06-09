@@ -2,7 +2,7 @@
 "use client"
 import { useEffect } from 'react';
 import '../../styles/default.css';
-import ResponsiveAppBar from '../appbar';
+import ResponsiveAppBar from '../components/appbar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,7 +11,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Footer from '../../footer';
+import Footer from '../components/footer';
 import ContactForm from './contactform';
 
 

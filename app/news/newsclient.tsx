@@ -1,10 +1,11 @@
+// app/news/NewsClient.tsx
 'use client';
 
 import ResponsiveAppBar from '../components/appbar';
 import Footer from '../components/footer';
 import '../../styles/default.css';
 import Paper from '@mui/material/Paper';
-import NavBar from '../components/newsnav'; // Adjust path to your NavBar if needed
+import NavBar from '../components/newsnav'; 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -46,27 +47,30 @@ type NewsItem = {
   content?: string | null;
 };
 
-
 interface NewsClientProps {
   data: NewsItem[];
+  titleName?: string; // Allows changing the title dynamically
 }
 
-export default function NewsOldClient({ data }: NewsClientProps) {
+export default function NewsClient({ data }: NewsClientProps) {
   return (
     <>
       <ResponsiveAppBar />
 
       <article>
-
         <div className="max-w-7xl mx-auto">
-          
+      
           <div className="maincontent">
-  <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
+      <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
              <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | News APIs</h2>
+          
+      
             <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
               A sample listing of news from around the world via our platform. (connected by a Rest API using API keys).
+  
             </h5>
-<NavBar />
+            <NavBar />
+
             <Paper sx={{ width: '100%', padding: 2, backgroundColor: '#fafafa' }}>
               <div style={cardStyles}>
                 {data.length === 0 ? (
@@ -93,9 +97,6 @@ export default function NewsOldClient({ data }: NewsClientProps) {
                               ? `Source: ${newsItem.source.name}`
                               : 'Author unknown'}
                         </Typography>
-                       {/*  <Typography variant="body2" component="p" gutterBottom>
-                          {newsItem.description || 'No description available.'}
-                        </Typography> */}
                         <Typography variant="caption" component="div" color="text.secondary" sx={{ display: 'block' }} gutterBottom>
                           {newsItem.publishedAt ? new Date(newsItem.publishedAt).toLocaleString() : 'Publish date unavailable'}
                         </Typography>
@@ -104,9 +105,7 @@ export default function NewsOldClient({ data }: NewsClientProps) {
                         </Typography> 
                       </CardContent>
                       <CardActions>
-
                         <Button size="small" onClick={() => newsItem.url && window.open(newsItem.url, '_blank')}>Read More</Button>
-
                       </CardActions>
                     </Card>
                   ))
@@ -116,7 +115,6 @@ export default function NewsOldClient({ data }: NewsClientProps) {
           </div>
         </div>
       </article>
-
 
       <Footer />
     </>

@@ -1,8 +1,8 @@
 
 "use client"
 import '../../styles/default.css';
-import ResponsiveAppBar from '../appbar';
-import Footer from '../../footer';
+import ResponsiveAppBar from '../components/appbar';
+import Footer from '../components/footer';
 
 
 export default function Home() {

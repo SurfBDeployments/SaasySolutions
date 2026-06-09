@@ -9,7 +9,7 @@ import { CirclePlus } from 'lucide-react';
 import { SquarePen } from 'lucide-react';
 import { CircleX } from 'lucide-react';
 import { ArrowDownToLine } from 'lucide-react';
-import ResponsiveAppBar from './appbar';
+import ResponsiveAppBar from './components/appbar';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 

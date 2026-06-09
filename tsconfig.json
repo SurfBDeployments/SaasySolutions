@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/about/users.js"  ],
+, "app/about/users.js", "app/components/newsitem.js"  ],
   "exclude": ["node_modules"]
 }
