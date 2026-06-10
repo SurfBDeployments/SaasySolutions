@@ -1,7 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 const NavBar = (): React.JSX.Element => {
+	const pathname = usePathname();
+
+	const isActive = (href: string): boolean => {
+		return pathname === href || pathname.startsWith(href + '/');
+	};
+
+	const navLinks = [
+	
+		{ href: '/news/entertainment', label: 'Entertainment' },
+		{ href: '/news/technology', label: 'Technology' },
+		{ href: '/news/sports', label: 'Sports' },
+		{ href: '/news/business', label: 'Business' },
+		{ href: '/news/health', label: 'Health' },
+		{ href: '/news/science', label: 'Science' },
+	];
+
 	return (
 		<div>
 			<nav className="navbar navbar-expand-lg">
@@ -19,41 +38,16 @@ const NavBar = (): React.JSX.Element => {
 					</button>
 					<div id="navbarNav">
 						<ul className="navbar-nav">
-							<li className="nav-item">
-								<Link className="nav-link" href="/news">
-									Home
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/entertainment">
-									Entertainment
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/technology">
-									Technology
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/sports">
-									Sports
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/business">
-									Business
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/health">
-									Health
-								</Link>
-							</li>
-							<li className="nav-item">
-								<Link className="nav-link" href="/news/science">
-									Science
-								</Link>
-							</li>
+							{navLinks.map((link) => (
+								<li key={link.href} className="nav-item">
+									<Link
+										className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+										href={link.href}
+									>
+										{link.label}
+									</Link>
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>

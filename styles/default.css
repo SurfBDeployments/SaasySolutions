@@ -8,15 +8,32 @@ h3 {
 
 .navbar-nav {
   display: flex;
-  justify-content: left;
+  
+  justify-content:center;
   background-color: #ffffff;
-  margin-top: 10px
+   margin-bottom: 20px;
 }
 
-.nav-item {
+li.nav-item {
   padding-right: 15px;
+  font-size: 16px!important;
+  font-weight: 600!important;
 }
+.nav-link {
 
+  font-size: 16px !important;
+  font-weight: 600!important;
+}
+.nav-link:hover {
+color: #5c9ed3 ;
+  font-size: 16px !important;
+  font-weight: 600;
+}
+/* Active nav-link styling */
+.nav-link.active {
+  border-bottom: 3px solid currentColor;
+  padding-bottom: calc(0.4rem - 5px);
+}
 * {
   margin: 0;
   padding: 0;
@@ -353,8 +370,6 @@ button {
 
 h5 {
   font-size: 18px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   color: #414756;
 }
 

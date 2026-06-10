@@ -65,7 +65,7 @@ export default function NewsClient({ data }: NewsClientProps) {
              <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | News APIs</h2>
           
       
-            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
+            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" >
               A sample listing of news from around the world via our platform. (connected by a Rest API using API keys).
   
             </h5>
