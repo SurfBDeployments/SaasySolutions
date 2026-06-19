@@ -122,7 +122,7 @@ function ResponsiveAppBar() {
               alignItems: 'center',
             }}
           >
-           <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
+         <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
 
             <Typography
               variant="h5"

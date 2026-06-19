@@ -4,12 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import ResponsiveAppBar from "./components/appbar";
 import Footer from "./components/footer";
 import "../styles/default.css";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import { variancedata, churnData } from './products/chartdatasets';
 import {
   Area, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid,
@@ -167,7 +161,7 @@ export default function Home() {
           --ss-accent-pale:#d6f0e6;
           --ss-muted:      #6b7280;
           --ss-border:     #e2e0d8;
-          --ss-hero-bg:    #0b1a13;      /* very dark green */
+          --ss-hero-bg:    #1a2e22;      /* very dark green */
           --ff-display:    'Roboto', sans-serif;
           --ff-body:       'Geist', sans-serif;
         }
@@ -190,7 +184,7 @@ export default function Home() {
         }
 
         /* animated mesh background */
-        .ss-hero::before {
+         .ss-hero::before {
           content: '';
           position: absolute;
           inset: 0;
@@ -199,7 +193,7 @@ export default function Home() {
             radial-gradient(ellipse 60% 50% at 80% 70%, rgba(26,107,69,.18) 0%, transparent 55%),
             radial-gradient(ellipse 40% 40% at 50% 10%, rgba(255,255,255,.04) 0%, transparent 50%);
           animation: meshShift 12s ease-in-out infinite alternate;
-        }
+        } 
         @keyframes meshShift {
           0%   { transform: scale(1)   rotate(0deg); }
           100% { transform: scale(1.08) rotate(2deg); }
@@ -211,8 +205,8 @@ export default function Home() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(45deg, rgba(255,255,255,.035) 1px, transparent 1px);
           background-size: 60px 60px;
           pointer-events: none;
         }
@@ -221,7 +215,7 @@ export default function Home() {
           position: relative;
           z-index: 2;
           text-align: center;
-          max-width: 900px;
+          max-width: 1200px;
         }
 
         .ss-badge {
