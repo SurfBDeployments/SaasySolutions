@@ -1,6 +1,6 @@
 
 "use client"
-import { useEffect } from 'react';
+
 import '../../styles/default.css';
 import ResponsiveAppBar from '../components/appbar';
 import Box from '@mui/material/Box';
@@ -32,7 +32,7 @@ export function MediaCard() {
           Contact John for your Sales and Business needs at SaaSy.
         </Typography>
         <CardActions>
-          <Button size="small" variant="outlined">Let's Get Started</Button>
+          <Button size="small" variant="outlined">Let&apos;s Get Started</Button>
 
         </CardActions>
 
@@ -105,12 +105,6 @@ export function ResponsiveGrid() {
 }
 export default function Home() {
 
-  useEffect(() => {
-    const lucide = (globalThis as any).lucide;
-    if (lucide?.createIcons) {
-      lucide.createIcons();
-    }
-  }, [])
 
 
   return (
@@ -121,9 +115,9 @@ export default function Home() {
 
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">Contact Us</h1>
-            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
+            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
               Get in touch with our team of experts to learn more about how we can help you achieve your goals.
-              Tell us more about yourself and what you&apos;d like to chat about. Someone from SaaSy will be in touch shortly.</h5>
+              Tell us more about yourself and what you&apos;d like to chat about. Someone from SaaSy will be in touch shortly.</h3>
 
             <ResponsiveGrid />
             <ContactForm />

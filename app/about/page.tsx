@@ -265,10 +265,10 @@ export default function Home() {
             <AboutGrid />
 
 
-            <h2 className="max-w-m text-4xl font-semibold" style={{ marginTop: '10px' }}>Meet the Team</h2>
-            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
-              Our team is our greatest asset. From collaborative projects to fun office moments, see the talented individuals who bring our agency to life and drive our success.</h5>
-            <h5><a href="/users">See the Happy Clients</a></h5>
+            <h2 className="max-w-m text-4xl font-semibold" style={{ marginTop: '20px' }}>Meet the Team</h2>
+            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
+              Our team is our greatest asset. From collaborative projects to fun office moments, see the talented individuals who bring our agency to life and drive our success.</h3>
+            <h3><a href="/users">See the Happy Clients</a></h3>
             <ResponsiveGrid /></div>
         </div>
 
