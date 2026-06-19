@@ -12,6 +12,7 @@ h3 {
   justify-content:center;
   background-color: #ffffff;
    margin-bottom: 20px;
+
 }
 
 li.nav-item {
@@ -794,6 +795,13 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  .navbar-nav {
+  background-color: #ffffff;
+   margin-bottom: 20px;
+   display: flow;
+    margin-left: 35px;
+}
   .page-layout {
     grid-template-columns: 1fr;
     margin-bottom: 20px;
