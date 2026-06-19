@@ -259,7 +259,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">About SaaSy</h1>
-            <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>At SaaSy Solutions, we believe everyone can make successful data-driven decisions. SaaSy is a premier sales and marketing partner dedicated to scaling B2B software organizations. They just need the right tools and the right people. Our mission is to break down the barriers in data analytics and make it accessible to all, regardless of technical background or role. We help businesses connect to their users with their data.</h5>
+            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>At SaaSy Solutions, we believe everyone can make successful data-driven decisions. SaaSy is a premier sales and marketing partner dedicated to scaling B2B software organizations. They just need the right tools and the right people. Our mission is to break down the barriers in data analytics and make it accessible to all, regardless of technical background or role. We help businesses connect to their users with their data.</h3>
 
   
             <AboutGrid />
