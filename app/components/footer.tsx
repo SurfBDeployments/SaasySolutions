@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 interface FooterLink {
   id: number;
@@ -24,13 +25,14 @@ const legalitems: FooterLink[] = [
 const Footer = (): React.JSX.Element => {
   return (
     <footer>
-      <img
-        src="../socialicons.png"
+      <Image src="../socialicons.png"
         alt="Social Media"
-        height="25px"
         useMap="#Map"
-        style={{ height: '25px' }}
-      />
+        style={{ height: '25px' }}>
+
+
+      </Image>
+      
       <map name="Map">
         <area shape="rect" coords="5,5,43,29" href="https://www.instagram.com" target="_blank" alt="Instagram" rel="noopener noreferrer" />
         <area shape="rect" coords="44,4,68,32" href="https://www.facebook.com" target="_blank" alt="Facebook" rel="noopener noreferrer" />
