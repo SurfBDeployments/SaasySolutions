@@ -25,14 +25,14 @@ const legalitems: FooterLink[] = [
 const Footer = (): React.JSX.Element => {
   return (
     <footer>
-      <Image src="../socialicons.png"
+      <Image src="/socialicons.png"
         alt="Social Media"
         useMap="#Map"
-        style={{ height: '25px' }}>
 
-
+        width={135}
+        height={35}>
       </Image>
-      
+
       <map name="Map">
         <area shape="rect" coords="5,5,43,29" href="https://www.instagram.com" target="_blank" alt="Instagram" rel="noopener noreferrer" />
         <area shape="rect" coords="44,4,68,32" href="https://www.facebook.com" target="_blank" alt="Facebook" rel="noopener noreferrer" />
