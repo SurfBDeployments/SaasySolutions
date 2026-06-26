@@ -58,7 +58,6 @@ const columns: GridColDef[] = [
 ];
 
 
-const paginationModel = { page: 0, pageSize: 5 };
 
 export default function RicknMorty() {
   const [ricknmorty, setRicknMorty] = useState([]);

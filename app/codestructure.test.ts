@@ -4,9 +4,11 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect, beforeAll } from 'vitest'
 import { parse, type ParserPlugin } from '@babel/parser'
+import { lintQuoteEscapes } from './codestructure'
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url))
 const componentsDir = path.join(rootDir, 'components')
+const termsDir = path.join(rootDir, 'terms')
 
 async function collectReactFiles(dir: string): Promise<string[]> {
   try {
@@ -35,6 +37,7 @@ describe('React component files', () => {
 
   beforeAll(async () => {
     reactFiles = await collectReactFiles(componentsDir)
+      reactFiles = await collectReactFiles(termsDir)
   })
 
   it('finds JSX/TSX files', () => {
@@ -64,5 +67,30 @@ describe('React component files', () => {
       )
       expect(hasExport, `${file} has no exports`).toBe(true)
     }
+  })
+})
+
+describe('Quote escape lint', () => {
+  it('flags raw quotes and recommends HTML entities', () => {
+    const sample = `
+<p>Use &quot;double quotes&quot; or &apos;single quotes&apos;.
+But avoid raw " quotes and raw ' quotes in text.
+`
+    const problems = lintQuoteEscapes(sample)
+
+    expect(problems).toEqual([
+      {
+        line: 3,
+        column: 6,
+        character: '"',
+        message: 'Raw " found. Replace with &quot;, &ldquo;, &#34; or &rdquo;.'
+      },
+      {
+        line: 3,
+        column: 19,
+        character: "'",
+        message: "Raw ' found. Replace with &apos;, &lsquo;, &#39; or &rsquo;."
+      }
+    ])
   })
 })

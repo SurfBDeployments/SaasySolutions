@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import styles from './products/executivecharts.module.css';
 import StripeMetricChart from './products/mrrchurn';
+import Link from 'next/link';
 
 // ─── Stat counter hook ───────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 1800, start = false) {
@@ -29,53 +30,7 @@ function useCountUp(target: number, duration = 1800, start = false) {
   }, [start, target, duration]);
   return value;
 }
-/* export function MediaCard1() {
-  return (
-    <Card sx={{ width: '100%', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
-      <CardMedia
-        sx={{ height: 400 }}
-        image='/monthlyvariance.png'
-        title="Monthly Variance Report"
-      />
-      <CardContent>
-        <Typography sx={{ fontSize: '1.5rem', color: '#ffffff' }} variant="h2" component="div">
-          Sample Dashboard
-        </Typography>
-      </CardContent>
 
-    </Card>
-  );
-}
-export function MediaCard2() {
-  return (
-    <Card sx={{ width: '100%', height: '400px', marginTop: '24px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
-      <CardMedia
-        sx={{ height: 400 }}
-        image='/budget.png'
-        title="Budget Report"
-      />
-      <CardContent>
-        <Typography sx={{ fontSize: '1.5rem', color: '#ffffff' }} variant="h2" component="div">
-          Sample Dashboard
-        </Typography>
-      </CardContent>
-
-    </Card>
-  );
-}
-export function MediaGrid() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 16 }}>
-        {[MediaCard1, MediaCard2].map((Component, index) => (
-          <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
-            <Component />
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  );
-} */
 // ─── Stat card ───────────────────────────────────────────────────────────────
 function StatCard({
   value,
@@ -157,7 +112,7 @@ export default function Home() {
           --ss-surface:    #f5f4f0;
           --ss-white:      #ffffff;
           --ss-accent:     #1a6b45;      /* deep forest green */
-          --ss-accent-lt:  #22a06b;      /* bright mint green */
+          --ss-accent-lt:  #3DD696;      /* bright mint green */
           --ss-accent-pale:#d6f0e6;
           --ss-muted:      #6b7280;
           --ss-border:     #e2e0d8;
@@ -647,12 +602,15 @@ export default function Home() {
           </p>
 
           <div className="ss-hero-cta">
-            <button className="ss-btn-primary">
-              Get Started →
-            </button>
-            <button className="ss-btn-ghost">
-              Learn How It Works
-            </button>
+            <Link href="/about">
+              <button className="ss-btn-primary">
+                Get Started →
+              </button>
+            </Link>
+            <Link href="/about">
+              <button className="ss-btn-ghost">
+                Learn How It Works
+              </button></Link>
           </div>
 
           {/* Hero image placeholder */}
@@ -765,10 +723,10 @@ export default function Home() {
           <p className="ss-cta-sub">
             Partner with SaaSy Solutions and turn your pipeline into a reliable growth engine.
             No guesswork—just repeatable results.
-          </p>
-          <button className="ss-cta-btn">
-            Schedule a Strategy Call →
-          </button>
+          </p> <Link href="/about">
+            <button className="ss-cta-btn" >
+              Schedule a Strategy Call →
+            </button></Link>
         </div>
       </section>
 

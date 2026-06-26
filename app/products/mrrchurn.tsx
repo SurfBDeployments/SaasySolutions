@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import {
   ComposedChart,
   Line,
@@ -14,7 +16,7 @@ import {
 } from 'recharts';
 
 type StripeMetricChartProps = {
-  data: Array<{ [key: string]: any }>;
+  data: Array<{ [key: string]: unknown }>;
   isCurrency?: boolean;
   nameKey?: string; // Specify which field contains the X-axis labels (default: 'month' or 'name')
 };
@@ -27,7 +29,7 @@ export const StripeMetricChart = ({
   // Determine which key to use for X-axis labels
   const xAxisKey = nameKey || (data.length > 0 && 'month' in data[0] ? 'month' : 'name') || 'month';
   // Format numbers for tooltips and axes
-  const formatValue = (value: any): string => {
+  const formatValue = (value: unknown): string => {
     // Handle arrays (can occur in Recharts tooltips with multiple series)
     if (Array.isArray(value)) {
       return value.length > 0 ? formatValue(value[0]) : '0';
@@ -39,13 +41,20 @@ export const StripeMetricChart = ({
     return `${num}%`;
   };
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div style={{ width: '100%', height: 400, backgroundColor: '#ffffff', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <ComposedChart
-          data={data}
-          margin={{ top: 0, right: 20, bottom: 20, left: 20 }}
-        >
+    <div style={{ width: '100%', height: 400, minWidth: 0, minHeight: 400, display: 'block', backgroundColor: '#ffffff', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+      {mounted ? (
+        <ResponsiveContainer width="100%" height={400}>
+          <ComposedChart
+            data={data}
+            margin={{ top: 0, right: 20, bottom: 20, left: 20 }}
+          >
           <CartesianGrid stroke="#f0f0f0" strokeDasharray="3 3" />
           
           <XAxis 
@@ -112,6 +121,7 @@ export const StripeMetricChart = ({
           />
         </ComposedChart>
       </ResponsiveContainer>
+      ) : null}
     </div>
   );
 };

@@ -1,7 +1,9 @@
+"use client";
+
 import { useState } from 'react';
 import {
   Area, ComposedChart, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer, ReferenceLine
+  Tooltip, Legend, ResponsiveContainer, ReferenceLine, BarShapeProps
 } from 'recharts';
 import styles from './executivecharts.module.css';
 import StripeMetricChart from './mrrchurn';
@@ -9,16 +11,18 @@ import { customerRetentionData, grossVolumeData, netVolumeData, cashFlowData, fi
 
 import RicknMorty from '../products/api/graphqldatagrid';
 
+type GrossMarginPayload = {
+  grossMargin?: number;
+};
 
 const MasterDashboard = () => {
   const [activeTab, setActiveTab] = useState('financials');
 
-
-  // use a loose prop type to match Recharts' optional payload and avoid type errors
-  const renderGrossMarginBar = (barProps: any) => {
-    const { x, y, width, height, payload } = barProps || {};
+  const renderGrossMarginBar = (barProps: BarShapeProps & { payload?: GrossMarginPayload }) => {
+    const { x, y, width, height, payload } = barProps;
     const gross = payload?.grossMargin ?? 0;
     const fill = gross > 35 ? '#2ecc71' : '#3498db';
+
     return <rect x={x} y={y} width={width} height={height} fill={fill} rx={4} ry={4} />;
   };
 
@@ -74,7 +78,7 @@ const MasterDashboard = () => {
           <h1 className={styles.heading}>{pageTitle}</h1>
           <p className={styles.subheading}>Real-time Executive Reporting Dashboard</p>
         </header>
-{activeTab === 'RicknMorty' ? (
+        {activeTab === 'RicknMorty' ? (
 
 
           <div className={styles.datagrid}>
@@ -88,7 +92,7 @@ const MasterDashboard = () => {
               <RicknMorty />
             </div>
           </div>
-        ): activeTab === 'financials' ? (
+        ) : activeTab === 'financials' ? (
           <div className={styles.grid}>
             {/* Revenue Chart */}
             <div className={styles.card}>
@@ -190,7 +194,7 @@ const MasterDashboard = () => {
             </div>
 
           </div>
-        
+
 
         ) : activeTab === 'mrrData' ? (
 

@@ -1,6 +1,6 @@
 
 "use client"
-//import { useEffect } from 'react';
+
 import '../../styles/default.css';
 import ResponsiveAppBar from '../components/appbar';
 import Footer from '../components/footer';

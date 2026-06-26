@@ -15,7 +15,7 @@ const columns: GridColDef[] = [
   { field: 'addressText', headerName: 'Address', width: 350, headerClassName: 'bold-header' },
 ];
 
-const paginationModel = { page: 0, pageSize: 10 };
+
 
 type User = {
   id: number;
@@ -49,7 +49,7 @@ export default function UsersClient({ data }: UsersClientProps) {
             A sample listing of customers around the world via our platform. (connected by a Rest API).
           </h5>
 
-          <Paper sx={{width: '100%', padding: 2 }}>
+          <Paper sx={{width: '100%', height: '600', padding: 2 }}>
             <DataGrid
               rows={data.map(user => ({
                 id: user.id,

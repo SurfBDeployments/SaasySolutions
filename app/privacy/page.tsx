@@ -16,7 +16,7 @@ export default function Home() {
             <h1 className="max-w-m text-4xl font-semibold">Privacy Statement</h1>
 
             <h5 className="max-w-m text-2xl font-condensed-light leading-normal" style={{ marginBottom: '20px' }}>
-              At SaaSy Inc. ("SaaSy"), your privacy is important to us. The purpose of this privacy
+              At SaaSy Inc. (&#34;SaaSy&#34;), your privacy is important to us. The purpose of this privacy
               statement is to let you know how we collect, use and disclose Personal Information, and
               to inform you of your rights with respect to such Personal Information. This Privacy
               Statement is effective as of the effective date of your subscription to the Services.
@@ -26,16 +26,16 @@ export default function Home() {
             <p>
               SaaSy offers two online services, SaaS® and PowerMetrics, that enable its Customers to
               aggregate diverse data from multiple sources and quickly create new, actionable
-              perspectives on their business (the "Services"). The Services integrate with hundreds of
+              perspectives on their business (the &#34;Services&#34;). The Services integrate with hundreds of
               data sources ranging from social media platforms to enterprise management services.
             </p>
 
             <h2>APPLICABILITY OF PRIVACY STATEMENT</h2>
             <p>
-              This Privacy Statement relates to "Personal Information", meaning information about an
+              This Privacy Statement relates to &#34;Personal Information&#34;, meaning information about an
               identifiable individual, whether, for example, that individual is our Customer, or our
-              Customer's provisioned user or an individual whose information is part of Processed Data,
-              as these terms are defined below. Whether a person is "identifiable" means that they can
+              Customer&apos;s provisioned user or an individual whose information is part of Processed Data,
+              as these terms are defined below. Whether a person is &#34;identifiable&#34; means that they can
               be identified by the information itself or by that information combined with other
               information reasonably available.
             </p>
@@ -47,12 +47,12 @@ export default function Home() {
               (and thus not Personal Information) that is collected via our websites and the Services.
             </p>
 
-            <p>"Customer" refers to the customers of SaaSy and their provisioned users.</p>
+            <p>&#34;Customer&#34; refers to the customers of SaaSy and their provisioned users.</p>
 
-            <p>"Customer Information" refers to information about our Customers and their provisioned users.</p>
+            <p>&#34;Customer Information&#34; refers to information about our Customers and their provisioned users.</p>
 
             <p>
-              "Processed Data" refers to information that is processed by SaaSy on behalf of our
+              &#34;Processed Data&#34; refers to information that is processed by SaaSy on behalf of our
               Customers through their use of the Services.
             </p>
 
@@ -116,7 +116,7 @@ export default function Home() {
               From our Customers, we only collect Customer Information that is necessary to establish
               and maintain the provision of the Services to them, as well as to understand and improve
               the usage and performance of the Services. When our Customers are corporations, as opposed
-              to individuals, this information is not "Personal Information". This Customer Information
+              to individuals, this information is not &#34;Personal Information&#34;. This Customer Information
               includes:
             </p>
             <ul>
@@ -168,8 +168,8 @@ export default function Home() {
 
             <h2>DISCLOSURE OF PERSONAL INFORMATION</h2>
             <p>
-              SaaSy may share Personal Information with people within the company who have a "need to
-              know" the information for business or legal reasons, for example, in order to carry out an
+              SaaSy may share Personal Information with people within the company who have a &#34;need to
+              know&#34; the information for business or legal reasons, for example, in order to carry out an
               administrative function, such as processing an invoice or supporting questions that you
               have submitted to SaaSy.
             </p>
