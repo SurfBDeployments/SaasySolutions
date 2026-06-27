@@ -40,8 +40,11 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
   return (
-    <AppBar position="static">
+   
       <Container maxWidth="xl">
+         <AppBar position="static">
+
+       
         <Toolbar disableGutters>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
@@ -194,8 +197,9 @@ function ResponsiveAppBar() {
           </Box>
 
         </Toolbar>
+          </AppBar>
       </Container>
-    </AppBar>
+  
   );
 }
 

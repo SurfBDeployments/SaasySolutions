@@ -41,11 +41,11 @@ export const StripeMetricChart = ({
     return `${num}%`;
   };
 
-  const [mounted, setMounted] = useState(false);
+   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+  }, []); 
 
   return (
     <div style={{ width: '100%', height: 400, minWidth: 0, minHeight: 400, display: 'block', backgroundColor: '#ffffff', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
