@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaSy Solutions
+
+A B2B SaaS analytics dashboard built to demonstrate modern frontend engineering patterns — featuring real-time data visualization, GraphQL integration, global state management, and production deployment on Vercel.
+
+🔗 **Live Demo:** [saasy-orpin.vercel.app](https://saasy-orpin.vercel.app)
+
+---
+
+## Overview
+
+SaaSy Solutions is a full-featured analytics and reporting dashboard designed for a fictional B2B SaaS company. The project serves as a vehicle for building and demonstrating production-grade frontend skills across data visualization, API integration, state management, and cloud deployment.
+
+The dashboard includes multi-section reporting views, interactive charts, GraphQL-powered data fetching, and Redux-managed global state — all built with Next.js and TypeScript.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Data Visualization | Recharts |
+| API Layer | GraphQL |
+| State Management | Redux |
+| Deployment | Vercel |
+| Containerization | Docker (Next.js standalone mode) |
+
+---
+
+## Key Features
+
+- **Interactive analytics dashboard** — Multi-chart reporting views with Recharts (line, bar, area charts)
+- **GraphQL data layer** — Structured API queries replacing traditional REST patterns
+- **Redux state management** — Global state for dashboard filters, user preferences, and shared data
+- **Next.js App Router** — Leverages server components, layouts, and nested routing
+- **Docker support** — Containerized using Next.js standalone mode for portable deployment
+- **TypeScript throughout** — Strict typing across components, API responses, and Redux slices
+- **Responsive layout** — Mobile-aware dashboard design with Tailwind CSS utility classes
+
+---
+
+## Project Structure
+
+```
+SaasySolutions/
+├── app/                    # Next.js App Router directory
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Dashboard home
+│   └── [section]/          # Feature route segments
+├── lib/                    # GraphQL queries, Redux store, utilities
+├── styles/                 # Global CSS
+├── public/                 # Static assets
+├── next.config.ts          # Next.js config (standalone output)
+├── tsconfig.json
+└── package.json
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Local Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App will be available at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Docker Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for Docker using Next.js standalone output mode, which produces a minimal self-contained build optimized for containerized environments.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Build the image
+docker build -t saasy-solutions .
 
-## Deploy on Vercel
+# Run the container
+docker run -p 3000:3000 saasy-solutions
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deployable to any container platform: GCP Cloud Run, AWS ECS, Azure Container Apps, Fly.io, Railway, etc.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Motivation
+
+This project was built to develop and demonstrate hands-on experience with technologies commonly required in senior frontend roles — particularly GraphQL, Redux, and data visualization — within a realistic B2B product context. It has evolved continuously as a learning platform for new tools and deployment patterns.
+
+---
+
+## Related Projects
+
+- [CSRA Intranet Modernization](https://github.com/SurfBDeployments/csra) — SharePoint 2010 → React 19 enterprise intranet rebuild, deployed to GCP Cloud Run via Docker
