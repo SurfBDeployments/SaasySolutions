@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
 
   return (
    
-      <Container maxWidth="xl">
+   <Container disableGutters maxWidth={false}>
          <AppBar position="static">
 
        
