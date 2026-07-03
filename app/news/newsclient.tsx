@@ -5,7 +5,7 @@ import ResponsiveAppBar from '../components/appbar';
 import Footer from '../components/footer';
 import '../../styles/default.css';
 import Paper from '@mui/material/Paper';
-import NavBar from '../components/newsnav'; 
+import NavBar from '../components/newsnav';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -59,15 +59,15 @@ export default function NewsClient({ data }: NewsClientProps) {
 
       <article>
         <div className="max-w-7xl mx-auto">
-      
+
           <div className="maincontent">
-      <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
-             <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | News APIs</h2>
-          
-      
-             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
+            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
+         <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | News APIs | <Link href="/products/weather">Weather APIs</Link></h2>
+
+
+            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
               A sample listing of news from around the world via our platform. (connected by a Rest API using API keys).
-  
+
             </h3>
             <NavBar />
 
@@ -102,7 +102,7 @@ export default function NewsClient({ data }: NewsClientProps) {
                         </Typography>
                         <Typography variant="body2" component="p">
                           {newsItem.content || 'No content provided.'}
-                        </Typography> 
+                        </Typography>
                       </CardContent>
                       <CardActions>
                         <Button size="small" onClick={() => newsItem.url && window.open(newsItem.url, '_blank')}>Read More</Button>

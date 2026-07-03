@@ -1,8 +1,8 @@
 'use client';
 
-import ResponsiveAppBar from '../components/appbar';
-import Footer from '../components/footer';
-import '../../styles/default.css';
+import '../../../styles/default.css';
+import ResponsiveAppBar from '../../components/appbar';
+import Footer from '../../components/footer';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 
@@ -45,9 +45,9 @@ export default function UsersClient({ data }: UsersClientProps) {
       <div className="max-w-7xl mx-auto">
         <div className="maincontent">
           <h1 className="max-w-m text-4xl font-semibold">List of Happy Customers</h1>
-          <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
+          <h5 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>
             A sample listing of customers around the world via our platform. (connected by a Rest API).
-          </h3>
+          </h5>
 
           <Paper sx={{width: '100%', height: '600', padding: 2 }}>
             <DataGrid

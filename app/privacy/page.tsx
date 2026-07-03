@@ -15,12 +15,12 @@ export default function Home() {
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">Privacy Statement</h1>
 
-            <h5 className="max-w-m text-2xl font-condensed-light leading-normal" style={{ marginBottom: '20px' }}>
+            <h3 className="max-w-m text-2xl font-condensed-light leading-normal" style={{ marginBottom: '20px' }}>
               At SaaSy Inc. (&#34;SaaSy&#34;), your privacy is important to us. The purpose of this privacy
               statement is to let you know how we collect, use and disclose Personal Information, and
               to inform you of your rights with respect to such Personal Information. This Privacy
               Statement is effective as of the effective date of your subscription to the Services.
-            </h5>
+            </h3>
 
             <h2>ABOUT SaaSy</h2>
             <p>
