@@ -111,8 +111,7 @@ export default function Home() {
     <>
       <ResponsiveAppBar />
       <article>
-        <div className="max-w-7xl mx-auto">
-
+      <div className="max-w-7xl mx-auto">
           <div className='maincontent'>
             <h1 className="max-w-m text-4xl font-semibold">Contact Us</h1>
             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
@@ -127,7 +126,8 @@ export default function Home() {
 
         </div>
       </article>
-      <Footer />
+          <Footer />
     </>
+
   );
 }

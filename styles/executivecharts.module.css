@@ -28,7 +28,7 @@
 
 .sidebarHeading {
   margin: 0;
-  font-size: 1.95rem;
+  font-size: 1.4rem;
   line-height: 1.1;
   color: #111827;
 }
@@ -70,14 +70,14 @@
 
 .heading {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #111827;
 }
 
 .subheading {
   margin: 0;
   color: #4b5563;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .grid {

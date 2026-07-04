@@ -5,7 +5,7 @@ import {
   Area, ComposedChart, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, ReferenceLine, BarShapeProps
 } from 'recharts';
-import styles from './executivecharts.module.css';
+import styles from '../../styles/executivecharts.module.css';
 import StripeMetricChart from './mrrchurn';
 import { customerRetentionData, grossVolumeData, netVolumeData, cashFlowData, financialData, variancedata, churnData, mrrData } from './chartdatasets';
 

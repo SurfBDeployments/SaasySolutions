@@ -269,7 +269,7 @@ p {
 }
 
 h2 {
-  font-size: 22px !important;
+  font-size: 20px !important;
   font-weight: bold !important;
   color: #414756;
   padding-bottom: 10px;
@@ -734,6 +734,7 @@ footer {
   padding: 20px;
   margin-top: 40px;
   border-top: 4px solid #ededed;
+  clear: both;
 }
 
 

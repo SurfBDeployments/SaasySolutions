@@ -9,7 +9,7 @@ import {
   Area, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, ReferenceLine
 } from 'recharts';
-import styles from './products/executivecharts.module.css';
+import styles from '../styles/executivecharts.module.css';
 import StripeMetricChart from './products/mrrchurn';
 import Link from 'next/link';
 
