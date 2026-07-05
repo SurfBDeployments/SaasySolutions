@@ -56,7 +56,7 @@ export default function WeatherProductsPage() {
             <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
           
             <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | <Link href="/news">News APIs</Link> | Weather APIs</h2>
-            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>Showing weather data  for Raleigh using an API endpoint done in Python running on FastAPI framework.</h3>
+            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>Showing weather data  for Raleigh, NC using an API endpoint done in Python running on FastAPI framework.</h3>
             <p className="text-sm text-emerald-400 font-mono mt-1">📍 Station Active (UTC Offset: {weather.location?.utc_offset_seconds}s)</p>
           
           <div className="text-left sm:text-right text-xs text-slate-400 font-mono space-y-0.5">
@@ -105,24 +105,24 @@ export default function WeatherProductsPage() {
                 <div className="space-y-3.5 text-sm font-mono">
                   {/* FIX: Wind gusts mapped to weather.current.wind_gusts_10m and changed unit to mph */}
                   <div className="flex justify-between border-b border-slate-800/60 pb-2">
-                    <span className="text-slate-400">💨 Wind Gusts</span>
-                    <span className="text-white font-bold">{weather.current.wind_gusts_10m?.toFixed(1) || "0.0"} mph</span>
+                    <span className="text-slate-400">💨 Wind Gusts </span>
+                    <span className="text-white font-bold"> {weather.current.wind_gusts_10m?.toFixed(1) || "0.0"} mph</span>
                   </div>
                   {/* FIX: Corrected variable key to wind_direction_10m from weather.current */}
                   <div className="flex justify-between border-b border-slate-800/60 pb-2">
-                    <span className="text-slate-400">🧭 Wind Dir.</span>
+                    <span className="text-slate-400">🧭 Wind Dir. </span>
                     <span className="text-white font-bold">{weather.current.wind_direction_10m || "0"}°</span>
                   </div>
                   {/* FIX: Safety fallback for Visibility since it isn't tracked in your current API parameters */}
                   <div className="flex justify-between border-b border-slate-800/60 pb-2">
-                    <span className="text-slate-400">👁️ Visibility</span>
+                    <span className="text-slate-400">👁️ Visibility </span>
                     <span className="text-white font-bold">
                       {weather.current.visibility ? (weather.current.visibility / 1000).toFixed(1) : "10.0"} km
                     </span>
                   </div>
                   {/* FIX: Pointed tracking to current.surface_pressure instead of an unassigned hourly metric */}
                   <div className="flex justify-between">
-                    <span className="text-slate-400">📉 Pressure</span>
+                    <span className="text-slate-400">📉 Pressure </span>
                     <span className="text-white font-bold">{weather.current.surface_pressure?.toFixed(0) || "0"} hPa</span>
                   </div>
                 </div>
