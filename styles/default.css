@@ -1,7 +1,7 @@
 /* Default Page (Homepage) Styles */
 h3 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
   margin-top: 10px;
   color: #2f2f2f;
@@ -257,6 +257,12 @@ footer ul li {
   display: inline !important;
   font-weight: 600;
 
+}
+
+ul {
+  margin-left: 20px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 body,
@@ -805,13 +811,13 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
 
-li.nav-item {
-  padding-right: 15px;
-  text-decoration: none;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  display: block ;
-}
+  li.nav-item {
+    padding-right: 15px;
+    text-decoration: none;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    display: block;
+  }
 
   .navbar-nav {
     background-color: #ffffff;

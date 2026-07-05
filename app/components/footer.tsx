@@ -30,7 +30,7 @@ const Footer = (): React.JSX.Element => {
         useMap="#Map"
 
         width={135}
-        height={35}>
+        height={35} style={{ height: 'auto' }}>
       </Image>
 
       <map name="Map">

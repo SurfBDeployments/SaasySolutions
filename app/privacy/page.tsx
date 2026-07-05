@@ -126,8 +126,8 @@ export default function Home() {
               <li>Billing details (as necessary for our internal accounting purposes and for processing payments through our contracted processing service)</li>
               <li>Login information for provisioned users, such as usernames and encrypted passwords</li>
               <li>Information about how the Customer and its provisioned users use the Service, including information about the Customer, location information, usage patterns and intended use of the Services.</li>
-              <li>Information provided by the Customer and its provisioned users in connection with any support given by the SaaSy team related to the Services.</li>
-              <li>Login information for third party integrations to SaaSy, such as usernames and encrypted passwords</li>
+              <li>Information provided by the Customer and its provisioned users in connection with any support given by the SaaSy team related to the Services.
+              Login information for third party integrations to SaaSy, such as usernames and encrypted passwords</li>
             </ul>
             <p>
               In connection with our marketing, sales and Customer support functions, we may collect
@@ -177,8 +177,8 @@ export default function Home() {
             <ul>
               <li>government and regulatory authorities, for example to respond to a legal request or comply with a legal obligation, in which case we will make reasonable efforts to give the relevant individual notice of the disclosure, provided we are able to identify the individual and are lawfully able to do so;</li>
               <li>for the purposes of seeking legal or other professional advice;</li>
-              <li>suppliers of IT services and third party service providers engaged by SaaSy as further detailed in this Privacy Statement and our Terms of Service; and</li>
-              <li>in the event that we sell, buy or merge any business or assets, including to the prospective seller or buyer of such business or assets and their respective professional advisers.</li>
+              <li>suppliers of IT services and third party service providers engaged by SaaSy as further detailed in this Privacy Statement and our Terms of Service; and
+              in the event that we sell, buy or merge any business or assets, including to the prospective seller or buyer of such business or assets and their respective professional advisers.</li>
             </ul>
             <p>
               We may also share anonymous or de-identified information with other third parties in
