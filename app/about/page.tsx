@@ -17,7 +17,7 @@ import Footer from '../components/footer';
 
 export function Customer() {
   return (
-    <Card sx={{ maxWidth: 250, width: '100%', height: '100%', backgroundColor: '#1976d2', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, width: '100%', height: '100%', backgroundColor: '#1976d2', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -33,7 +33,7 @@ export function Customer() {
 }
 export function Results() {
   return (
-    <Card sx={{ maxWidth: 250, height: '100%', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', backgroundColor: '#414756', color: '#fff' }}>
+    <Card sx={{ maxWidth: 300, height: '100%', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', backgroundColor: '#414756', color: '#fff' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -49,7 +49,7 @@ export function Results() {
 }
 export function Ownership() {
   return (
-    <Card sx={{ maxWidth: 250, height: '100%', backgroundColor: '#046531', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#046531', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -66,7 +66,7 @@ export function Ownership() {
 }
 export function Revenue() {
   return (
-    <Card sx={{ maxWidth: 250, height: '100%', backgroundColor: '#c94669', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#c94669', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -261,20 +261,14 @@ export default function Home() {
             <h1 className="max-w-m text-4xl font-semibold">About SaaSy</h1>
             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>At SaaSy Solutions, we believe everyone can make successful data-driven decisions. SaaSy is a premier sales and marketing partner dedicated to scaling B2B software organizations. They just need the right tools and the right people. Our mission is to break down the barriers in data analytics and make it accessible to all, regardless of technical background or role. We help businesses connect to their users with their data.</h3>
 
-  
             <AboutGrid />
-
-
             <h2 className="max-w-m text-4xl font-semibold" style={{ marginTop: '20px' }}>Meet the Team</h2>
             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
               Our team is our greatest asset. From collaborative projects to fun office moments, see the talented individuals who bring our agency to life and drive our success.</h3>
             <h3><a href="/users">See the Happy Clients</a></h3>
             <ResponsiveGrid /></div>
         </div>
-
       </article>
-
-
 
       <Footer />
 
