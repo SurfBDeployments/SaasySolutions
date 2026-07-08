@@ -203,7 +203,7 @@ export default function Home() {
 
         .ss-hero-title {
           font-family: var(--ff-display);
-          font-size: clamp(3rem, 8vw, 6.5rem);
+          font-size: clamp(3rem, 8vw, 5.5rem);
           font-weight: 700;
           line-height: .95;
           
