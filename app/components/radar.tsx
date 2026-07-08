@@ -49,6 +49,7 @@ export default function RadarMap() {
         <button
           onClick={() => setIsPlaying(!isPlaying)}
           className="px-4 py-2 bg-indigo-600 text-white rounded-md"
+          style={{ cursor: 'pointer' }}
         >
           {isPlaying ? "Pause" : "Play"}
         </button>

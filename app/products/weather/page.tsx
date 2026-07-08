@@ -12,6 +12,26 @@ const RadarMap = dynamic(() => import("../../components/radar"), {
   ssr: false,
 });
 
+type WeatherApiResponse = {
+  current?: {
+    temperature_2m?: number;
+    relative_humidity_2m?: number;
+    cloud_cover?: number;
+    wind_gusts_10m?: number;
+    wind_direction_10m?: number;
+    visibility?: number;
+    surface_pressure?: number;
+    time?: string;
+    weather_code?: number;
+  };
+  location?: {
+    utc_offset_seconds?: number;
+    elevation?: number;
+    latitude?: number;
+    longitude?: number;
+  };
+};
+
 // Helper function to decode WMO Weather Codes
 function getWeatherCondition(code: number): { text: string; emoji: string } {
   if (code === 0) return { text: "Clear Sky", emoji: "☀️" };
@@ -25,14 +45,14 @@ function getWeatherCondition(code: number): { text: string; emoji: string } {
 }
 
 export default function WeatherProductsPage() {
-  const [weather, setWeather] = useState<any>(null);
+  const [weather, setWeather] = useState<WeatherApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   // Radar timestamp
   const [timestamp, setTimestamp] = useState<number | null>(null);
 
-  // Fetch weather API
+  // Fetch weather API through the Next.js route handler so it works locally and in production
   useEffect(() => {
     fetch("/api/weather")
       .then((res) => {
@@ -83,6 +103,8 @@ export default function WeatherProductsPage() {
       </div>
     );
 
+  const currentCondition = getWeatherCondition(weather.current.weather_code ?? -1);
+
   return (
     <>
       <ResponsiveAppBar />
@@ -132,6 +154,10 @@ export default function WeatherProductsPage() {
                 <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 font-mono">
                   Current Status
                 </span>
+
+                <div className="mt-2 text-sm text-slate-300 font-mono">
+                  {currentCondition.emoji} {currentCondition.text}
+                </div>
 
                 <h2 className="text-5xl font-black text-white mt-2" style={{color: 'white'}}>
                   {weather.current.temperature_2m?.toFixed(1)}°F
