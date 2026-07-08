@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
+
 // Dynamically import radar map (SSR disabled)
 const RadarMap = dynamic(() => import("../../components/radar"), {
   ssr: false,
@@ -44,7 +45,7 @@ function getWeatherCondition(code: number): { text: string; emoji: string } {
   return { text: "Unknown Conditions", emoji: "🌍" };
 }
 
-export default function WeatherProductsPage() {
+export default function WeatherProducts() {
   const [weather, setWeather] = useState<WeatherApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -110,16 +111,10 @@ export default function WeatherProductsPage() {
       <ResponsiveAppBar />
 
       <article>
-        <div className="max-w-7xl mx-auto px-4 py-10">
+        <div className="max-w-7xl mx-auto">
           <div className="maincontent">
-            <h1 className="text-4xl font-semibold text-black dark:text-cyan-800">
-              Products
-            </h1>
-
-            <h2 className="text-4xl font-semibold text-black dark:text-cyan-800">
-              <Link href="/products">Data Visualizations</Link> |{" "}
-              <Link href="/news">News APIs</Link> | Weather APIs
-            </h2>
+            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
+            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | <Link href="/news">News APIs</Link>  | Weather APIs</h2>
 
             <h3 className="text-2xl font-condensed-light leading-relaxed mb-6">
               Showing weather data for Raleigh, NC using an API endpoint done in
@@ -129,8 +124,11 @@ export default function WeatherProductsPage() {
             {/* Live Radar Section */}
             {timestamp && (
               <section className="mt-12">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Live Radar
+                <h3 className="text-lg font-bold mb-3" style={{ textAlign: 'center' }}>
+                 <div id="navbarNav">
+                  Live Radar  <Link href="/products/weather/forecast" className="nav-link" style={{ marginLeft: "15px" }}>
+                   7 Day Forecast
+                  </Link></div>
                 </h3>
                 <RadarMap />
               </section>
@@ -159,7 +157,7 @@ export default function WeatherProductsPage() {
                   {currentCondition.emoji} {currentCondition.text}
                 </div>
 
-                <h2 className="text-5xl font-black text-white mt-2" style={{color: 'white'}}>
+                <h2 className="text-5xl font-black text-white mt-2" style={{ color: 'white' }}>
                   {weather.current.temperature_2m?.toFixed(1)}°F
                 </h2>
 
@@ -185,7 +183,7 @@ export default function WeatherProductsPage() {
                   Atmospherics
                 </span>
 
-                <h3 className="text-lg font-bold text-white mt-2 mb-4"style={{color: 'white'}}>
+                <h3 className="text-lg font-bold text-white mt-2 mb-4" style={{ color: 'white' }}>
                   Extended Sensors
                 </h3>
 
@@ -227,6 +225,7 @@ export default function WeatherProductsPage() {
                 </div>
               </section>
             </div>
+
           </div>
         </div>
       </article>
