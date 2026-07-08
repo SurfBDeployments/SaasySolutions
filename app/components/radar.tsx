@@ -3,53 +3,101 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+type RadarFrame = {
+  time: number;
+  path: string; // e.g. "/v2/radar/1234567890"
+};
 
 export default function RadarMap() {
   const center: LatLngExpression = [35.7721, -78.6386]; // Raleigh
 
-  // NOAA radar frames (6-frame loop)
-  const radarFrames = ["n0r", "n0q", "n0r", "n0q", "n0r", "n0q"];
-
+  const [frames, setFrames] = useState<RadarFrame[]>([]);
   const [frameIndex, setFrameIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-
-  // Animation loop
-  useEffect(() => {
-    if (!isPlaying) return;
-
-    const interval = setInterval(() => {
-      setFrameIndex((prev) => (prev + 1) % radarFrames.length);
-    }, 400); // smoother animation
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  // Satellite timestamp
   const [satTimestamp, setSatTimestamp] = useState<number | null>(null);
 
+  // Two-layer crossfade: "front" is visible, "back" loads the incoming frame
+  // then swaps once its tiles are ready, so there's no pop/flash.
+  const [frontIdx, setFrontIdx] = useState(0);
+  const [backIdx, setBackIdx] = useState<number | null>(null);
+  const [backOpacity, setBackOpacity] = useState(0);
+  const fadeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Fetch real RainViewer radar timestamps (actual past frames, ~10 min apart)
   useEffect(() => {
     fetch("https://api.rainviewer.com/public/weather-maps.json")
       .then((res) => res.json())
       .then((data) => {
+        const past = data?.radar?.past ?? [];
+        const nowcast = data?.radar?.nowcast ?? [];
+        const all: RadarFrame[] = [...past, ...nowcast].map((f: any) => ({
+          time: f.time,
+          path: f.path,
+        }));
+        if (all.length) {
+          setFrames(all);
+          setFrameIndex(all.length - 1); // start on most recent
+          setFrontIdx(all.length - 1);
+        }
+
         const infrared = data?.satellite?.infrared;
         if (Array.isArray(infrared) && infrared.length > 0) {
-          const latest = infrared[infrared.length - 1].time;
-          setSatTimestamp(latest);
+          setSatTimestamp(infrared[infrared.length - 1].time);
         }
       })
-      .catch(() => console.warn("Satellite fetch failed"));
+      .catch(() => console.warn("RainViewer fetch failed"));
   }, []);
+
+  // Advance through the loop
+  useEffect(() => {
+    if (!isPlaying || frames.length === 0) return;
+    const interval = setInterval(() => {
+      setFrameIndex((prev) => (prev + 1) % frames.length);
+    }, 500);
+    return () => clearInterval(interval);
+  }, [isPlaying, frames.length]);
+
+  // Crossfade whenever frameIndex changes: mount the new frame behind the
+  // current one at opacity 0, then fade it in. Once fully faded in, it
+  // becomes the new front layer and the old one unmounts.
+  useEffect(() => {
+    if (frames.length === 0 || frameIndex === frontIdx) return;
+
+    setBackIdx(frameIndex);
+    setBackOpacity(0);
+
+    // Let the tile layer mount, then trigger the CSS opacity transition
+    const raf = requestAnimationFrame(() => {
+      setBackOpacity(0.8);
+    });
+
+    if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
+    fadeTimeout.current = setTimeout(() => {
+      setFrontIdx(frameIndex);
+      setBackIdx(null);
+      setBackOpacity(0);
+    }, 350); // matches CSS transition duration below
+
+    return () => {
+      cancelAnimationFrame(raf);
+      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [frameIndex]);
+
+  const frontFrame = frames[frontIdx];
+  const backFrame = backIdx !== null ? frames[backIdx] : null;
 
   return (
     <div className="rounded-md overflow-hidden shadow-xl border border-slate-800 mt-10">
-
       {/* Controls */}
       <div className="flex items-center gap-4 p-3 bg-slate-900 border-b border-slate-700">
         <button
           onClick={() => setIsPlaying(!isPlaying)}
           className="px-4 py-2 bg-indigo-600 text-white rounded-md"
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
         >
           {isPlaying ? "Pause" : "Play"}
         </button>
@@ -57,7 +105,7 @@ export default function RadarMap() {
         <input
           type="range"
           min={0}
-          max={radarFrames.length - 1}
+          max={Math.max(frames.length - 1, 0)}
           value={frameIndex}
           onChange={(e) => {
             setFrameIndex(Number(e.target.value));
@@ -65,6 +113,15 @@ export default function RadarMap() {
           }}
           className="w-full"
         />
+
+        {frontFrame && (
+          <span className="text-xs text-slate-400 font-mono whitespace-nowrap">
+            {new Date(frontFrame.time * 1000).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </span>
+        )}
       </div>
 
       <MapContainer
@@ -79,13 +136,31 @@ export default function RadarMap() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Animated NOAA Radar */}
-        <TileLayer
-          key={frameIndex}
-          attribution="NOAA NEXRAD"
-          url={`https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-${radarFrames[frameIndex]}/{z}/{x}/{y}.png`}
-          opacity={0.8}
-        />
+        {/* Visible radar frame */}
+        {frontFrame && (
+          <TileLayer
+            attribution="RainViewer Radar"
+            url={`https://tilecache.rainviewer.com${frontFrame.path}/256/{z}/{x}/{y}/2/1_1.png`}
+            opacity={0.8}
+          />
+        )}
+
+        {/* Incoming radar frame, fades in on top, then becomes front */}
+        {backFrame && (
+          <TileLayer
+            key={backFrame.time}
+            attribution="RainViewer Radar"
+            url={`https://tilecache.rainviewer.com${backFrame.path}/256/{z}/{x}/{y}/2/1_1.png`}
+            opacity={backOpacity}
+            eventHandlers={{
+              add: (e) => {
+                // ensure new tiles start transitioning in smoothly
+                const pane = e.target.getContainer?.();
+                if (pane) pane.style.transition = "opacity 350ms linear";
+              },
+            }}
+          />
+        )}
 
         {/* IR Satellite */}
         {satTimestamp && (

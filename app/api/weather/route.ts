@@ -1,7 +1,8 @@
 export const dynamic = "force-dynamic";
 
-const OPEN_METEO_URL =
-  "https://api.open-meteo.com/v1/forecast?latitude=35.7796&longitude=-78.6382&current=temperature_2m,relative_humidity_2m,cloud_cover,wind_gusts_10m,wind_direction_10m,visibility,surface_pressure,weather_code&timezone=America%2FNew_York";
+  
+  const OPEN_METEO_URL =
+  "https://api.open-meteo.com/v1/forecast?latitude=35.7796&longitude=-78.6382&current=temperature_2m,relative_humidity_2m,cloud_cover,wind_gusts_10m,wind_direction_10m,visibility,surface_pressure,weather_code&timezone=America%2FNew_York&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch";
 
 async function getFallbackWeather() {
   const response = await fetch(OPEN_METEO_URL, {
