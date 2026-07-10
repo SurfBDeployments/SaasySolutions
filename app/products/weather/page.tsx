@@ -113,8 +113,8 @@ export default function WeatherProducts() {
       <article>
         <div className="max-w-7xl mx-auto">
           <div className="maincontent">
-            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
-            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | <Link href="/news">News APIs</Link>  | Weather APIs</h2>
+            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-wider text-black dark:text-cyan-800" style={{ textAlign: "left" }}>Products</h1>
+            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-wider text-black dark:text-cyan-800" style={{ textAlign: "left" }}><Link href="/products">Data Visualizations</Link> | <Link href="/news">News APIs</Link>  | Weather APIs</h2>
 
             <h3 className="text-2xl font-condensed-light leading-relaxed mb-6">
               Showing weather data for Raleigh, NC using an API endpoint done in

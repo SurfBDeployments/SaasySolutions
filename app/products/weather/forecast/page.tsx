@@ -116,11 +116,11 @@ export default function WeatherProductsPage() {
       <article>
         <div className="max-w-7xl mx-auto px-4 py-10">
           <div className="maincontent">
-            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: 'left' }}>
+            <h1 className="max-w-m text-4xl font-semibold leading-10 tracking-wider text-black dark:text-cyan-800" style={{ textAlign: 'left' }}>
               Products
             </h1>
 
-            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-tight text-black dark:text-cyan-800" style={{ textAlign: 'left' }}>
+            <h2 className="max-w-m text-4xl font-semibold leading-10 tracking-wider text-black dark:text-cyan-800" style={{ textAlign: 'left' }}>
               <Link href="/products">Data Visualizations</Link> | <Link href="/news">News APIs</Link> | Weather APIs
             </h2>
             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed">
@@ -142,7 +142,7 @@ export default function WeatherProductsPage() {
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.3em] text-indigo-300">Current forecast</p>
-                    <h2 className="mt-2 text-5xl font-white tracking-tight" style={{ color: 'white' }}>
+                    <h2 className="mt-2 text-5xl font-white tracking-wider" style={{ color: 'white' }}>
                       {current.temperature ?? '—'}°{current.temperatureUnit}
                     </h2>
                     <p className="mt-2 text-lg text-slate-200">{current.name}</p>
@@ -165,7 +165,7 @@ export default function WeatherProductsPage() {
                   <div className="flex items-center justify-between gap-6">
                     <div>
                       <p className="text-sm font-semibold text-slate-800">{period.name}</p>
-                      <p className="text-xs text-slate-500">{formatDateLabel(period.startTime)}</p>
+                      <p className="text-xs text-slate-700">{formatDateLabel(period.startTime)}</p>
                     </div>
                     <div className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">
                       {period.temperature ?? '—'}°{period.temperatureUnit}
