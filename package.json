@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
-    
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -40,7 +39,7 @@
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",
     "@types/leaflet": "^1.9.21",
-    "@types/node": "^20",
+    "@types/node": "^20.19.43",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.9",
@@ -53,9 +52,5 @@
     "typescript": "^5",
     "vitest": "^4.1.7"
   },
-  "allowScripts": {
-    "esbuild@0.28.1": true,
-    "sharp@0.34.5": true,
-    "unrs-resolver@1.11.1": true
-  }
+  "allowScripts": {}
 }

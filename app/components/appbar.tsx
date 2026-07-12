@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
          <AppBar position="static">
 
        
-        <Toolbar disableGutters>
+        <Toolbar>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
           <Box
