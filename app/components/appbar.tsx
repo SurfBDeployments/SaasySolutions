@@ -13,22 +13,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Collapse from '@mui/material/Collapse';
+import List from '@mui/material/List';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const pages = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' }, 
+  { name: 'Products', href: '/products' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
 
-// Define your dropdown items for products
 const productCategories = [
   { name: 'Data Visualizations', href: '/products' },
   { name: 'News', href: '/news' },
   { name: 'Weather', href: '/products/weather' }
-
 ];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,6 +37,7 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [anchorElProducts, setAnchorElProducts] = React.useState<null | HTMLElement>(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = React.useState(false);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -44,14 +45,22 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-  // 2. Open and Close Handlers for Products
   const handleOpenProductsMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElProducts(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => setAnchorElNav(null);
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+    setMobileProductsOpen(false); // Reset collapse when whole nav closes
+  };
   const handleCloseUserMenu = () => setAnchorElUser(null);
   const handleCloseProductsMenu = () => setAnchorElProducts(null);
+
+  // Toggle mobile submenu toggle
+  const handleMobileProductsToggle = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Stop click from bubbling and auto-closing menu prematurely
+    setMobileProductsOpen(!mobileProductsOpen);
+  };
 
   return (
     <Container disableGutters maxWidth={false}>
@@ -106,22 +115,51 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page.name}
-                  onClick={handleCloseNavMenu}
-                  component={Link}
-                  href={page.href}
-                  sx={{
-                    '&:hover': {
-                      color: '#ededed',
-                      cursor: 'pointer'
-                    },
-                  }}
-                >
-                  <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
-                </MenuItem>
-              ))}
+              {pages.map((page) => {
+                const isProducts = page.name === 'Products';
+
+                return (
+                  <Box key={page.name}>
+                    <MenuItem
+                      onClick={isProducts ? handleMobileProductsToggle : handleCloseNavMenu}
+                      component={isProducts ? 'div' : Link}
+                      href={isProducts ? undefined : page.href}
+                      sx={{
+                        justifyContent: 'space-between',
+                        '&:hover': {
+                          color: '#ededed',
+                          cursor: 'pointer'
+                        },
+                      }}
+                    >
+                      <Typography sx={{ textAlign: 'center' }}>
+                        {page.name} {isProducts && (mobileProductsOpen ? '▴' : '▾')}
+                      </Typography>
+                    </MenuItem>
+
+                    {/* Expandable subcategories for Mobile Products */}
+                    {isProducts && (
+                      <Collapse in={mobileProductsOpen} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding sx={{ pl: 2, bgcolor: '#f9f9f9' }}>
+                          {productCategories.map((category) => (
+                            <MenuItem
+                              key={category.name}
+                              component={Link}
+                              href={category.href}
+                              onClick={handleCloseNavMenu}
+                              sx={{ py: 1 }}
+                            >
+                              <Typography variant="body2">
+                                {category.name}
+                              </Typography>
+                            </MenuItem>
+                          ))}
+                        </List>
+                      </Collapse>
+                    )}
+                  </Box>
+                );
+              })}
             </Menu>
           </Box>
 
@@ -154,14 +192,13 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* ── DESKTOP: Nav links ── */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', cursor: 'pointer'}}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', cursor: 'pointer' } }}>
             {pages.map((page) => {
               const isProducts = page.name === 'Products';
 
               return (
                 <Box key={page.name}>
                   <Button
-                    // If it's products, don't trigger direct router link. Instead open menu.
                     component={isProducts ? 'button' : Link}
                     href={isProducts ? undefined : page.href}
                     onMouseEnter={isProducts ? handleOpenProductsMenu : handleCloseNavMenu}
@@ -182,16 +219,14 @@ function ResponsiveAppBar() {
                     {page.name} {isProducts && '▾'}
                   </Button>
 
-                  {/* 3. Conditional Products Menu */}
+                  {/* Desktop Products Menu */}
                   {isProducts && (
-                    <div style={{ cursor: 'pointer' , backgroundColor: '#ffffff'}}>
-
+                    <div style={{ cursor: 'pointer' }}>
                       <Menu
                         id="products-menu"
                         anchorEl={anchorElProducts}
                         open={Boolean(anchorElProducts)}
                         onClose={handleCloseProductsMenu}
-                        // Placed nicely below the button
                         anchorOrigin={{
                           vertical: 'bottom',
                           horizontal: 'left',
@@ -200,18 +235,16 @@ function ResponsiveAppBar() {
                           vertical: 'top',
                           horizontal: 'left',
                         }}
-
-
                       >
                         {productCategories.map((category) => (
                           <MenuItem
-                            sx={{backgroundColor:'#ffffff'}}
+                            sx={{ backgroundColor: '#ffffff' }}
                             key={category.name}
                             component={Link}
                             href={category.href}
                             onClick={handleCloseProductsMenu}
                           >
-                            <Typography text-align="center">{category.name}</Typography>
+                            <Typography sx={{ textAlign: 'center' }}>{category.name}</Typography>
                           </MenuItem>
                         ))}
                       </Menu>
