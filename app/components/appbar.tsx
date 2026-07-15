@@ -212,7 +212,7 @@ function ResponsiveAppBar() {
                       transition: 'all 0.2s ease-in-out',
                       '&:hover': {
                         textDecoration: 'underline',
-                        color: '#ededed'
+                       
                       }
                     }}
                   >
