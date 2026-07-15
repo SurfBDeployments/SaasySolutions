@@ -127,7 +127,6 @@ function ResponsiveAppBar() {
                       sx={{
                         justifyContent: 'space-between',
                         '&:hover': {
-                          color: '#ededed',
                           cursor: 'pointer'
                         },
                       }}
@@ -212,7 +211,7 @@ function ResponsiveAppBar() {
                       transition: 'all 0.2s ease-in-out',
                       '&:hover': {
                         textDecoration: 'underline',
-                       
+
                       }
                     }}
                   >
@@ -221,7 +220,7 @@ function ResponsiveAppBar() {
 
                   {/* Desktop Products Menu */}
                   {isProducts && (
-                    <div style={{ cursor: 'pointer', color:'#414756' }}>
+                    <div style={{ cursor: 'pointer', color: '#414756' }}>
                       <Menu
                         id="products-menu"
                         anchorEl={anchorElProducts}
