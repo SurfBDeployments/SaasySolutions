@@ -259,7 +259,7 @@ footer ul li {
 
 }
 
-ul {
+ul li{
   margin-left: 20px !important;
   padding-top: 10px;
   padding-bottom: 10px;

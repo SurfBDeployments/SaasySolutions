@@ -26,9 +26,10 @@ const MasterDashboard = () => {
     return <rect x={x} y={y} width={width} height={height} fill={fill} rx={4} ry={4} />;
   };
 
-  let pageTitle = 'Dashboard';
-  if (activeTab === 'ricknmorty') pageTitle = 'GraphQL DataGrid';
-  else if (activeTab === 'financials') pageTitle = 'Core Financials';
+  let pageTitle = 'GraphQL DataGrid';
+  
+  if (activeTab === 'financials') pageTitle = 'Core Financials';
+  else if (activeTab === 'ricknmorty') pageTitle = 'GraphQL DataGrid';
   else if (activeTab === 'solvency') pageTitle = 'Solvency & EBIT';
   else if (activeTab === 'variancedata') pageTitle = 'Budget Variance';
   else if (activeTab === 'mrrData') pageTitle = 'MRR & Churn';
@@ -40,18 +41,19 @@ const MasterDashboard = () => {
       <nav className={styles.sidebar}>
         <h5 className={styles.sidebarTitle}>Welcome Brian</h5>
         <h2 className={styles.sidebarHeading}>Executive View</h2>
+            <div
+          onClick={() => setActiveTab('financials')}
+          className={activeTab === 'financials' ? styles.navLinkActive : styles.navLink}
+        >
+          Core Financials
+        </div>
         <div
           onClick={() => setActiveTab('RicknMorty')}
           className={activeTab === 'RicknMorty' ? styles.navLinkActive : styles.navLink}
         >
           GraphQL DataGrid
         </div>
-        <div
-          onClick={() => setActiveTab('financials')}
-          className={activeTab === 'financials' ? styles.navLinkActive : styles.navLink}
-        >
-          Core Financials
-        </div>
+    
         <div
           onClick={() => setActiveTab('solvency')}
           className={activeTab === 'solvency' ? styles.navLinkActive : styles.navLink}

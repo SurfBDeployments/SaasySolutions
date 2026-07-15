@@ -16,18 +16,27 @@ import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 const pages = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' },
+  { name: 'Products', href: '/products' }, // Acts as a trigger for the dropdown on desktop
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
+
+// Define your dropdown items for products
+const productCategories = [
+  { name: 'Data Visualizations', href: '/products/' },
+  { name: 'News', href: '/news' },
+  { name: 'Weather', href: '/products/weather' }
+
+];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElProducts, setAnchorElProducts] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -35,16 +44,18 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
+  // 2. Open and Close Handlers for Products
+  const handleOpenProductsMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElProducts(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => setAnchorElNav(null);
   const handleCloseUserMenu = () => setAnchorElUser(null);
+  const handleCloseProductsMenu = () => setAnchorElProducts(null);
 
   return (
-   
-   <Container disableGutters maxWidth={false}>
-         <AppBar position="static">
-
-       
+    <Container disableGutters maxWidth={false}>
+      <AppBar position="static">
         <Toolbar>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
@@ -101,7 +112,6 @@ function ResponsiveAppBar() {
                   onClick={handleCloseNavMenu}
                   component={Link}
                   href={page.href}
-                  // Added hover effect for mobile items
                   sx={{
                     '&:hover': {
                       color: '#a5abbd',
@@ -125,8 +135,7 @@ function ResponsiveAppBar() {
               alignItems: 'center',
             }}
           >
-         <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
-
+            <Image src="/sassylogoicon.png" alt="SaaSY logo" width={50} height={50} />
             <Typography
               variant="h5"
               noWrap
@@ -139,36 +148,77 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-            SaaSy Solutions
+              SaaSy Solutions
             </Typography>
           </Box>
 
           {/* ── DESKTOP: Nav links ── */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page.name}
-                onClick={handleCloseNavMenu}
-                component={Link}
-                href={page.href}
-                // Updated desktop hover effect
-                sx={{ 
-                  my: 3, 
-                   fontSize: '.9rem',
-                   fontWeight: 700,
-                  color: 'white', 
-                  display: 'block',
-                  transition: 'all 0.2s ease-in-out',
-                  '&:hover': {
-                    textDecoration: 'underline',
-                  
-                    color: '#ededed', // Slightly dimmed text color
-                  }
-                }}
-              >
-                {page.name}
-              </Button>
-            ))}
+            {pages.map((page) => {
+              const isProducts = page.name === 'Products';
+
+              return (
+                <Box key={page.name}>
+                  <Button
+                    // If it's products, don't trigger direct router link. Instead open menu.
+                    component={isProducts ? 'button' : Link}
+                    href={isProducts ? undefined : page.href}
+                    onMouseEnter={isProducts ? handleOpenProductsMenu : handleCloseNavMenu}
+                    sx={{
+                      my: 0,
+                      fontSize: '.9rem',
+                      fontWeight: 700,
+                      color: 'white',
+                      display: 'block',
+                    
+                      transition: 'all 0.2s ease-in-out',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        color: '#ededed',
+                      }
+                    }}
+                  >
+                    {page.name} {isProducts && '▾'}
+                  </Button>
+
+                  {/* 3. Conditional Products Menu */}
+                  {isProducts && (
+                    <div >
+
+                      <Menu
+                        id="products-menu"
+                        anchorEl={anchorElProducts}
+                        open={Boolean(anchorElProducts)}
+                        onClose={handleCloseProductsMenu}
+                        // Placed nicely below the button
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'left',
+                        }}
+
+
+                      >
+                        {productCategories.map((category) => (
+                          <MenuItem
+                          
+                            key={category.name}
+                            component={Link}
+                            href={category.href}
+                            onClick={handleCloseProductsMenu}
+                          >
+                            <Typography text-align="center">{category.name}</Typography>
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
+                  )}
+                </Box>
+              );
+            })}
           </Box>
 
           {/* ── Avatar / user menu (both views) ── */}
@@ -197,9 +247,8 @@ function ResponsiveAppBar() {
           </Box>
 
         </Toolbar>
-          </AppBar>
-      </Container>
-  
+      </AppBar>
+    </Container>
   );
 }
 
