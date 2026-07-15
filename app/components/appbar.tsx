@@ -221,7 +221,7 @@ function ResponsiveAppBar() {
 
                   {/* Desktop Products Menu */}
                   {isProducts && (
-                    <div style={{ cursor: 'pointer' }}>
+                    <div style={{ cursor: 'pointer', color:'#414756' }}>
                       <Menu
                         id="products-menu"
                         anchorEl={anchorElProducts}
