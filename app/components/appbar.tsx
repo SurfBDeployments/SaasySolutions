@@ -18,14 +18,14 @@ import Image from 'next/image';
 
 const pages = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' }, // Acts as a trigger for the dropdown on desktop
+  { name: 'Products', href: '/products' }, 
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
 
 // Define your dropdown items for products
 const productCategories = [
-  { name: 'Data Visualizations', href: '/products/' },
+  { name: 'Data Visualizations', href: '/products' },
   { name: 'News', href: '/news' },
   { name: 'Weather', href: '/products/weather' }
 
@@ -114,7 +114,8 @@ function ResponsiveAppBar() {
                   href={page.href}
                   sx={{
                     '&:hover': {
-                      color: '#a5abbd',
+                      color: '#ededed',
+                      cursor: 'pointer'
                     },
                   }}
                 >
@@ -153,7 +154,7 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* ── DESKTOP: Nav links ── */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', cursor: 'pointer'}}}>
             {pages.map((page) => {
               const isProducts = page.name === 'Products';
 
@@ -168,13 +169,13 @@ function ResponsiveAppBar() {
                       my: 0,
                       fontSize: '.9rem',
                       fontWeight: 700,
-                      color: 'white',
+                      color: '#ffffff',
                       display: 'block',
-                    
+                      cursor: 'pointer',
                       transition: 'all 0.2s ease-in-out',
                       '&:hover': {
                         textDecoration: 'underline',
-                        color: '#ededed',
+                        color: '#ededed'
                       }
                     }}
                   >
@@ -183,7 +184,7 @@ function ResponsiveAppBar() {
 
                   {/* 3. Conditional Products Menu */}
                   {isProducts && (
-                    <div >
+                    <div style={{ cursor: 'pointer' , backgroundColor: '#ffffff'}}>
 
                       <Menu
                         id="products-menu"
@@ -204,7 +205,7 @@ function ResponsiveAppBar() {
                       >
                         {productCategories.map((category) => (
                           <MenuItem
-                          
+                            sx={{backgroundColor:'#ffffff'}}
                             key={category.name}
                             component={Link}
                             href={category.href}

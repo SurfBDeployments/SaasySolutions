@@ -36,7 +36,13 @@ a.nav-link,
   font-size: 16px !important;
   font-weight: 600;
 }
-
+a:first-child hover {
+  background-color:inherit;
+  cursor: pointer;
+}
+p.MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root {
+  background-color: #ffffff!important;
+}
 /* Active nav-link styling */
 .nav-link.active {
   border-bottom: 3px solid currentColor;
