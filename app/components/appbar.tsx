@@ -63,8 +63,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <Container disableGutters maxWidth={false}>
       <AppBar position="static">
+    <Container disableGutters maxWidth={false}>
+    
         <Toolbar>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
@@ -258,7 +259,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Brian M" src="/guymodel-1.png" />
+                <Avatar alt="Brian M" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -280,8 +281,9 @@ function ResponsiveAppBar() {
           </Box>
 
         </Toolbar>
-      </AppBar>
+    
     </Container>
+      </AppBar>
   );
 }
 
