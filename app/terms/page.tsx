@@ -6,20 +6,19 @@ import Footer from '../components/footer';
 
 export default function Home() {
 
+ 
 
 
   return (
     <>
+
       <ResponsiveAppBar />
       <article>
         <div className="max-w-7xl mx-auto">
           <div className='maincontent'>
-            <h1 className="max-w-m text-4xl font-semibold">Terms of Use</h1>
+            <h1 className="max-w-m text-4xl font-semibold">Terms of Service</h1>
             <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>This document governs
-              the use of our website, and,
-              any other related agreement or legal relationship with us
-
-              in a legally binding way.
+              the use of our website, and, any other related agreement or legal relationship with us in a legally binding way.
               You must read this document carefully.
               Our website is provided by:
               SaaSy Solutions</h3>

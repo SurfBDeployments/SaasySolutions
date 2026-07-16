@@ -9,6 +9,7 @@ export default function Home() {
 
   return (
     <>
+
       <ResponsiveAppBar />
      <article>
         <div className="max-w-7xl mx-auto">

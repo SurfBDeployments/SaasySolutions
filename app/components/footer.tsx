@@ -17,7 +17,7 @@ interface FooterLink {
 ];  */
 
 const legalitems: FooterLink[] = [
-  { id: 5, label: 'Terms of Use', path: '/terms' },
+  { id: 5, label: 'Terms of Service', path: '/terms' },
   { id: 6, label: 'Privacy', path: '/privacy' },
 
 ];

@@ -863,9 +863,10 @@ footer ul li {
 }
 
 ul li {
-  margin-left: 20px !important;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type: disc;
 }
 
 .leaflet-container {
