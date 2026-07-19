@@ -85,7 +85,7 @@ const MasterDashboard = () => {
 
           <div className={styles.datagrid}>
             <div className={styles.datacard}>
-              <h4 className={styles.cardTitle}>Rick and Morty Characters</h4>
+              <p className={styles.cardTitle}>Rick and Morty Characters</p>
 
 
               <p className={styles.subheading}>
@@ -98,7 +98,7 @@ const MasterDashboard = () => {
           <div className={styles.grid}>
             {/* Revenue Chart */}
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Revenue vs Net Profit ($)</h4>
+              <p className={styles.cardTitle}>Revenue vs Net Profit ($)</p>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={financialData}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -114,7 +114,7 @@ const MasterDashboard = () => {
 
             {/* Margin Chart */}
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Gross Profit Margin (%)</h4>
+              <p className={styles.cardTitle}>Gross Profit Margin (%)</p>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={financialData}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -131,7 +131,7 @@ const MasterDashboard = () => {
           <div className={styles.grid}>
             {/* EBIT Chart */}
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>EBIT (Operating Income)</h4>
+              <p className={styles.cardTitle}>EBIT (Operating Income)</p>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={financialData}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -145,7 +145,7 @@ const MasterDashboard = () => {
 
             {/* Debt/Equity Chart */}
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Debt to Equity Ratio</h4>
+              <p className={styles.cardTitle}>Debt to Equity Ratio</p>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={financialData}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -163,7 +163,7 @@ const MasterDashboard = () => {
           // Budget Variance tab — matches same two-column grid layout as Core Financials
           <div className={styles.grid}>
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Budget Variance</h4>
+              <p className={styles.cardTitle}>Budget Variance</p>
               <ResponsiveContainer width="100%" height={300}>
                 <ComposedChart data={variancedata} margin={{ top: 20, right: 20, left: 20, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -191,7 +191,7 @@ const MasterDashboard = () => {
             </div>
 
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Monthly Variance</h4>
+              <p className={styles.cardTitle}>Monthly Variance</p>
               <StripeMetricChart data={variancedata} isCurrency={true} />
             </div>
 
@@ -202,36 +202,36 @@ const MasterDashboard = () => {
 
           <div className={styles.grid}>
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Monthly Recurring Revenue (MRR)</h4>
+              <p className={styles.cardTitle}>Monthly Recurring Revenue (MRR)</p>
               <StripeMetricChart data={mrrData} isCurrency={true} />
 
 
             </div>
 
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Net Revenue Churn Rate</h4>
+              <p className={styles.cardTitle}>Net Revenue Churn Rate</p>
               <StripeMetricChart data={churnData} isCurrency={true} />
             </div>
 
 
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Gross Volume</h4>
+              <p className={styles.cardTitle}>Gross Volume</p>
 
               <StripeMetricChart data={grossVolumeData} isCurrency={true} />
             </div>
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Net Volume</h4>
+              <p className={styles.cardTitle}>Net Volume</p>
               <StripeMetricChart data={netVolumeData} isCurrency={true} />
             </div>
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Cash Flow</h4>
+              <p className={styles.cardTitle}>Cash Flow</p>
               <StripeMetricChart data={cashFlowData} isCurrency={true} />
 
             </div>
 
             {/*Renders rate percentage format (97.2%) with a rolling average YTD */}
             <div className={styles.card}>
-              <h4 className={styles.cardTitle}>Customer Retention Rate</h4>
+              <p className={styles.cardTitle}>Customer Retention Rate</p>
               <StripeMetricChart data={customerRetentionData} isCurrency={false} />
 
             </div>

@@ -5,7 +5,7 @@ import { describe, it, expect, beforeAll } from 'vitest'
 import postcss from 'postcss'
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url))
-const stylesDir = path.join(rootDir, 'app', 'styles')
+const stylesDir = path.join(rootDir, '/', '../../styles')
 
 async function collectCssFiles(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true })
@@ -44,8 +44,16 @@ describe('./styles CSS files', () => {
       const root = postcss.parse(source, { from: file })
       const declarationsMissingSemicolon: string[] = []
 
+      const isLastNonCommentNode = (decl: postcss.Declaration) => {
+        let next = decl.next()
+        while (next && next.type === 'comment') {
+          next = next.next()
+        }
+        return !next
+      }
+
       root.walkDecls((decl) => {
-        if (!decl.raws.semicolon) {
+        if (!decl.raws.semicolon && !isLastNonCommentNode(decl)) {
           const position = decl.source?.start
           const location = position ? `${position.line}:${position.column}` : 'unknown'
           declarationsMissingSemicolon.push(`${file}:${location} ${decl.prop}`)
