@@ -170,9 +170,6 @@ export default function Home() {
             {/* <MediaGrid /> */}
 
 
-
-
-
           </div>
         </section>
 
