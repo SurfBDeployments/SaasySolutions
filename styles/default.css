@@ -981,7 +981,7 @@ textarea {
 
 textarea:focus,
 input:focus {
-  outline: solid 2px;
+  outline: solid 2px #333;
 
 }
 

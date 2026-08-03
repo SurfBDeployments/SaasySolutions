@@ -63,9 +63,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-      <AppBar position="static">
-    <Container disableGutters maxWidth={false}>
-    
+    <AppBar position="static">
+      <Container disableGutters maxWidth={false}>
+
         <Toolbar>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
@@ -281,9 +281,9 @@ function ResponsiveAppBar() {
           </Box>
 
         </Toolbar>
-    
-    </Container>
-      </AppBar>
+
+      </Container>
+    </AppBar>
   );
 }
 
