@@ -9,13 +9,6 @@ interface FooterLink {
   path?: string;
 }
 
-/*  const footlinks: FooterLink[] = [
-  { id: 1, label: 'Home', href: '/' },
-  { id: 2, label: 'Products', path: '/products' },
-  { id: 3, label: 'Team', path: '/team' },
-  { id: 4, label: 'Contact', path: '/contact' },
-];  */
-
 const legalitems: FooterLink[] = [
   { id: 5, label: 'Terms of Service', path: '/terms' },
   { id: 6, label: 'Privacy', path: '/privacy' },

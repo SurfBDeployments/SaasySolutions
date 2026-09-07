@@ -20,8 +20,8 @@ import Image from 'next/image';
 
 const pages = [
   { name: 'Home', href: '/' },
+   { name: 'About', href: '/about' },
   { name: 'Products', href: '/products' },
-  { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' }
 ];
 

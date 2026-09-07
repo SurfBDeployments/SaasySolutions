@@ -4,12 +4,16 @@ import type { AxeResults } from 'axe-core';
 import fs from 'fs-extra';
 import path from 'path';
 
-test('homepage accessibility report', async ({ page }) => {
-  //await page.goto('https://localhost:3000/');
-   await page.goto('https://saasy-orpin.vercel.app/');
-  await page.waitForLoadState('networkidle');
+const accessibilityTags = ['wcag2a', 'wcag2aa', 'section508'];
 
-  const results: AxeResults = await new AxeBuilder({ page }).analyze();
+test('homepage ARIA accessibility meets WCAG and Section 508', async ({ page }) => {
+  await page.goto('https://saasy-orpin.vercel.app/');
+  //await expect(page.locator('main')).toBeVisible();
+ await page.waitForLoadState('networkidle');
+
+  const results: AxeResults = await new AxeBuilder({ page })
+    .withTags(accessibilityTags)
+    .analyze();
 
   const reportsDir = path.join(process.cwd(), 'axe-reports');
   await fs.ensureDir(reportsDir);

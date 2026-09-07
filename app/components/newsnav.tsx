@@ -12,7 +12,7 @@ const NavBar = (): React.JSX.Element => {
 	};
 
 	const navLinks = [
-	
+
 		{ href: '/news/entertainment', label: 'Entertainment' },
 		{ href: '/news/technology', label: 'Technology' },
 		{ href: '/news/sports', label: 'Sports' },
@@ -25,7 +25,7 @@ const NavBar = (): React.JSX.Element => {
 		<div>
 			<nav className="navbar navbar-expand-lg">
 				<div className="container-fluid">
-			
+
 					<div id="navbarNav">
 						<ul className="navbar-nav">
 							{navLinks.map((link) => (

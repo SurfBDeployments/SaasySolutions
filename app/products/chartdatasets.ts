@@ -53,7 +53,7 @@ const financialData = [
   { month: 'Oct', revenue: 450000, grossMargin: 22.5, netProfit: 45000, ebit: 95000, debtToEquity: 1.85 },
   { month: 'Nov', revenue: 480000, grossMargin: 28.0, netProfit: 52000, ebit: 102000, debtToEquity: 1.70 },
   { month: 'Dec', revenue: 600000, grossMargin: 34.5, netProfit: 85000, ebit: 145000, debtToEquity: 1.45 },
-  { month: 'Jan', revenue: 420000, grossMargin: 38.0, netProfit: 72000, ebit: 88000, debtToEquity: 1.30 },
+  { month: 'Jan', revenue: 420000, grossMargin: 40.0, netProfit: 72000, ebit: 88000, debtToEquity: 1.30 },
   { month: 'Feb', revenue: 440000, grossMargin: 42.5, netProfit: 88000, ebit: 92000, debtToEquity: 1.25 },
   { month: 'Mar', revenue: 510000, grossMargin: 44.2, netProfit: 105000, ebit: 115000, debtToEquity: 1.15 },
 ];
@@ -61,7 +61,7 @@ const financialData = [
 const variancedata = [
   { month: "Oct", actual: 45000, target: 40000, forecast: 41000, ytd_actual: 77000, variance: 5000 },
   { month: "Nov", actual: 52000, target: 40000, forecast: 48000, ytd_actual: 97000, variance: 12000 },
-  { month: "Dec", actual: 50000, target: 42000, forecast: 48000, ytd_actual: 101000, variance: 8000 },
+  { month: "Dec", actual: 50000, target: 44000, forecast: 48000, ytd_actual: 101000, variance: 8000 },
   { month: "Jan", actual: 45000, target: 40000, forecast: 42000, ytd_actual: 45000, variance: 5000 },
   { month: "Feb", actual: 52000, target: 40000, forecast: 48000, ytd_actual: 97000, variance: 12000 },
   { month: "Mar", actual: 38000, target: 45000, forecast: 40000, ytd_actual: 135000, variance: -7000 },

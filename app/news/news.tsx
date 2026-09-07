@@ -4,7 +4,7 @@ import ResponsiveAppBar from '../components/appbar';
 import Footer from '../components/footer';
 import '../../styles/default.css';
 import Paper from '@mui/material/Paper';
-import NavBar from '../components/newsnav'; // Adjust path to your NavBar if needed
+import NavBar from '../components/newsnav'; 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
