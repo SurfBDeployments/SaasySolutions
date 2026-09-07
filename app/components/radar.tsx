@@ -3,7 +3,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type RadarFrame = {
   time: number;
@@ -30,9 +30,11 @@ export default function RadarMap() {
     fetch("https://api.rainviewer.com/public/weather-maps.json")
       .then((res) => res.json())
       .then((data) => {
-        const past = data?.radar?.past ?? [];
-        const nowcast = data?.radar?.nowcast ?? [];
-        const all: RadarFrame[] = [...past, ...nowcast].map((f: any) => ({
+      
+        const past: RadarFrame[] = data?.radar?.past ?? [];
+const nowcast: RadarFrame[] = data?.radar?.nowcast ?? [];
+        
+        const all: RadarFrame[] = [...past, ...nowcast].map((f) => ({
           time: f.time,
           path: f.path,
         }));
@@ -51,41 +53,40 @@ export default function RadarMap() {
   }, []);
 
   // Advance through the loop
+  const scheduleCrossfade = useCallback(
+    (nextIndex: number) => {
+      if (frames.length === 0 || nextIndex === frontIdx) return;
+
+      setBackIdx(nextIndex);
+      setBackOpacity(0);
+
+      // Let the tile layer mount, then trigger the CSS opacity transition
+      const raf = requestAnimationFrame(() => {
+        setBackOpacity(0.8);
+      });
+
+      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
+      fadeTimeout.current = setTimeout(() => {
+        setFrontIdx(nextIndex);
+        setBackIdx(null);
+        setBackOpacity(0);
+        cancelAnimationFrame(raf);
+      }, 350); // matches CSS transition duration below
+    },
+    [frontIdx, frames.length]
+  );
+
   useEffect(() => {
     if (!isPlaying || frames.length === 0) return;
     const interval = setInterval(() => {
-      setFrameIndex((prev) => (prev + 1) % frames.length);
+      setFrameIndex((prev) => {
+        const next = (prev + 1) % frames.length;
+        scheduleCrossfade(next);
+        return next;
+      });
     }, 500);
     return () => clearInterval(interval);
-  }, [isPlaying, frames.length]);
-
-  // Crossfade whenever frameIndex changes: mount the new frame behind the
-  // current one at opacity 0, then fade it in. Once fully faded in, it
-  // becomes the new front layer and the old one unmounts.
-  useEffect(() => {
-    if (frames.length === 0 || frameIndex === frontIdx) return;
-
-    setBackIdx(frameIndex);
-    setBackOpacity(0);
-
-    // Let the tile layer mount, then trigger the CSS opacity transition
-    const raf = requestAnimationFrame(() => {
-      setBackOpacity(0.8);
-    });
-
-    if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
-    fadeTimeout.current = setTimeout(() => {
-      setFrontIdx(frameIndex);
-      setBackIdx(null);
-      setBackOpacity(0);
-    }, 350); // matches CSS transition duration below
-
-    return () => {
-      cancelAnimationFrame(raf);
-      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [frameIndex]);
+  }, [isPlaying, frames.length, scheduleCrossfade]);
 
   const frontFrame = frames[frontIdx];
   const backFrame = backIdx !== null ? frames[backIdx] : null;
@@ -108,8 +109,10 @@ export default function RadarMap() {
           max={Math.max(frames.length - 1, 0)}
           value={frameIndex}
           onChange={(e) => {
-            setFrameIndex(Number(e.target.value));
+            const nextIndex = Number(e.target.value);
+            setFrameIndex(nextIndex);
             setIsPlaying(false); // scrub pauses playback
+            scheduleCrossfade(nextIndex);
           }}
           className="w-full"
         />
