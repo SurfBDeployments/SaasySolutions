@@ -3,112 +3,108 @@ import '../../../styles/default.css';
 import ResponsiveAppBar from '../../components/appbar';
 import Footer from '../../components/footer';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import dynamic from "next/dynamic";
 
 
-type ForecastPeriod = {
-  number: number;
-  name: string;
-  startTime: string;
-  endTime: string;
-  isDaytime: boolean;
-  temperature: number | null;
-  temperatureUnit: string;
-  windSpeed: string;
-  windDirection: string;
-  icon: string;
-  shortForecast: string;
-  detailedForecast: string;
-  probabilityOfPrecipitation?: {
-    unitCode: string;
-    value: number | null;
+// Dynamically import radar map (SSR disabled)
+const RadarMap = dynamic(() => import("../../components/radar"), {
+  ssr: false,
+});
+
+type WeatherApiResponse = {
+  current?: {
+    temperature_2m?: number;
+    relative_humidity_2m?: number;
+    cloud_cover?: number;
+    wind_gusts_10m?: number;
+    wind_direction_10m?: number;
+    visibility?: number;
+    surface_pressure?: number;
+    time?: string;
+    weather_code?: number;
+  };
+  location?: {
+    utc_offset_seconds?: number;
+    elevation?: number;
+    latitude?: number;
+    longitude?: number;
   };
 };
 
-type WeatherGovForecastResponse = {
-  properties?: {
-    periods?: ForecastPeriod[];
-    generatedAt?: string;
-    updated?: string;
-  };
-};
-
-const WEATHER_POINT_URL = 'https://api.weather.gov/points/35.7721,-78.6386';
-
-function formatDateLabel(value?: string) {
-  if (!value) return '—';
-  return new Date(value).toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  });
+// Helper function to decode WMO Weather Codes
+function getWeatherCondition(code: number): { text: string; emoji: string } {
+  if (code === 0) return { text: "Clear Sky", emoji: "☀️" };
+  if (code >= 1 && code <= 3) return { text: "Partly Cloudy", emoji: "⛅" };
+  if (code === 45 || code === 48) return { text: "Foggy", emoji: "🌫️" };
+  if (code >= 51 && code <= 55) return { text: "Drizzle", emoji: "🌧️" };
+  if (code >= 61 && code <= 65) return { text: "Rain", emoji: "🌧️" };
+  if (code >= 80 && code <= 82) return { text: "Rain Showers", emoji: "🌦️" };
+  if (code >= 95 && code <= 99) return { text: "Thunderstorm", emoji: "⛈️" };
+  return { text: "Unknown Conditions", emoji: "🌍" };
 }
 
-export default function WeatherProductsPage() {
-  const [forecastData, setForecastData] = useState<WeatherGovForecastResponse | null>(null);
+export default function WeatherProducts() {
+  const [weather, setWeather] = useState<WeatherApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // Radar timestamp
+  const [timestamp, setTimestamp] = useState<number | null>(null);
+
+  // Fetch weather API through the Next.js route handler so it works locally and in production
   useEffect(() => {
-    let ignore = false;
-
-    async function loadForecast() {
-      try {
-        const pointsResponse = await fetch(WEATHER_POINT_URL, {
-          headers: { Accept: 'application/geo+json' },
-        });
-
-        if (!pointsResponse.ok) {
-          throw new Error('Unable to load weather.gov point data');
-        }
-
-        const pointsData = await pointsResponse.json();
-        const forecastUrl = pointsData?.properties?.forecast;
-
-        if (!forecastUrl) {
-          throw new Error('Forecast URL not returned by weather.gov');
-        }
-
-        const forecastResponse = await fetch(forecastUrl, {
-          headers: { Accept: 'application/geo+json' },
-        });
-
-        if (!forecastResponse.ok) {
-          throw new Error('Unable to load the local 7-day forecast');
-        }
-
-        const data = await forecastResponse.json();
-
-        if (!ignore) {
-          setForecastData(data);
-          setLoading(false);
-        }
-      } catch (err) {
-        if (!ignore) {
-          setError(err instanceof Error ? err.message : 'Unknown weather error');
-          setLoading(false);
-        }
-      }
-    }
-
-    loadForecast();
-
-    return () => {
-      ignore = true;
-    };
+    fetch("/api/weather")
+      .then((res) => {
+        if (!res.ok) throw new Error("Could not read weather API stream");
+        return res.json();
+      })
+      .then((data) => {
+        setWeather(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
-  if (loading) {
-    return <div className="p-12 text-center text-slate-500 font-medium animate-pulse">Loading the local weather.gov forecast…</div>;
-  }
+  // Fetch RainViewer radar timestamps
+  useEffect(() => {
+    fetch("https://api.rainviewer.com/public/weather-maps.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const latest = data.radar.past[data.radar.past.length - 1].time;
+        setTimestamp(latest);
+      })
+      .catch(() => {
+        console.warn("RainViewer timestamp fetch failed");
+      });
+  }, []);
 
-  if (error) {
-    return <div className="p-12 text-center text-red-500 font-semibold">Network Error: {error}</div>;
-  }
+  if (loading)
+    return (
+      <div className="p-12 text-center text-slate-500 font-medium animate-pulse">
+        Syncing weather stations...
+      </div>
+    );
 
-  const periods = forecastData?.properties?.periods ?? [];
-  const current = periods[0];
-  const weekForecast = periods.slice(0, 7);
+  if (error)
+    return (
+      <div className="p-12 text-center text-red-500 font-semibold">
+        Network Error: {error}
+      </div>
+    );
+
+  if (!weather || !weather.current)
+    return (
+      <div className="p-12 text-center text-amber-500 font-medium">
+        Invalid weather data package.
+      </div>
+    );
+
+  const currentCondition = getWeatherCondition(weather.current.weather_code ?? -1);
 
   return (
     <>
@@ -127,57 +123,110 @@ export default function WeatherProductsPage() {
               Showing the local 7-day forecast for Raleigh, NC using the weather.gov forecast endpoint.
             </h3>
 
-            <div className="mb-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-              <p className="font-semibold text-slate-800">Source: weather.gov</p>
-              <p className="mt-1">Point: 35.7721, -78.6386</p>
-              <p className="mt-1">Updated: {forecastData?.properties?.generatedAt ? new Date(forecastData.properties.generatedAt).toLocaleString() : '—'}</p>
-            </div>
+ {/* Live Radar Section */}
+            {timestamp && (
+              <section className="mt-12">
+                <h3 className="text-lg font-bold mb-3" style={{ textAlign: 'center' }}>
+                 <div id="navbarNav">
+                  Live Radar  <Link href="/products/weather/forecast" className="nav-link" style={{ marginLeft: "15px" }}>
+                   7 Day Forecast
+                  </Link></div>
+                </h3>
+                <RadarMap />
+              </section>
+            )}
+            {/* Weather Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10" style={{ marginTop: "20px" }}>
+              {/* Main Temperature Card */}
+              <section className="md:col-span-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border border-indigo-900/50 p-8 rounded-md shadow-xl" style={{ padding: "15px" }}>
+                <p className="text-sm text-emerald-400 font-mono">
+                  📍 Station Active (UTC Offset:{" "}
+                  {weather.location?.utc_offset_seconds}s)
+                </p>
 
-            {current ? (
-             <section className="md:col-span-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border border-indigo-900/50 p-8 rounded-md shadow-xl" style={{ padding: "15px", marginBottom: "20px", marginTop: "20px" }}>
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div className="text-xs text-slate-400 font-mono space-y-0.5">
+                  <p>Elev: {weather.location?.elevation?.toFixed(1)}m ASL</p>
+                  <p>Lat: {weather.location?.latitude?.toFixed(4)}°</p>
+                  <p>Lon: {weather.location?.longitude?.toFixed(4)}°</p>
+                </div>
+
+                <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 font-mono">
+                  Current Status
+                </span>
+
+                <div className="mt-2 text-sm text-slate-300 font-mono">
+                  {currentCondition.emoji} {currentCondition.text}
+                </div>
+
+                <h2 className="text-5xl font-black text-white mt-2" style={{ color: 'white' }}>
+                  {weather.current.temperature_2m?.toFixed(1)}°F
+                </h2>
+
+                <div className="grid grid-cols-2 gap-4 mt-8 pt-4 border-t border-slate-800 text-sm">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.3em] text-indigo-300">Current forecast</p>
-                    <h2 className="mt-2 text-5xl font-white tracking-tight" style={{ color: 'white' }}>
-                      {current.temperature ?? '—'}°{current.temperatureUnit}
-                    </h2>
-                    <p className="mt-2 text-lg text-slate-200">{current.name}</p>
-                    <p className="mt-2 max-w-2xl text-slate-300">{current.shortForecast}</p>
+                    <p className="text-slate-400 font-medium">💧 Humidity</p>
+                    <p className="text-base font-bold text-white">
+                      {weather.current.relative_humidity_2m ?? "N/A"}%
+                    </p>
                   </div>
-                  <div className="rounded-2xl p-4 text-sm text-slate-200">
-                    <p className="font-semibold">{formatDateLabel(current.startTime)}</p>
-                    <p className="mt-1">Wind: {current.windSpeed} {current.windDirection}</p>
-                    <p className="mt-1">
-                      Chance of precipitation: {current.probabilityOfPrecipitation?.value ?? 0}%
+                  <div>
+                    <p className="text-slate-400 font-medium">☁️ Cloud Cover</p>
+                    <p className="text-base font-bold text-white">
+                      {weather.current.cloud_cover ?? "N/A"}%
                     </p>
                   </div>
                 </div>
               </section>
-            ) : null}
 
-            <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {weekForecast.map((period) => (
-                <article key={period.number} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" style={{ padding: "10px" }}>
-                  <div className="flex items-center justify-between gap-6">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-800">{period.name}</p>
-                      <p className="text-xs text-slate-500">{formatDateLabel(period.startTime)}</p>
-                    </div>
-                    <div className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">
-                      {period.temperature ?? '—'}°{period.temperatureUnit}
-                    </div>
+              {/* Extended Sensors */}
+              <section className="bg-slate-900 border border-slate-800 p-6 rounded-md shadow-xl" style={{ padding: "15px" }}>
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 font-mono">
+                  Atmospherics
+                </span>
+
+                <h3 className="text-lg font-bold text-white mt-2 mb-4" style={{ color: 'white' }}>
+                  Extended Sensors
+                </h3>
+
+                <div className="space-y-3.5 text-sm font-mono">
+                  <div className="flex justify-between border-b border-slate-800/60 pb-2">
+                    <span className="text-slate-400">💨 Wind Gusts</span>
+                    <span className="text-white font-bold">
+                      {weather.current.wind_gusts_10m?.toFixed(1) || "0.0"} mph
+                    </span>
                   </div>
 
-                  <p className="mt-4 text-sm font-medium text-slate-700">{period.shortForecast}</p>
-                  <p className="mt-3 text-sm text-slate-500">{period.detailedForecast}</p>
-
-                  <div className="mt-4 space-y-1 text-sm text-slate-600">
-                    <p>Wind: {period.windSpeed} {period.windDirection}</p>
-                    <p>Precipitation: {period.probabilityOfPrecipitation?.value ?? 0}%</p>
+                  <div className="flex justify-between border-b border-slate-800/60 pb-2">
+                    <span className="text-slate-400">🧭 Wind Dir.</span>
+                    <span className="text-white font-bold">
+                      {weather.current.wind_direction_10m || "0"}°
+                    </span>
                   </div>
-                </article>
-              ))}
-            </section>
+
+                  <div className="flex justify-between border-b border-slate-800/60 pb-2">
+                    <span className="text-slate-400">👁️ Visibility</span>
+                    <span className="text-white font-bold">
+                      {weather.current.visibility
+                        ? (weather.current.visibility / 1000).toFixed(1)
+                        : "10.0"}{" "}
+                      km
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">📉 Pressure</span>
+                    <span className="text-white font-bold">
+                      {weather.current.surface_pressure?.toFixed(0) || "0"} hPa
+                    </span>
+                  </div>
+                </div>
+
+                <div className="bg-slate-950 border border-slate-800/80 rounded-md p-3 text-center text-xs text-slate-500 font-mono mt-4">
+                  Station Time: {weather.current.time}
+                </div>
+              </section>
+            </div>
+
           </div>
         </div>
       </article>
