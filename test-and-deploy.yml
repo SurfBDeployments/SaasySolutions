@@ -22,6 +22,6 @@ jobs:
       - uses: google-github-actions/auth@v2
         with: { credentials_json: '${{ secrets.GCP_SA_KEY }}' }
       - uses: google-github-actions/setup-gcloud@v2
-      - run: gcloud builds submit --tag gcr.io/$PROJECT_ID/csra-modern
-      - run: gcloud run deploy csra-modern --image gcr.io/$PROJECT_ID/csra-modern --region us-east1
+      - run: gcloud builds submit --tag gcr.io/$PROJECT_ID/saasy
+      - run: gcloud run deploy saasy --image gcr.io/$PROJECT_ID/saasy --region us-east1
         # or: kubectl apply -f k8s/ ... if targeting GKE instead
