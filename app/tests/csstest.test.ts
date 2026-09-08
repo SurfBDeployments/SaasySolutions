@@ -41,24 +41,35 @@ describe('./styles CSS files', () => {
   it('each CSS file uses semicolons for declarations inside rules', async () => {
     for (const file of cssFiles) {
       const source = await readFile(file, 'utf8')
-      const root = postcss.parse(source, { from: file })
       const declarationsMissingSemicolon: string[] = []
-
-      const isLastNonCommentNode = (decl: postcss.Declaration) => {
-        let next = decl.next()
-        while (next && next.type === 'comment') {
-          next = next.next()
+      
+      // Split into lines and check for declarations without semicolons before closing brace
+      const lines = source.split('\n')
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i]
+        const trimmed = line.trim()
+        
+        // Check if this line looks like a CSS declaration (has a colon but not a comment)
+        if (trimmed && trimmed.includes(':') && !trimmed.startsWith('//') && !trimmed.startsWith('/*')) {
+          // Skip lines that are selectors or at-rules
+          if (trimmed.endsWith('{') || trimmed.startsWith('@')) continue
+          
+          // Check if the next non-empty line is a closing brace and this line doesn't end with semicolon
+          let nextNonEmptyIdx = i + 1
+          while (nextNonEmptyIdx < lines.length && !lines[nextNonEmptyIdx].trim()) {
+            nextNonEmptyIdx++
+          }
+          const nextLine = nextNonEmptyIdx < lines.length ? lines[nextNonEmptyIdx].trim() : ''
+          
+          // If next line is a closing brace or another property/selector, check for semicolon
+          if ((nextLine.startsWith('}') || nextLine.includes(':') || nextLine.endsWith('{')) && 
+              !trimmed.endsWith(';') && 
+              !trimmed.endsWith(',') &&
+              !trimmed.endsWith('{')) {
+            declarationsMissingSemicolon.push(`${file}:${i + 1}:1 ${trimmed}`)
+          }
         }
-        return !next
       }
-
-      root.walkDecls((decl) => {
-        if (!decl.raws.semicolon && !isLastNonCommentNode(decl)) {
-          const position = decl.source?.start
-          const location = position ? `${position.line}:${position.column}` : 'unknown'
-          declarationsMissingSemicolon.push(`${file}:${location} ${decl.prop}`)
-        }
-      })
 
       expect(declarationsMissingSemicolon).toEqual([])
     }
