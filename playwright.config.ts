@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   // Look for test files in the "tests" directory, relative to this configuration file.
   testDir: 'tests',
-  testMatch: '**/*.spec.ts', // Only match .spec.ts, not .test.ts
+  //testMatch: '**/*.spec.ts', // Only match .spec.ts, not .test.ts
   
   // Run all tests in parallel.
   fullyParallel: true,
