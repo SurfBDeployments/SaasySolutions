@@ -17,7 +17,7 @@ async function collectCssFiles(dir: string): Promise<string[]> {
   return files.flat()
 }
 
-describe('./styles CSS files', () => {
+describe('../../styles CSS files', () => {
   let cssFiles: string[] = []
 
   beforeAll(async () => {
