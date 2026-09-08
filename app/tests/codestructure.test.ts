@@ -1,3 +1,6 @@
+import { describe, it, expect } from 'vitest'
+
+
 export type LintProblem = {
   line: number
   column: number
@@ -32,8 +35,7 @@ export function lintQuoteEscapes(source: string): LintProblem[] {
   return problems
 }
 
-// ADD TESTS HERE
-import { describe, it, expect } from 'vitest'
+//  TESTS HERE
 
 describe('lintQuoteEscapes', () => {
   it('should detect unescaped double quotes', () => {
