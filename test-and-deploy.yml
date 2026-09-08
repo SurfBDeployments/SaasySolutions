@@ -1,7 +1,8 @@
-name: Deploy
+name: Test and Deploy
+
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   test:
@@ -9,19 +10,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 24 }
+        with:
+          node-version: 20
       - run: npm ci
+      - run: npm run test
       - run: npx playwright install --with-deps
-      - run: npx playwright test   # your accessibility/nav tests
+      - run: npx playwright test
 
   deploy:
-    needs: test              # only runs if tests pass
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: google-github-actions/auth@v2
-        with: { credentials_json: '${{ secrets.GCP_SA_KEY }}' }
-      - uses: google-github-actions/setup-gcloud@v2
-      - run: gcloud builds submit --tag gcr.io/$PROJECT_ID/saasy
-      - run: gcloud run deploy saasy --image gcr.io/$PROJECT_ID/saasy --region us-east1
-        # or: kubectl apply -f k8s/ ... if targeting GKE instead
+      - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
