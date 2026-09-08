@@ -31,3 +31,25 @@ export function lintQuoteEscapes(source: string): LintProblem[] {
 
   return problems
 }
+
+// ADD TESTS HERE
+import { describe, it, expect } from 'vitest'
+
+describe('lintQuoteEscapes', () => {
+  it('should detect unescaped double quotes', () => {
+    const result = lintQuoteEscapes('const str = "hello"')
+    expect(result.length).toBeGreaterThan(0)
+    expect(result[0].character).toBe('"')
+  })
+
+  it('should detect unescaped single quotes', () => {
+    const result = lintQuoteEscapes("const str = 'hello'")
+    expect(result.length).toBeGreaterThan(0)
+    expect(result[0].character).toBe("'")
+  })
+
+  it('should return empty array for code without quotes', () => {
+    const result = lintQuoteEscapes('const x = 5')
+    expect(result).toEqual([])
+  })
+})
