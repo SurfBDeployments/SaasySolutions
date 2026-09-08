@@ -5,7 +5,7 @@ import { describe, it, expect, beforeAll } from 'vitest'
 import postcss from 'postcss'
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url))
-const stylesDir = path.join(rootDir, '/', '../../styles')
+const stylesDir = path.join(rootDir, '../../styles')
 
 async function collectCssFiles(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true })
