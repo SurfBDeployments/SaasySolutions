@@ -9,7 +9,8 @@ import styles from '../../styles/executivecharts.module.css';
 import StripeMetricChart from './mrrchurn';
 import { customerRetentionData, grossVolumeData, netVolumeData, cashFlowData, financialData, variancedata, churnData, mrrData } from './chartdatasets';
 
-import RicknMorty from '../products/api/graphqldatagrid';
+import Countries from '../products/api/graphql_countrydatagrid'; // Import the countries component
+
 
 type GrossMarginPayload = {
   grossMargin?: number;
@@ -29,7 +30,7 @@ const MasterDashboard = () => {
   let pageTitle = 'GraphQL DataGrid';
   
   if (activeTab === 'financials') pageTitle = 'Core Financials';
-  else if (activeTab === 'ricknmorty') pageTitle = 'GraphQL DataGrid';
+  else if (activeTab === 'countries') pageTitle = 'GraphQL DataGrid';
   else if (activeTab === 'solvency') pageTitle = 'Solvency & EBIT';
   else if (activeTab === 'variancedata') pageTitle = 'Budget Variance';
   else if (activeTab === 'mrrData') pageTitle = 'MRR & Churn';
@@ -48,8 +49,8 @@ const MasterDashboard = () => {
           Core Financials
         </div>
         <div
-          onClick={() => setActiveTab('RicknMorty')}
-          className={activeTab === 'RicknMorty' ? styles.navLinkActive : styles.navLink}
+          onClick={() => setActiveTab('countries')}
+          className={activeTab === 'countries' ? styles.navLinkActive : styles.navLink}
         >
           GraphQL DataGrid
         </div>
@@ -80,18 +81,20 @@ const MasterDashboard = () => {
           <h1 className={styles.heading}>{pageTitle}</h1>
           <p className={styles.subheading}>Real-time Executive Reporting Dashboard</p>
         </header>
-        {activeTab === 'RicknMorty' ? (
+        {activeTab === 'countries' ? (
 
 
           <div className={styles.datagrid}>
-            <div className={styles.datacard}>
-              <p className={styles.cardTitle}>Rick and Morty Characters</p>
+            {/* <div className={styles.datacard}> */}
+              <div className={styles.datacard}>
+         
+              <p className={styles.cardTitle}>Listing Of Countries</p>
 
 
-              <p className={styles.subheading}>
-                A sample listing of characters from the show (connected via GraphQL API and using Material UI DataGrid).
+              <p>
+                A listing of 250 countries that can use the button to filter by USD currency (connected via GraphQL API and using Material UI DataGrid). The DataGrid can also be filtered or sorted by columns.
               </p>
-              <RicknMorty />
+              <Countries />
             </div>
           </div>
         ) : activeTab === 'financials' ? (
