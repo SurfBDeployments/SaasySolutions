@@ -11,20 +11,8 @@ import Paper from '@mui/material/Paper';
 
 
 
-// 1. Updated query to include 'Currency'
-/* const GET_COUNTRIES = gql`
-query ListCountriesThatUseUSD {
-  countries(filter: { currency: { eq: "USD" } }) {
-    code
-    name
-    languages {
-      name
-    }
-  }
-}
-`; */
 
-// 2. Updated columns with proper formatting for nested array data
+// 1. Updated columns with proper formatting for nested array data
 const GET_COUNTRIES = gql`
 query ListAllCountries {
     countries {
@@ -58,18 +46,6 @@ const columns: GridColDef[] = [
     },
   },
 ];
-// 2. Flattened fields & utilized valueGetter for nested properties like 'Capital.name'
-/* const columns: GridColDef[] = [
-
-
-   { field: 'name', headerName: 'Name', width: 150, headerClassName: 'bold-header' },
-     { field: 'code', headerName: 'Code', width: 150, headerClassName: 'bold-header' },
-      { field: 'languages', headerName: 'Languages', width: 150, headerClassName: 'bold-header' },
-   { field: 'capital', headerName: 'Capital', width: 120, headerClassName: 'bold-header' },
-  { field: 'currency', headerName: 'Currency', width: 120, headerClassName: 'bold-header' },
-  { field: 'emoji', headerName: 'Emoji', width: 120, headerClassName: 'bold-header' }, 
-
-]; */
 
 
 export default function Home() {

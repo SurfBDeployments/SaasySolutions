@@ -54,29 +54,12 @@ const columns: GridColDef[] = [
     },
   },
 ];
-// 2. Updated columns with proper formatting for nested array data
-/* const columns: GridColDef[] = [
-  { field: 'code', headerName: 'Code', width: 100, headerClassName: 'bold-header' },
-  { field: 'name', headerName: 'Name', width: 200, headerClassName: 'bold-header' },
-  { field: 'currency', headerName: 'Currency', width: 120, headerClassName: 'bold-header' },
-  {
-    field: 'languages',
-    headerName: 'Languages',
-    width: 250,
-    headerClassName: 'bold-header',
-    valueGetter: (value, row) => {
-      const langs = row?.languages || [];
-      return langs.map((l: { name: string }) => l.name).join(', ');
-    },
-  },
-];
- */
+
 
 export default function Countries() {
   const [countries, setCountries] = useState<any[]>([]);
   const [showUSDOnly, setShowUSDOnly] = useState(false);
-    //const [loading, setLoading] = useState(true);
-  //const [error, setError] = useState<string | null>(null);
+
 
   // Filter rows directly in render state
   const displayedRows = showUSDOnly
@@ -88,12 +71,9 @@ export default function Countries() {
       .then((data) => {
         // Fix: Trevor Blades API returns array directly on `data.countries`
         setCountries(data.countries || []);
-        //setLoading(false);
+      
       })
-     /*  .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      }); */
+ 
   }, []);
   return (
     <div>
@@ -126,42 +106,3 @@ export default function Countries() {
     </div>
   );
 }
-
-/* export default function Countries() {
-  const [countries, setCountries] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    client
-      .request<{ countries: any[] }>(GET_COUNTRIES)
-      .then((data) => {
-        // Fix: Trevor Blades API returns array directly on `data.countries`
-        setCountries(data.countries || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <p className="p-8 text-center">Loading...</p>;
-  if (error) return <p className="p-8 text-center text-red-500">Error: {error}</p>;
-  if (!countries?.length) return <p className="p-8 text-center">No data available</p>;
-
-  return (
-    <DataGrid
-      rows={countries}
-      columns={columns}
-      getRowId={(row) => row.code} // Fix: Uses country 'code' as unique ID key
-      initialState={{ pagination: { paginationModel: { page: 0, pageSize: 10 } } }}
-      pageSizeOptions={[5, 10, 20]}
-      sx={{
-        '& .bold-header': {
-          fontWeight: 'bold',
-        },
-      }}
-    />
-  );
-} */
