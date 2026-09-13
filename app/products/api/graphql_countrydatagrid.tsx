@@ -6,19 +6,6 @@ import client from '../../../lib/graphqlClient';
 import '../../../styles/default.css';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-// 1. Updated query to include code, name, currency, and languages
-/* const GET_COUNTRIES = gql`
-  query ListCountriesThatUseUSD {
-    countries(filter: { currency: { eq: "USD" } }) {
-      code
-      name
-      currency
-      languages {
-        name
-      }
-    }
-  }
-`; */
 
 // 1. Omit the filter and empty parentheses entirely to fetch all countries
 const GET_COUNTRIES = gql`
@@ -56,24 +43,33 @@ const columns: GridColDef[] = [
 ];
 
 
-export default function Countries() {
-  const [countries, setCountries] = useState<any[]>([]);
-  const [showUSDOnly, setShowUSDOnly] = useState(false);
+type Country = {
+  code: string;
+  name: string;
+  capital?: string;
+  currency?: string;
+  emoji?: string;
+  languages?: { name: string }[];
+};
 
+export default function Countries() {
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [showUSDOnly, setShowUSDOnly] = useState(false);
 
   // Filter rows directly in render state
   const displayedRows = showUSDOnly
-    ? countries.filter((c) => c.currency?.includes('USD'))
+    ? countries.filter((c: Country) => c.currency?.includes('USD'))
     : countries;
+
   useEffect(() => {
     client
-      .request<{ countries: any[] }>(GET_COUNTRIES)
+      .request<{ countries: Country[] }>(GET_COUNTRIES)
       .then((data) => {
-        // Fix: Trevor Blades API returns array directly on `data.countries`
         setCountries(data.countries || []);
-      
       })
- 
+      .catch((error) => {
+        console.error('Failed to load countries:', error);
+      });
   }, []);
   return (
     <div>
