@@ -23,7 +23,9 @@ query ListCountriesThatUseUSD {
   }
 }
 `; */
+
 // 2. Updated columns with proper formatting for nested array data
+const GET_COUNTRIES = gql`
 query ListAllCountries {
     countries {
       code
@@ -36,7 +38,7 @@ query ListAllCountries {
       }
     }
   }
-
+`;
 
   // 2. DataGrid Columns
 const columns: GridColDef[] = [
