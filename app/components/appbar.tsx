@@ -20,7 +20,7 @@ import Image from 'next/image';
 
 const pages = [
   { name: 'Home', href: '/' },
-   { name: 'About', href: '/about' },
+  { name: 'About', href: '/about' },
   { name: 'Products', href: '/products' },
   { name: 'Contact', href: '/contact' }
 ];
@@ -63,9 +63,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container disableGutters maxWidth={false}>
 
+    <Container disableGutters maxWidth={false}>
+      <AppBar position="static">
         <Toolbar>
 
           {/* ── DESKTOP: Logo + wordmark on the left ── */}
@@ -281,9 +281,9 @@ function ResponsiveAppBar() {
           </Box>
 
         </Toolbar>
+      </AppBar>
+    </Container>
 
-      </Container>
-    </AppBar>
   );
 }
 
