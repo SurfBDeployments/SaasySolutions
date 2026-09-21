@@ -28,7 +28,7 @@ query ListAllCountries {
   }
 `;
 
-  // 2. DataGrid Columns
+// 2. DataGrid Columns
 const columns: GridColDef[] = [
   { field: 'code', headerName: 'Code', width: 90, headerClassName: 'bold-header' },
   { field: 'emoji', headerName: 'Flag', width: 80, headerClassName: 'bold-header' },
@@ -88,7 +88,7 @@ export default function Home() {
               rows={countries}
               columns={columns}
 
-              initialState={{ pagination: { paginationModel: { page: 0, pageSize: 5 } } }}
+              initialState={{ pagination: { paginationModel: { page: 0, pageSize: 10 } } }}
               pageSizeOptions={[5, 10, 20]}
               sx={{
                 border: 1,
@@ -96,6 +96,8 @@ export default function Home() {
                 // Target your custom class name inside MUI's DOM structure
                 '& .bold-header': {
                   fontWeight: 'bold', // or 'bold'
+
+                  overflowX: 'auto',
                 },
               }}
             />

@@ -73,32 +73,33 @@ export default function Countries() {
   }, []);
   return (
     <div>
-    
-<button
+
+      <button
         onClick={() => setShowUSDOnly(!showUSDOnly)}
-        style={{ marginLeft: '0', marginTop:'1rem', marginBottom:'1rem',cursor: 'pointer' }}
+        style={{ marginLeft: '0', marginTop: '1rem', marginBottom: '1rem', cursor: 'pointer', maxHeight: "40px" }}
         className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
       >
         {showUSDOnly ? 'Show All Countries' : 'Show USD Countries Only'}
-        
+
       </button>
       <DataGrid
         rows={displayedRows}
         columns={columns}
         getRowId={(row) => row.code}
-           initialState={{ pagination: { paginationModel: { page: 0, pageSize: 10 } } }}
-      pageSizeOptions={[5, 10, 20]}
-      sx={{
-        '& .bold-header': {
-          fontWeight: 'bold',
-          cursor: 'pointer',
-        },
-        '& .MuiDataGrid-columnHeader:focus': {
-          outline: 'none',
-        },
-      }}
+        initialState={{ pagination: { paginationModel: { page: 0, pageSize: 10 } } }}
+        pageSizeOptions={[5, 10, 20]}
+        sx={{
+          '& .bold-header': {
+            fontWeight: 'bold',
+            cursor: 'pointer',
+          },
+          '& .MuiDataGrid-columnHeader:focus': {
+            outline: 'none',
+            overflowX: 'auto'
+          },
+        }}
       />
-        
+
     </div>
   );
 }
