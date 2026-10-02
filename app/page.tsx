@@ -80,7 +80,7 @@ function FeatureCard({
 }) {
   return (
     <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
-      <AdsClickRounded style={{ fontSize: "50px", paddingBottom: "10px", paddingBottom: "10px", color: "#ca2a30" }} />{icon}
+      <AdsClickRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#ca2a30" }} />{icon}
 
       <h1 className="ss-feature-title">{title}</h1>
       <p className="ss-feature-desc">{description}</p>
@@ -102,7 +102,7 @@ function TargetCard({
   return (
     <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
 
-      <BoltRounded style={{ fontSize: "50px", paddingBottom: "10px", paddingBottom: "10px", color: "#d88519" }} />{icon}
+      <BoltRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#d88519" }} />{icon}
       <h1 className="ss-feature-title">{title}</h1>
       <p className="ss-feature-desc">{description}</p>
     </div>
