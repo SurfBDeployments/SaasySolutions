@@ -15,11 +15,11 @@
     "@fluentui/react": "^8.125.5",
     "@fluentui/react-components": "^9.73.7",
     "@fontsource/roboto": "^5.2.10",
-    "@mui/icons-material": "^9.0.0",
+    "@mui/icons-material": "^9.4.0",
     "@mui/material": "^9.0.0",
     "@mui/x-data-grid": "^9.3.0",
     "@reduxjs/toolkit": "^2.12.0",
-    "@tailwindcss/vite": "^4.3.2",
+    "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.100.6",
     "@testing-library/user-event": "^14.6.7",
     "@vercel/react-router": "^1.3.1",
@@ -35,7 +35,7 @@
     "react-dom": "^19.2.7",
     "react-leaflet": "^5.0.0",
     "react-redux": "^9.3.0",
-    "recharts": "^3.8.1",
+    "recharts": "^3.10.1",
     "vite-bundle-analyzer": "^1.3.7"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "jsdom": "^30.1.0",
     "postcss": "^8.5.18",
     "postcss-import": "^16.1.1",
-    "tailwindcss": "^4.3.2",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "vitest": "^4.1.11"
   },

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ResponsiveAppBar from "./components/appbar";
 import Footer from "./components/footer";
 import "../styles/default.css";
+
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer
@@ -12,6 +13,9 @@ import StripeMetricChart from "./products/mrrchurn";
 import { grossVolumeData, financialData } from './products/chartdatasets';
 import Link from 'next/link';
 import styles from '../styles/executivecharts.module.css';
+
+import { BoltRounded, HandshakeRounded, AdsClickRounded, AnalyticsRounded, RepeatRounded, LayersRounded } from "@mui/icons-material";
+
 
 
 
@@ -76,7 +80,105 @@ function FeatureCard({
 }) {
   return (
     <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
-      <div className="ss-feature-icon">{icon}</div>
+      <AdsClickRounded style={{ fontSize: "50px", paddingBottom: "10px", paddingBottom: "10px", color: "#ca2a30" }} />{icon}
+
+      <h1 className="ss-feature-title">{title}</h1>
+      <p className="ss-feature-desc">{description}</p>
+    </div>
+  );
+}
+// ─── Feature card ────────────────────────────────────────────────────────────
+function TargetCard({
+  icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
+
+      <BoltRounded style={{ fontSize: "50px", paddingBottom: "10px", paddingBottom: "10px", color: "#d88519" }} />{icon}
+      <h1 className="ss-feature-title">{title}</h1>
+      <p className="ss-feature-desc">{description}</p>
+    </div>
+  );
+}
+function SalesCard({
+  icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
+      <HandshakeRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#1976d2" }} />{icon}
+      <h1 className="ss-feature-title">{title}</h1>
+      <p className="ss-feature-desc">{description}</p>
+    </div>
+  );
+}
+function RevCard({
+  icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
+      <AnalyticsRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#145235" }} />{icon}
+      <h1 className="ss-feature-title">{title}</h1>
+      <p className="ss-feature-desc">{description}</p>
+    </div>
+  );
+}
+function StackCard({
+  icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
+      <LayersRounded style={{ fontSize: "50px", paddingBottom: "10px" }} />{icon}
+      <h1 className="ss-feature-title">{title}</h1>
+      <p className="ss-feature-desc">{description}</p>
+    </div>
+  );
+}
+function GrowthCard({
+  icon,
+  title,
+  description,
+  delay,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
+      <RepeatRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#1976d2" }} />{icon}
       <h1 className="ss-feature-title">{title}</h1>
       <p className="ss-feature-desc">{description}</p>
     </div>
@@ -105,8 +207,8 @@ export default function Home() {
   return (
     <>
 
-    
-        <ResponsiveAppBar />
+
+      <ResponsiveAppBar />
 
 
       <main>
@@ -197,38 +299,41 @@ export default function Home() {
             </p>
 
             <div className="ss-features-grid">
-              <FeatureCard
-                icon="🎯"
-                title="Targeted Demand Generation"
-                description="Precision campaigns built around your ideal customer profile—reaching decision-makers before they start their search."
-                delay={0}
-              />
-              <FeatureCard
-                icon="⚡"
-                title="Marketing Automation"
-                description="Full-funnel automation that nurtures every lead with the right message at the right stage, at scale."
-                delay={80}
-              />
-              <FeatureCard
-                icon="🤝"
+              <SalesCard
+                icon=""
                 title="Elite Sales Execution"
                 description="Embedded SDR and AE teams who carry quota and align your brand message with buyer pain points—every call."
                 delay={160}
               />
               <FeatureCard
-                icon="📈"
+
+                icon=""
+                title="Targeted Demand Generation"
+                description="Precision campaigns built around your ideal customer profile—reaching decision-makers before they start their search."
+                delay={0}
+              />
+              <TargetCard
+                icon=""
+                title="Marketing Automation"
+                description="Full-funnel automation that nurtures every lead with the right message at the right stage, at scale."
+                delay={80}
+              />
+
+
+              <RevCard
+                icon=""
                 title="Revenue Analytics"
                 description="Real-time dashboards that connect marketing spend to closed-won revenue, so every dollar is accountable."
                 delay={240}
               />
-              <FeatureCard
-                icon="🔗"
+              <StackCard
+                icon=""
                 title="CRM & Stack Integration"
                 description="Seamless connectivity with Salesforce, HubSpot, and your existing tech stack—no rip-and-replace required."
                 delay={320}
               />
-              <FeatureCard
-                icon="🔄"
+              <GrowthCard
+                icon=""
                 title="Repeatable Growth Playbooks"
                 description="Documented, battle-tested processes your team inherits—turning one great quarter into predictable annual growth."
                 delay={400}
@@ -252,9 +357,9 @@ export default function Home() {
           </div>
         </section>
       </main>
-     
-        <Footer />
-    
+
+      <Footer />
+
     </>
   );
 }
