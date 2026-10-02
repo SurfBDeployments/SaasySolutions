@@ -10,12 +10,12 @@
   --ss-white: #ffffff;
   --ss-accent: #145235;
   /* deep forest green */
-  --ss-accent-lt: #3DD696;
+  --ss-accent-lt: #ADEBD2;
   /* bright mint green */
   --ss-accent-pale: #d6f0e6;
   --ss-muted: #616875;
   --ss-border: #e2e0d8;
-  --ss-hero-bg: #1a2e22;
+  --ss-hero-bg: #145235;
   /* very dark green */
   --ff-display: 'Roboto', sans-serif;
   --ff-body: 'Geist', sans-serif;
@@ -1024,12 +1024,10 @@ h1 {
   font-size: 2em;
   line-height: 1.6rem;
   color: #046531;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-header h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
 
 .container {
   max-width: 1600px;
@@ -1539,7 +1537,8 @@ footer {
   h2 {
     font-size: 1.25em !important;
     font-weight: bold !important;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 
   .col-box h3 {

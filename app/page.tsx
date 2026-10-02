@@ -14,7 +14,7 @@ import { grossVolumeData, financialData } from './products/chartdatasets';
 import Link from 'next/link';
 import styles from '../styles/executivecharts.module.css';
 
-import { BoltRounded, HandshakeRounded, AdsClickRounded, InsertChartOutlinedRounded, RepeatRounded, LayersRounded } from "@mui/icons-material";
+import { AutoModeRounded, HandshakeRounded, AdsClickRounded, InsertChartOutlinedRounded, RepeatRounded, LayersRounded } from "@mui/icons-material";
 
 
 
@@ -103,7 +103,7 @@ function TargetCard({
   return (
     <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
 
-      <BoltRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#d88519" }} />{icon}
+      <AutoModeRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#145235" }} />{icon}
       <h1 className="ss-feature-title">{title}</h1>
       <p className="ss-feature-desc">{description}</p>
     </div>
