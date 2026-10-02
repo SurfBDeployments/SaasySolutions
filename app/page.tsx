@@ -14,7 +14,8 @@ import { grossVolumeData, financialData } from './products/chartdatasets';
 import Link from 'next/link';
 import styles from '../styles/executivecharts.module.css';
 
-import { BoltRounded, HandshakeRounded, AdsClickRounded, AnalyticsRounded, RepeatRounded, LayersRounded } from "@mui/icons-material";
+import { BoltRounded, HandshakeRounded, AdsClickRounded, InsertChartOutlinedRounded, RepeatRounded, LayersRounded } from "@mui/icons-material";
+
 
 
 
@@ -140,7 +141,7 @@ function RevCard({
 }) {
   return (
     <div className="ss-feature-card" style={{ animationDelay: `${delay}ms` }}>
-      <AnalyticsRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#145235" }} />{icon}
+      <InsertChartOutlinedRounded style={{ fontSize: "50px", paddingBottom: "10px", color: "#145235" }} />{icon}
       <h1 className="ss-feature-title">{title}</h1>
       <p className="ss-feature-desc">{description}</p>
     </div>
