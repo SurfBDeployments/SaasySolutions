@@ -92,7 +92,7 @@
   padding: 20px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
   gap: 24px;
- 
+
 }
 
 .card {
@@ -135,20 +135,21 @@
     flex-direction: column;
     gap: 18px;
   }
-  .datacard {
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 20px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-  display: contents;
-  flex-direction: column;
-  gap: 18px;
-}
 
-   .datagrid {
-    grid-template-columns: 1fr!important;
-    max-width: 100%!important;
-     overflow-x: auto;
+  .datacard {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    display: contents;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .datagrid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    overflow-x: auto;
   }
 
 

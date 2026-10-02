@@ -28,7 +28,7 @@ const MasterDashboard = () => {
   };
 
   let pageTitle = 'GraphQL DataGrid';
-  
+
   if (activeTab === 'financials') pageTitle = 'Core Financials';
   else if (activeTab === 'countries') pageTitle = 'GraphQL DataGrid';
   else if (activeTab === 'solvency') pageTitle = 'Solvency & EBIT';
@@ -42,7 +42,7 @@ const MasterDashboard = () => {
       <nav className={styles.sidebar}>
         <h5 className={styles.sidebarTitle}>Welcome Brian</h5>
         <h2 className={styles.sidebarHeading}>Executive View</h2>
-            <div
+        <div
           onClick={() => setActiveTab('financials')}
           className={activeTab === 'financials' ? styles.navLinkActive : styles.navLink}
         >
@@ -54,7 +54,7 @@ const MasterDashboard = () => {
         >
           GraphQL DataGrid
         </div>
-    
+
         <div
           onClick={() => setActiveTab('solvency')}
           className={activeTab === 'solvency' ? styles.navLinkActive : styles.navLink}
@@ -86,8 +86,8 @@ const MasterDashboard = () => {
 
           <div className={styles.datagrid}>
             {/* <div className={styles.datacard}> */}
-              <div className={styles.datacard}>
-         
+            <div className={styles.datacard}>
+
               <p className={styles.cardTitle}>Listing Of Countries</p>
 
 
@@ -183,7 +183,7 @@ const MasterDashboard = () => {
 
 
                   <Tooltip cursor={{ fill: '#eee' }} />
-                  <Legend verticalAlign="top" height={36} />
+                  <Legend position="top" height={36} />
                   <Bar yAxisId="left" dataKey="actual" name="Actual Spend" fill="#2563eb" barSize={40} />
                   <Line yAxisId="left" type="step" dataKey="target" name="Budget Target" stroke="#dc2626" strokeWidth={2} dot={false} />
                   <Line yAxisId="left" type="monotone" dataKey="forecast" name="Forecast" stroke="#9333ea" strokeDasharray="5 5" />
