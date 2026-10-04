@@ -1,0 +1,253 @@
+"use client";
+
+import { useState } from 'react';
+import {
+  Area, ComposedChart, LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  Tooltip, Legend, ResponsiveContainer, ReferenceLine, BarShapeProps
+} from 'recharts';
+import styles from '../../styles/executivecharts.module.css';
+import StripeMetricChart from './mrrchurn';
+import { customerRetentionData, grossVolumeData, netVolumeData, cashFlowData, financialData, variancedata, churnData, mrrData } from './chartdatasets';
+
+import Countries from '../products/api/graphql_countrydatagrid'; // Import the countries component
+
+
+type GrossMarginPayload = {
+  grossMargin?: number;
+};
+
+const MasterDashboard = () => {
+  const [activeTab, setActiveTab] = useState('financials');
+
+  const renderGrossMarginBar = (barProps: BarShapeProps & { payload?: GrossMarginPayload }) => {
+    const { x, y, width, height, payload } = barProps;
+    const gross = payload?.grossMargin ?? 0;
+    const fill = gross > 35 ? '#2ecc71' : '#3498db';
+
+    return <rect x={x} y={y} width={width} height={height} fill={fill} rx={4} ry={4} />;
+  };
+
+  let pageTitle = 'GraphQL DataGrid';
+
+  if (activeTab === 'financials') pageTitle = 'Core Financials';
+  else if (activeTab === 'countries') pageTitle = 'GraphQL DataGrid';
+  else if (activeTab === 'solvency') pageTitle = 'Solvency & EBIT';
+  else if (activeTab === 'variancedata') pageTitle = 'Budget Variance';
+  else if (activeTab === 'mrrData') pageTitle = 'MRR & Churn';
+
+  return (
+    <div className={styles.container}>
+
+      {/* SIDE NAVIGATION */}
+      <nav className={styles.sidebar}>
+        <h5 className={styles.sidebarTitle}>Welcome Brian</h5>
+        <h2 className={styles.sidebarHeading}>Executive View</h2>
+        <div
+          onClick={() => setActiveTab('financials')}
+          className={activeTab === 'financials' ? styles.navLinkActive : styles.navLink}
+        >
+          Core Financials
+        </div>
+        <div
+          onClick={() => setActiveTab('countries')}
+          className={activeTab === 'countries' ? styles.navLinkActive : styles.navLink}
+        >
+          GraphQL DataGrid
+        </div>
+
+        <div
+          onClick={() => setActiveTab('solvency')}
+          className={activeTab === 'solvency' ? styles.navLinkActive : styles.navLink}
+        >
+          Solvency & EBIT
+        </div>
+        <div
+          onClick={() => setActiveTab('variancedata')}
+          className={activeTab === 'variancedata' ? styles.navLinkActive : styles.navLink}
+        >
+          Budget Variance
+        </div>
+        <div
+          onClick={() => setActiveTab('mrrData')}
+          className={activeTab === 'mrrData' ? styles.navLinkActive : styles.navLink}
+        >
+          MRR & Churn
+        </div>
+      </nav>
+
+      {/* MAIN CONTENT AREA */}
+      <main className={styles.main}>
+        <header className={styles.header}>
+          <h1 className={styles.heading}>{pageTitle}</h1>
+          <p className={styles.subheading}>Real-time Executive Reporting Dashboard</p>
+        </header>
+        {activeTab === 'countries' ? (
+
+
+          <div className={styles.datagrid}>
+            {/* <div className={styles.datacard}> */}
+            <div className={styles.datacard}>
+
+              <p className={styles.cardTitle}>Listing Of Countries</p>
+
+
+              <p>
+                A listing of 250 countries that can use the button to filter by USD currency (connected via GraphQL API and using Material UI DataGrid). The DataGrid can also be filtered or sorted by columns.
+              </p>
+              <Countries />
+            </div>
+          </div>
+        ) : activeTab === 'financials' ? (
+          <div className={styles.grid}>
+            {/* Revenue Chart */}
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Revenue vs Net Profit ($)</p>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={financialData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="revenue" stroke="#3498db" strokeWidth={4} />
+                  <Line type="monotone" dataKey="netProfit" stroke="#2ecc71" strokeWidth={4} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Margin Chart */}
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Gross Profit Margin (%)</p>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={financialData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis domain={[0, 50]} />
+                  <Tooltip />
+                  <Bar dataKey="grossMargin" radius={[4, 4, 0, 0]} shape={renderGrossMarginBar} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+        ) : activeTab === 'solvency' ? (
+          <div className={styles.grid}>
+            {/* EBIT Chart */}
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>EBIT (Operating Income)</p>
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={financialData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="ebit" fill="#8e44ad" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Debt/Equity Chart */}
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Debt to Equity Ratio</p>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={financialData}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis domain={[0, 2]} />
+                  <Tooltip />
+                  <ReferenceLine y={1.5} label="Max Target" stroke="red" strokeDasharray="3 3" />
+                  <Line type="stepAfter" dataKey="debtToEquity" stroke="#e74c3c" strokeWidth={3} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+        ) : activeTab === 'variancedata' ? (
+          // Budget Variance tab — matches same two-column grid layout as Core Financials
+          <div className={styles.grid}>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Budget Variance</p>
+              <ResponsiveContainer width="100%" height={300}>
+                <ComposedChart data={variancedata} margin={{ top: 20, right: 20, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="month" />
+                  <YAxis
+                    yAxisId="left"
+                    label={{
+                      value: 'Expenses ($)',
+                      angle: -90,
+                      position: 'middle',
+                      dx: -40,
+                    }}
+                  />
+
+
+                  <Tooltip cursor={{ fill: '#eee' }} />
+                  <Legend position="top" height={36} />
+                  <Bar yAxisId="left" dataKey="actual" name="Actual Spend" fill="#2563eb" barSize={40} />
+                  <Line yAxisId="left" type="step" dataKey="target" name="Budget Target" stroke="#dc2626" strokeWidth={2} dot={false} />
+                  <Line yAxisId="left" type="monotone" dataKey="forecast" name="Forecast" stroke="#9333ea" strokeDasharray="5 5" />
+                  <Area yAxisId="right" type="monotone" dataKey="ytd_actual" name="YTD Total" fill="#cbd5e1" stroke="#64748b" opacity={0.3} />
+                  <ReferenceLine yAxisId="left" y={0} stroke="#000" />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Monthly Variance</p>
+              <StripeMetricChart data={variancedata} isCurrency={true} />
+            </div>
+
+          </div>
+
+
+        ) : activeTab === 'mrrData' ? (
+
+          <div className={styles.grid}>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Monthly Recurring Revenue (MRR)</p>
+              <StripeMetricChart data={mrrData} isCurrency={true} />
+
+
+            </div>
+
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Net Revenue Churn Rate</p>
+              <StripeMetricChart data={churnData} isCurrency={true} />
+            </div>
+
+
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Gross Volume</p>
+
+              <StripeMetricChart data={grossVolumeData} isCurrency={true} />
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Net Volume</p>
+              <StripeMetricChart data={netVolumeData} isCurrency={true} />
+            </div>
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Cash Flow</p>
+              <StripeMetricChart data={cashFlowData} isCurrency={true} />
+
+            </div>
+
+            {/*Renders rate percentage format (97.2%) with a rolling average YTD */}
+            <div className={styles.card}>
+              <p className={styles.cardTitle}>Customer Retention Rate</p>
+              <StripeMetricChart data={customerRetentionData} isCurrency={false} />
+
+            </div>
+
+
+          </div>
+
+
+        ) : null
+        } </main>
+    </div>
+  );
+};
+
+
+export default MasterDashboard;
