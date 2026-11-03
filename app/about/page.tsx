@@ -17,17 +17,17 @@ import Footer from '../components/footer';
 
 export function Customer() {
   return (
-    <Card sx={{ maxWidth: 300, width: '100%', height: '100%', backgroundColor: '#1976d2', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, width: '100%', height: '100%', backgroundColor: '#1976d2', color: '#fff', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Customer Focused
         </Typography>
-        <Typography variant="body2" sx={{ backgroundColor: '#1976d2', color: '#fff' }}>
-          Customers and Relationships matter. We care deeply about the well-being and success of our employees, customers, and partners. We&lsquore a diverse, open-minded, international team pushing big ideas to help your organization make better, data-driven decisions.
+        <Typography variant="body2" sx={{ backgroundColor: '#1976d2', color: '#fff', fontSize: '1rem' }}>
+          Customers and Relationships matter. We care deeply about the well-being and success of our employees, customers, and partners. We are a diverse, open-minded, international team pushing big ideas to help your organization make better, data-driven decisions.
         </Typography>
       </CardContent>
-     
+
     </Card>
   );
 }
@@ -39,44 +39,44 @@ export function Results() {
         <Typography gutterBottom variant="h5" component="div">
           Results-Driven
         </Typography>
-        <Typography variant="body2" sx={{ backgroundColor: '#414756', color: '#fff'}}>
+        <Typography variant="body2" sx={{ backgroundColor: '#414756', color: '#fff', fontSize: '1rem' }}>
           Your goals go beyond acquisition. We are relentlessly focused on delivering measurable value, separating meaningful progress from empty noise to ensure every effort drives your business forward. We are driven to get you results that make a difference!
         </Typography>
       </CardContent>
-    
+
     </Card>
   );
 }
 export function Ownership() {
   return (
-    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#046531', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#046531', color: '#fff', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Ownership
         </Typography>
-        <Typography variant="body2" sx={{ backgroundColor: '#046531', color: '#fff' }}>
+        <Typography variant="body2" sx={{ backgroundColor: '#046531', color: '#fff', fontSize: '1rem' }}>
 
           We take ownership over everything we do. We do not just build solutions; we own them. On this team, ownership means skipping the red tape, eliminating excuses, and treating your business goals as our very own. We do not wait for permission to innovate, we just do it.
         </Typography>
       </CardContent>
-      
+
     </Card>
   );
 }
 export function Revenue() {
   return (
-    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#c94669', color: '#fff',elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
+    <Card sx={{ maxWidth: 300, height: '100%', backgroundColor: '#c94669', color: '#fff', elevation: 3, boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)' }}>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Growth and Revenue Focused
         </Typography>
-        <Typography variant="body2" sx={{ backgroundColor: '#c94669', color: '#fff' }}>
+        <Typography variant="body2" sx={{ backgroundColor: '#c94669', color: '#fff', fontSize: '1rem' }}>
           Grow revenue faster with smart sales software that analyzes customer behavior and prioritizes high-potential leads. Integrated with Commerce Hub for AI-powered quote creation, this powerful combination enables our reps to close deals even faster.
         </Typography>
       </CardContent>
-    
+
     </Card>
   );
 }
@@ -89,10 +89,10 @@ export function MediaCard() {
         title="Erica - Sales Rep"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Erica
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Erica an Sales Representative for SaaSy
         </Typography>
       </CardContent>
@@ -114,10 +114,10 @@ export function MediaCard2() {
         title="Matt - Social Media Manager"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Matt
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Matt your Social Media Manager at SaaSy.
         </Typography>
       </CardContent>
@@ -137,10 +137,10 @@ export function MediaCard3() {
         title="Rick - Account Manager "
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Rick
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Rick your Account Manager at SaaSy.
         </Typography>
       </CardContent>
@@ -160,10 +160,10 @@ export function MediaCard4() {
         title="Josie- Clients Manager "
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Josie
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Josie your Client Manager at SaaSy.
         </Typography>
       </CardContent>
@@ -183,10 +183,10 @@ export function MediaCard5() {
         title="Erica - Sales Rep"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Zara
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Zara an Sales Representative for SaaSy
         </Typography>
       </CardContent>
@@ -206,10 +206,10 @@ export function MediaCard6() {
         title="Rajesh- Tech Manager "
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600' }}>
           Rajesh
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: '1rem' }}>
           Meet Rajesh your Tech Manager at SaaSy.
         </Typography>
       </CardContent>
@@ -239,7 +239,7 @@ export function AboutGrid() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 16 }}>
         {[Customer, Ownership, Results, Revenue].map((Component, index) => (
-        <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
+          <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
             <Component />
           </Grid>
         ))}
@@ -263,8 +263,8 @@ export default function Home() {
 
             <AboutGrid />
             <h2 className="max-w-m text-4xl font-semibold" style={{ marginTop: '20px' }}>Meet the Team</h2>
-            <h3 className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
-              Our team is our greatest asset. From collaborative projects to fun office moments, see the talented individuals who bring our agency to life and drive our success.</h3>
+            <p className="max-w-m text-2xl font-condensed-light leading-relaxed" style={{ marginBottom: '20px' }}>The people behind the magic.
+              Our team is our greatest asset. From collaborative projects to fun office moments, see the talented individuals who bring our agency to life and drive our success.</p>
             <h3><a href="/users">See the Happy Clients</a></h3>
             <ResponsiveGrid /></div>
         </div>
