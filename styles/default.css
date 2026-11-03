@@ -425,7 +425,7 @@ body {
 
 .ss-feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 01em 40px rgba(0, 0, 0, .07);
+  box-shadow: 01em 20px rgba(0, 0, 0, .07);
   border-color: var(--ss-accent-pale);
 }
 
