@@ -34,6 +34,7 @@ body {
   background: var(--ss-surface);
   color: var(--ss-ink);
   font-family: var(--ff-body);
+  font-size: 1rem;
 }
 
 /* ── Hero ─────────────────────────────────────────────────── */
@@ -105,7 +106,7 @@ body {
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
-  padding: .35rem .9rem;
+  padding: .35rem 1rem;
   border-radius: 999px;
   margin-bottom: 2rem;
   animation: fadeSlideDown .7s ease both;
@@ -135,9 +136,9 @@ body {
 
 .ss-hero-title {
   font-family: var(--ff-display);
-  font-size: 5rem;
-  font-weight: 700;
-  line-height: .95;
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1em;
 
   color: var(--ss-white);
   animation: fadeSlideDown .7s .1s ease both;
@@ -190,7 +191,7 @@ body {
   background: var(--ss-white);
   color: var(--ss-accent);
   font-family: var(--ff-body);
-  font-size: .95rem;
+  font-size: 1em5rem;
   font-weight: 500;
   padding: .85rem 2rem;
   border-radius: 6px;
@@ -213,7 +214,7 @@ body {
   background: transparent;
   color: rgba(255, 255, 255, .75);
   font-family: var(--ff-body);
-  font-size: .95rem;
+  font-size: 1em5rem;
   font-weight: 400;
   padding: .85rem 1.75rem;
   border-radius: 6px;
@@ -346,14 +347,14 @@ body {
 .ss-stat-number {
   font-family: var(--ff-display);
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ss-accent);
   line-height: 1;
   letter-spacing: -.03em;
 }
 
 .ss-stat-label {
-  font-size: .85rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--ss-muted);
   text-align: center;
@@ -372,18 +373,18 @@ body {
 
 .ss-eyebrow {
   display: inline-block;
-  font-size: .9rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--ss-accent);
-  margin-bottom: .9rem;
+  margin-bottom: 1rem;
 }
 
 .ss-section-title {
   font-family: var(--ff-display);
-  font-size: 1.125rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -.025em;
   color: var(--ss-ink);
@@ -392,7 +393,7 @@ body {
 
 .ss-section-sub {
   margin-top: 1rem;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: var(--ss-muted);
   max-width: 51.25em;
@@ -436,7 +437,7 @@ body {
 
 .ss-feature-title {
   font-family: var(--ff-display);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--ss-ink);
   margin-bottom: .6rem;
@@ -444,7 +445,7 @@ body {
 }
 
 .ss-feature-desc {
-  font-size: .9rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: var(--ss-muted);
   line-height: 1.65;
@@ -545,7 +546,7 @@ body {
 .ss-cta-title {
   font-family: var(--ff-display);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: -.03em;
@@ -572,7 +573,7 @@ body {
   font-family: var(--ff-body);
   font-size: 1rem;
   font-weight: 500;
-  padding: .9rem 2.25rem;
+  padding: 1rem 2.25rem;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -612,7 +613,7 @@ h3 {
 }
 
 li.nav-item {
-  padding-right: .9375em;
+  padding-right: 1em;
   text-decoration: none;
   font-size: 1em !important;
   font-weight: 600 !important;
@@ -849,7 +850,7 @@ a:focus {
 
 footer ul li a:link {
   color: #1976d2;
-  font-size: .9375em !important;
+  font-size: 1em !important;
   display: inline !important;
   padding-right: 10px;
   padding-left: 10px;
@@ -862,7 +863,7 @@ footer ul li a:hover {
 
 footer ul li {
   color: #2f2f2f;
-  font-size: .9375em !important;
+  font-size: 1em !important;
   display: inline !important;
   font-weight: 600;
 
@@ -886,13 +887,13 @@ body {
   color: #414756;
   background-color: #ffffff;
   line-height: 1.5rem;
-  font-size: .9375em;
+  font-size: 1em;
 }
 
 p {
   font-family: Roboto, Helvetica, sans-serif;
   line-height: 1.5rem;
-  font-size: .9375em;
+  font-size: 1em;
 }
 
 h2 {
@@ -1015,7 +1016,7 @@ button:focus {
 }
 
 h5 {
-  font-size: .9375em;
+  font-size: 1em;
   margin-top: 10px;
   color: #414756;
 }
@@ -1053,7 +1054,7 @@ aside {
 
 aside h3 {
   font-size: 1.125em;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   padding-bottom: 10px;
 }
 
@@ -1079,7 +1080,7 @@ aside a:hover {
 
 .ethics-hotline {
   background: #f0f0f0;
-  padding: .9375em;
+  padding: 1em;
   border-left: 4px solid #d32f2f;
   margin-top: 1.25em;
   border-radius: 4px;
@@ -1120,7 +1121,7 @@ main {
 
 .col-box {
   text-align: center;
-  padding: .9375em;
+  padding: 1em;
   background: #f9f9f9;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -1129,14 +1130,14 @@ main {
 .col-box h3 {
   color: #003366;
   font-size: 1.125em;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   font-weight: bold;
 }
 
 .col-box-image {
   max-width: 100%;
   height: auto;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-radius: 4px;
   background: #ddd;
   padding: 40px 1.25em;
@@ -1173,9 +1174,9 @@ main {
 
 .news-item {
   background: #f9f9f9;
-  padding: .9375em;
+  padding: 1em;
   border-left: 4px solid #003366;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-radius: 4px;
 }
 
@@ -1208,7 +1209,7 @@ main {
   background: linear-gradient(135deg, #003366 0%, #005a99 100%);
   color: white;
   padding: 1.25em;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-radius: 4px;
   text-align: center;
 }
@@ -1232,7 +1233,7 @@ main {
 }
 
 .social-icons {
-  margin: .9375em 0;
+  margin: 1em 0;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -1266,7 +1267,7 @@ main {
 
 .todo-section h3 {
   color: #003366;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-bottom: 2px solid #003366;
   padding-bottom: 10px;
 }
@@ -1308,14 +1309,14 @@ main {
 
 .video-section h3 {
   color: #003366;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   font-size: 1.125em;
 }
 
 .video-section p {
   color: #555;
   line-height: 1.6;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
 }
 
 .video-placeholder {
@@ -1336,7 +1337,7 @@ main {
 
 .jobs-section h3 {
   color: #003366;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-bottom: 2px solid #003366;
   padding-bottom: 10px;
 }
@@ -1406,7 +1407,7 @@ footer {
   background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
   color: white;
   padding: 1.25em;
-  margin-bottom: .9375em;
+  margin-bottom: 1em;
   border-radius: 4px;
   text-align: center;
 }
@@ -1443,7 +1444,7 @@ footer {
     font-family: var(--ff-display);
     font-size: 3rem;
     font-weight: 700;
-    line-height: .95;
+    line-height: 1em5;
 
     color: var(--ss-white);
     animation: fadeSlideDown .7s .1s ease both;
@@ -1455,7 +1456,7 @@ footer {
 
 
   li.nav-item {
-    padding-right: .9375em;
+    padding-right: 1em;
     text-decoration: none;
     font-size: 1em !important;
     font-weight: 600 !important;
